@@ -17,4 +17,12 @@
             <li><a href="{{url('/contact')}}">Liên hệ</a></li>
         </ul>
     </div>
+
+    <div class="language">
+        <a href="javascript:void(0)" class="btn_show_language" onclick="show_language()"><i class="fas fa-language"></i></a>
+        <ul id="lang_dropdown" style="display: none">
+            <li><a href="{{url()->current()}}/vi">Tiếng Việt</a></li>
+            <li><a href="{{url()->current()}}/en">English</a></li>
+        </ul>
+    </div>
 </div> 
