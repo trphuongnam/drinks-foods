@@ -40,4 +40,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* Lien ket */
+    public function category()
+    {
+        return $this->hasMany("App\Models\Category", "id_user_created", "id");
+    }
+
+    public function product()
+    {
+        return $this->hasMany("App\Models\Product", "id_user_created", "id");
+    }
+
+    public function order()
+    {
+        return $this->hasMany("App\Models\Order", "id_user_created", "id");
+    }
+
+    public function rating()
+    {
+        return $this->hasMany("App\Models\Rating", "id_user", "id");
+    }
 }
