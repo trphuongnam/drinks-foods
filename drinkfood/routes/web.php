@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Public\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,15 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('public/pages/home');
-});
-
-Route::get('/product', function () {
-    return view('public/pages/product');
-});
-
-Route::get('/product/{type_name}/{url_key}', function () {
-    return view('public/pages/product_detail');
+Route::group(['middleware' => 'language'], function()
+{
+    Route::get('/language/{lang}', [HomeController::class, 'language'])->name('language');
+    Route::get('/', [HomeController::class, 'home'])->name('public_home');
 });

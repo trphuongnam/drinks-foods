@@ -6,7 +6,7 @@
     {{-- Begin: Thanh tiêu đề --}}
     <div class="content_bar">
         <div class="title_content">
-            <span class="title_bar">Đồ Ăn</span>
+            <span class="title_bar">{{ trans('message.foods') }}</span>
         </div>
     </div>
     {{-- End: Thanh tiêu đề --}}
@@ -28,8 +28,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -51,8 +51,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -74,8 +74,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -97,8 +97,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -112,7 +112,7 @@
     {{-- Begin: Thanh tiêu đề --}}
     <div class="content_bar">
         <div class="title_content">
-            <span class="title_bar">Đồ Uống</span>
+            <span class="title_bar">{{ trans('message.drinks') }}</span>
         </div>
     </div>
     {{-- End: Thanh tiêu đề --}}
@@ -134,8 +134,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -157,8 +157,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -180,8 +180,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -203,8 +203,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="buy_now_button"><a href="#">Đặt hàng</a></div>
-                <div class="detail_button"><a href="#">Chi tiết</a></div>
+                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
+                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
