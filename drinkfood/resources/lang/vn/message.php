@@ -8,6 +8,8 @@
         'cart' => 'Giỏ hàng',
         'contact' => 'Liên hệ',
         'slogant' => 'Website đặt hàng uy tín nhất Đà Nẵng',
+        'filter' => 'Lọc theo',
+        'filter_type' => '{1} A-Z|{2} Giá thấp - cao|{3} Giá cao - thấp|{4} Đánh giá thấp - cao|{5} Đánh giá cao - thấp',
         'foods' => 'Đồ ăn',
         'drinks' => 'Đồ uống',
         'order' => 'Đặt hàng',
@@ -20,6 +22,8 @@
         'an-vat' => 'Ăn Vặt',
         'cafe' => 'Cà phê',
         'tra-sua' => 'Trà Sữa',
-        'nuoc' => 'Nước'
+        'nuoc' => 'Nước',
+        'prev' => 'Trang trước',
+        'next' => 'Trang sau'
     ]
 ?>  

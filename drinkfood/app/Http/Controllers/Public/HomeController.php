@@ -13,6 +13,11 @@ class HomeController extends Controller
         return view('public/pages/home');
     }
 
+    function product()
+    {
+        return view('public/pages/product');
+    }
+
     function language($lang)
     {
         Session::put('current_language', $lang);

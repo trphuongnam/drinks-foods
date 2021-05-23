@@ -15,5 +15,10 @@ use App\Http\Controllers\Public\HomeController;
 Route::group(['middleware' => 'language'], function()
 {
     Route::get('/language/{lang}', [HomeController::class, 'language'])->name('language');
+    
+    /* Begin: Route phần public */
     Route::get('/', [HomeController::class, 'home'])->name('public_home');
+    Route::get('/product', [HomeController::class, 'product'])->name('public_product');
+    /* End: Route phần public */
+
 });
