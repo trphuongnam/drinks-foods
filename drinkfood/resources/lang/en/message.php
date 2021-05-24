@@ -13,13 +13,5 @@
         'order' => 'Order',
         'detail' => 'Detail',
         'copy_right' => 'Designed and managed by Tran Phuong Nam - namtp',
-        'com' => 'Rice',
-        'pho' => 'Noodle Soup',
-        'bun' => 'Rice noodle',
-        'chao' => 'Porridge',
-        'an-vat' => 'Snacks',
-        'cafe' => 'Coffee',
-        'tra-sua' => 'Milk Tea',
-        'nuoc' => 'Water'
     ]
 ?>  

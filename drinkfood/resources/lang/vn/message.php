@@ -13,13 +13,5 @@
         'order' => 'Đặt hàng',
         'detail' => 'Chi tiết',
         'copy_right' => 'Thiết kế và quản trị bởi Trần Phương Nam - namtp',
-        'com' => 'Cơm',
-        'pho' => 'Phở',
-        'bun' => 'Bún',
-        'chao' => 'Cháo',
-        'an-vat' => 'Ăn Vặt',
-        'cafe' => 'Cà phê',
-        'tra-sua' => 'Trà Sữa',
-        'nuoc' => 'Nước'
     ]
 ?>  
