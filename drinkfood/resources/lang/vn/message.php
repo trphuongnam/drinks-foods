@@ -16,6 +16,12 @@
         'filter' => 'Lọc theo',
         'filter_type' => '{1} A-Z|{2} Giá thấp - cao|{3} Giá cao - thấp|{4} Đánh giá thấp - cao|{5} Đánh giá cao - thấp',
         'prev' => 'Trang trước',
-        'next' => 'Trang sau'
+        'next' => 'Trang sau',
+        'store' => 'Cửa hàng',
+        'address' => 'Địa chỉ',
+        'category' => 'Danh mục',
+        'user_post' => 'Người đăng',
+        'price' => 'Giá',
+        'user_rating' => '{1} Người dùng đánh giá|{2} Đánh giá của bạn'
     ]
 ?>  
