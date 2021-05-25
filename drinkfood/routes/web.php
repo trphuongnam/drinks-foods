@@ -20,5 +20,5 @@ Route::group(['middleware' => 'language'], function()
     Route::resource('/', 'App\Http\Controllers\Public\HomeController', ['name' => ['index' => 'home.index']]);
     
     /* Route product page */
-    Route::resource('product', 'App\Http\Controllers\Public\ProductController', ['name' => ['index' => 'product.index']]);
+    Route::resource('product', 'App\Http\Controllers\Public\ProductController', ['name' => ['index' => 'product.index']])->only(['index', 'show']);
 });
