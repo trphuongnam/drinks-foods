@@ -17,8 +17,8 @@ Route::group(['middleware' => 'language'], function()
     Route::get('/language/{lang}', [HomeController::class, 'language'])->name('language');
     
     /* Route home page */
-    Route::resource('/', 'App\Http\Controllers\Public\HomeController', ['name' => ['index' => 'home.index']]);
+    Route::resource('/', 'App\Http\Controllers\Public\HomeController');
     
     /* Route product page */
-    Route::resource('product', 'App\Http\Controllers\Public\ProductController', ['name' => ['index' => 'product.index']])->only(['index', 'show']);
+    Route::resource('product', 'App\Http\Controllers\Public\ProductController')->only(['index', 'show']);
 });
