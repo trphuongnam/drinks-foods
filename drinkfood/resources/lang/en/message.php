@@ -13,5 +13,9 @@
         'order' => 'Order',
         'detail' => 'Detail',
         'copy_right' => 'Designed and managed by Tran Phuong Nam - namtp',
+        'filter' => 'Filter',
+        'filter_type' => '{1} A-Z|{2} Price low - hight|{3} Price hight - low|{4} Rating low - hight|{5} Rating hight - low',
+        'prev' => 'Prev',
+        'next' => 'Next'
     ]
 ?>  
