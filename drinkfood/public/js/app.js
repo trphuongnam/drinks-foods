@@ -1,12 +1,11 @@
 /* Begin: Function show menu */
 function show_menu()
 {
-    var obj_menu_dropdown = document.getElementById("menu_dropdown");
-    if(obj_menu_dropdown.style.display == "none")
+    if($("#menu_dropdown").css("display") == "none")
     {
-        obj_menu_dropdown.style.display = "block";
+        $("#menu_dropdown").css("display", "block");
     }else{
-        obj_menu_dropdown.style.display = "none";
+        $("#menu_dropdown").css("display", "none");
     }
 }
 /* End: Function show menu */
@@ -14,12 +13,80 @@ function show_menu()
 /* Begin: Function show language */
 function show_language()
 {
-    var obj_lang_dropdown = document.getElementById("lang_dropdown");
-    if(obj_lang_dropdown.style.display == "none")
+    if($("#lang_dropdown").css("display") == "none")
     {
-        obj_lang_dropdown.style.display = "block";
+        $("#lang_dropdown").css("display", "block");
     }else{
-        obj_lang_dropdown.style.display = "none";
+        $("#lang_dropdown").css("display", "none");
     }
 }
 /* End: Function show language */
+
+/* Begin: Funtion rating product */
+$(document).ready(function(){
+    $("#rating_1").click(function(){
+        rating_1();
+    });
+
+    $("#rating_2").click(function(){
+        rating_2();
+    });
+
+    $("#rating_3").click(function(){
+        rating_3();
+    });
+
+    $("#rating_4").click(function(){
+        rating_4();
+    });
+
+    $("#rating_5").click(function(){
+        rating_5();
+    });
+});
+
+function rating_1()
+{
+    $("#rating_1").css("color", "yellow");
+    $("#rating_2").css("color", "white");
+    $("#rating_3").css("color", "white");
+    $("#rating_4").css("color", "white");
+    $("#rating_5").css("color", "white");   
+}
+
+function rating_2()
+{
+    $("#rating_1").css("color", "yellow");
+    $("#rating_2").css("color", "yellow");
+    $("#rating_3").css("color", "white");
+    $("#rating_4").css("color", "white");
+    $("#rating_5").css("color", "white");
+}
+
+function rating_3()
+{
+    $("#rating_1").css("color", "yellow");
+    $("#rating_2").css("color", "yellow");
+    $("#rating_3").css("color", "yellow");
+    $("#rating_4").css("color", "white");
+    $("#rating_5").css("color", "white");
+}
+
+function rating_4()
+{
+    $("#rating_1").css("color", "yellow");
+    $("#rating_2").css("color", "yellow");
+    $("#rating_3").css("color", "yellow");
+    $("#rating_4").css("color", "yellow");
+    $("#rating_5").css("color", "white");
+}
+
+function rating_5()
+{
+    $("#rating_1").css("color", "yellow");
+    $("#rating_2").css("color", "yellow");
+    $("#rating_3").css("color", "yellow");
+    $("#rating_4").css("color", "yellow");
+    $("#rating_5").css("color", "yellow");
+}
+/* End: function rating(star) */

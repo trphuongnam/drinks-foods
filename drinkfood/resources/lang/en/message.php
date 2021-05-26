@@ -13,13 +13,15 @@
         'order' => 'Order',
         'detail' => 'Detail',
         'copy_right' => 'Designed and managed by Tran Phuong Nam - namtp',
-        'com' => 'Rice',
-        'pho' => 'Noodle Soup',
-        'bun' => 'Rice noodle',
-        'chao' => 'Porridge',
-        'an-vat' => 'Snacks',
-        'cafe' => 'Coffee',
-        'tra-sua' => 'Milk Tea',
-        'nuoc' => 'Water'
+        'filter' => 'Filter',
+        'filter_type' => '{1} A-Z|{2} Price low - hight|{3} Price hight - low|{4} Rating low - hight|{5} Rating hight - low',
+        'prev' => 'Prev',
+        'next' => 'Next',
+        'store' => 'Store',
+        'address' => 'Address',
+        'category' => 'Category',
+        'user_post' => 'User Post',
+        'price' => 'Price',
+        'user_rating' => '{1} User ratings|{2} Your rating'
     ]
 ?>  
