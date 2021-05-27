@@ -29,7 +29,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -52,7 +52,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -75,7 +75,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -98,7 +98,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -135,7 +135,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -158,7 +158,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -181,7 +181,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
@@ -204,7 +204,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="detail_button"><a href="{{url('/product/product-1')}}">{{ trans('message.detail') }}</a></div>
             </div>
             <div class="cleaner">&nbsp;</div>
         </div>
