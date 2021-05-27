@@ -16,6 +16,12 @@
         'filter' => 'Filter',
         'filter_type' => '{1} A-Z|{2} Price low - hight|{3} Price hight - low|{4} Rating low - hight|{5} Rating hight - low',
         'prev' => 'Prev',
-        'next' => 'Next'
+        'next' => 'Next',
+        'store' => 'Store',
+        'address' => 'Address',
+        'category' => 'Category',
+        'user_post' => 'User Post',
+        'price' => 'Price',
+        'user_rating' => '{1} User ratings|{2} Your rating'
     ]
 ?>  
