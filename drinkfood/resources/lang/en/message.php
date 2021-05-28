@@ -16,6 +16,41 @@
         'filter' => 'Filter',
         'filter_type' => '{1} A-Z|{2} Price low - hight|{3} Price hight - low|{4} Rating low - hight|{5} Rating hight - low',
         'prev' => 'Prev',
-        'next' => 'Next'
+        'next' => 'Next',
+        'store' => 'Store',
+        'address' => 'Address',
+        'category' => 'Category',
+        'user_post' => 'User Post',
+        'price' => 'Price',
+        'user_rating' => '{1} User ratings|{2} Your rating',
+        'fullname' => 'Fullname',
+        'gender' => 'Gender',
+        'male' => 'Male',
+        'female' => 'Female',
+        'other' => 'Other',
+        'birthday' => 'Birthday',
+        'phone' => 'Phone',
+        'email' => 'Email',
+        'username' => 'Username',
+        'password' => 'Password',
+        're_password' => 'Re password',
+        'link_signin' => 'Sign in here',
+
+        /* Error validate form */
+        'err_fullname' => 'Please enter the full them and your name',
+        'err_gender' => 'Please choose your gender',
+        'err_birthday' => 'Please enter your date of birth',
+        'err_phone1' => 'Please enter your phone number',
+        'err_phone2' => 'Phone number is not in the correct format',
+        'err_email1' => 'Please enter your full email',
+        'err_email2' => 'The email you entered is not in the correct format',
+        'err_address' => 'Please enter your address',
+        'err_username1' => 'Please enter your username',
+        'err_username2' => 'Username must be at least 8 characters',
+        'err_username3' => 'Your username is up to 15 characters',
+        'err_password1' => 'Please enter your password',
+        'err_password2' => 'Your password is too short',
+        'err_password3' => 'Password up to 20 characters',
+        'err_re_password1' => 'Password incorrect'
     ]
-?>  
+?>

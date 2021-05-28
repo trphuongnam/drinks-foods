@@ -18,7 +18,8 @@ Route::group(['middleware' => 'language'], function()
     
     /* Route home page */
     Route::resource('/', 'App\Http\Controllers\Public\HomeController');
-    
     /* Route product page */
     Route::resource('product', 'App\Http\Controllers\Public\ProductController')->only(['index', 'show']);
+    /* Route regist, sign in, sign out page */
+    Route::resource('regist', 'App\Http\Controllers\Public\UserController');
 });
