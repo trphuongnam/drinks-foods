@@ -11,7 +11,7 @@ body {
 	padding: 0;
 	line-height: 1.5em;
 	font-family: Verdana, Arial, san-serif;
-	font-size: 11px;
+	font-size: 14px;
 	color: #ffffff;
 	background-image: url(../images/bgr_body.jpg);
     background-size: cover;
@@ -24,6 +24,12 @@ a:active, a:hover { color: #e6e154; text-decoration: underline;}
 p {
 	margin: 0px;
 	padding: 0px;
+}
+
+.error{
+	color: red;
+	font-style: italic;
+	display: inline-block;
 }
 
 img {
@@ -388,6 +394,10 @@ img {
 	margin-bottom: 15px;
 }
 
+.no_rating:hover{
+	color: yellow !important;
+}
+
 .rating{
 	margin-bottom: 5px;
 	color: yellow;
@@ -475,6 +485,7 @@ img {
 	#templatemo_content #templatemo_content_left {
 		width: 25%;
 		padding: 10px 0px;
+		box-sizing: border-box;
 	}
 
 	#templatemo_content #templatemo_content_right {
@@ -563,6 +574,7 @@ img {
 	#templatemo_content #templatemo_content_left {
 		width: 100%;
 		padding: 10px 0px;
+		box-sizing: border-box;
 	}
 
 	#templatemo_content #templatemo_content_right {
@@ -651,6 +663,7 @@ img {
 	#templatemo_content #templatemo_content_left {
 		width: 100%;
 		padding: 10px 0px;
+		box-sizing: border-box;
 	}
 
 	#templatemo_content #templatemo_content_right {
@@ -663,7 +676,20 @@ img {
 		padding: 10px 0px;
 	}
 
+	.info_product{
+		width:100%;
+		padding: 0 0 0 0px !important;
+	}
+
 	.box_img {
+		width: 100%;
+	}
+	
+	.image_panel{
+		width: 100% !important;
+	}
+
+	.image_panel img{
 		width: 100%;
 	}
 
