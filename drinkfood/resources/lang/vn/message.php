@@ -22,6 +22,37 @@
         'category' => 'Danh mục',
         'user_post' => 'Người đăng',
         'price' => 'Giá',
-        'user_rating' => '{1} Người dùng đánh giá|{2} Đánh giá của bạn'
+        'user_rating' => '{1} Người dùng đánh giá|{2} Đánh giá của bạn',
+        'fullname' => 'Họ và tên',
+        'gender' => 'Giới tính',
+        'male' => 'Nam',
+        'female' => 'Nữ',
+        'other' => 'Khác',
+        'birthday' => 'Ngày sinh',
+        'phone' => 'Điện thoại',
+        'email' => 'Email',
+        'address' => 'Địa chỉ',
+        'username' => 'Tên đăng nhập',
+        'password' => 'Mật khẩu',
+        're_password' => 'Xác nhận mật khẩu',
+        'link_signin' => 'Đăng nhập tại đây',
+        'message_sign_in' => 'Bạn đã có tài khoản?',
+
+        /* Error validate form */
+        'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
+        'err_gender' => 'Vui lòng chọn giới tính của bạn',
+        'err_birthday' => 'Vui lòng nhập ngày sinh của bạn',
+        'err_phone1' => 'Vui lòng nhập số điện thoại của bạn',
+        'err_phone2' => 'Số điện thoại không đúng định dạng',
+        'err_email1' => 'Vui lòng nhập đầy đủ email của bạn',
+        'err_email2' => 'Email bạn nhập không đúng định dạng',
+        'err_address' => 'Vui lòng nhập địa chỉ của bạn',
+        'err_username1' => 'Vui lòng nhập tên đăng nhập của bạn',
+        'err_username2' => 'Tên đăng nhập ít nhất là 8 ký tự',
+        'err_username3' => 'Tên đăng nhập của bạn tối đa 15 ký tự',
+        'err_password1' => 'Vui lòng nhập mật khẩu của bạn',
+        'err_password2' => 'Mật khẩu của bạn quá ngắn',
+        'err_password3' => 'Mật khẩu tối đa 20 ký tự',
+        'err_re_password1' => 'Mật khẩu không khớp'
     ]
 ?>  
