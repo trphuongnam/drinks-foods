@@ -74,6 +74,12 @@ img {
 	border: none;
 }
 
+.avatar_input{
+	float: left;
+    width: 70%;
+    box-sizing: border-box;
+}
+
 .user_avatar{
 	width: 100%;
 	height: auto;
@@ -422,6 +428,11 @@ img {
     box-sizing: border-box;
     float: left;
     margin: 0px 20px 0px 0px;
+}
+
+.box_avatar{
+	width: 30%;
+	margin: 0;
 }
 
 .box_img img {

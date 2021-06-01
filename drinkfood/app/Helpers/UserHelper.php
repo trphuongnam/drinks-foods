@@ -3,7 +3,7 @@
 /* Function check avatar user*/
 function checkUserAvatar($avatar, $gender)
 {
-    if($avatar != "") $strAvatar = $avatar;
+    if($avatar != "") $strAvatar = asset("/uploads/images/users/$avatar");
     else
     {
         if($gender == 0) $strAvatar = asset('images/icons/user_unknown.png');
@@ -17,13 +17,13 @@ function checkUserAvatar($avatar, $gender)
 /* Function check gender user */
 function checkGenderUser($gender)
 {   
-    if($gender == 0) $arrGender = [__('message.other'), "checked"];
-    elseif($gender == 1) $arrGender = [__('message.male'), "checked"];
-    else  [__('message.female'), "checked"];
+    if($gender == 0) $arrGender = [__('message.other'), "gender"=>["checked", "", ""]];
+    elseif($gender == 1) $arrGender = [__('message.male'), "gender"=>["", "checked", ""]];
+    else  $arrGender = [__('message.female'), "gender"=>["", "", "checked"]];
 
     return $arrGender;
 }
 
-/* Functi */
+/* Function check gender user */
 
 ?>

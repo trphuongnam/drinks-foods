@@ -27,6 +27,7 @@
 .form_group {
     box-sizing: border-box;
     margin-bottom: 10px;
+    display: table;
 }
 .title_input{
     width: 140px;

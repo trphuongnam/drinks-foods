@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Public\SendMailController;
 use Illuminate\Support\Facades\Lang;
-use App\thuvien_xuly\Strings;
+use App\LibraryStrings\Strings;
 
 class ForgotPasswordController extends Controller
 {
@@ -30,8 +30,8 @@ class ForgotPasswordController extends Controller
             $user['password'] = bcrypt($newPassword);
             $update_password = User::where('id', $checkEmail[0]['id'])->update($user);
 
-            if($update_password) {
-                
+            if($update_password) 
+            {               
                 /* Send email confirm info has change */
                 $infoUserSend = [
                                 'email' => $checkEmail[0]->email,
