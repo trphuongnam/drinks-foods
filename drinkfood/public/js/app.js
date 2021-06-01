@@ -22,8 +22,9 @@ function show_language()
 }
 /* End: Function show language */
 
-/* Begin: Funtion rating product */
 $(document).ready(function(){
+
+    /* Begin: Funtion rating product */
     $("#rating_1").click(function(){
         rating_1();
     });
@@ -43,6 +44,8 @@ $(document).ready(function(){
     $("#rating_5").click(function(){
         rating_5();
     });
+    /* End: Funtion rating product */
+
 });
 
 function rating_1()

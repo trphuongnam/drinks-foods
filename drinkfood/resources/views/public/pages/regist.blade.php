@@ -16,7 +16,7 @@
 
     {{-- Begin: form regist--}}
     <div class="form_wrapper">
-        <form action="{{url('/regist')}}" method="POST" id="regist_form" class="form">
+        <form action="{{url('/regist')}}" method="POST" id="regist_form" class="form form_data">
             @csrf
             <div class="form_group">
                 <label for="fullname" class="title_input">{{ trans('message.fullname') }}:* </label>

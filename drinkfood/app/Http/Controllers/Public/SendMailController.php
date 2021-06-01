@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailSigninUser;
+use App\Mail\EmailResetPassword;
 
 class SendMailController extends Controller
 {
@@ -18,5 +19,11 @@ class SendMailController extends Controller
                     ];
         /* Send email with send() function of Mail object */
         $sending_mail = Mail::to($email_received)->send(new EmailSigninUser($array_data));
+    }
+
+    function sendMailResetPassword($email_received, $info_user)
+    {
+        /* Send email with send() function of Mail object */
+        $sending_mail = Mail::to($email_received)->send(new EmailResetPassword($info_user));
     }
 }

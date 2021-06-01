@@ -35,4 +35,7 @@ Route::group(['middleware' => 'language'], function()
     /* Route login google */
     Route::get('login_google', 'App\Http\Controllers\Public\LoginController@redirectToGoogle')->name('login.google')->middleware('checkUserLogin');
     Route::get('google/callback', 'App\Http\Controllers\Public\LoginController@googleCallback')->middleware('checkUserLogin');
+
+    /* Route forgot password */
+    Route::resource('forgot_password', 'App\Http\Controllers\Public\ForgotPasswordController')->middleware('checkUserLogin');
 });

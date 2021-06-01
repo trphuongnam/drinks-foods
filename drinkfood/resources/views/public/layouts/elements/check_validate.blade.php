@@ -1,7 +1,7 @@
 <script>
     /* Begin: Check validate form */
 $(document).ready(function(){
-    $("#regist_form").validate({
+    $(".form_data").validate({
         rules: {
 			"fullname": {
 				required: true,
