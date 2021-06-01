@@ -3,6 +3,25 @@
 
 @section('content')
 <div class="box_content">
+    
+    {{-- Hiển thị thông báo --}}
+    @if (session()->has('send_mail_success'))
+        <div class="alert alert-success">
+          <p><i class="fas fa-info"></i>
+          {{session()->get('send_mail_success')}}
+          </p>
+        </div>
+    @endif
+
+    @if (session()->has('send_mail_error'))
+        <div class="alert alert-success">
+          <p><i class="fas fa-info"></i>
+          {{session()->get('send_mail_error')}}
+          </p>
+        </div>
+    @endif
+    {{-- Hiển thị thông báo --}}
+
     {{-- Begin: Thanh tiêu đề --}}
     <div class="content_bar">
         <div class="title_content">

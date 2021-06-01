@@ -36,7 +36,7 @@
         'password' => 'Mật khẩu',
         're_password' => 'Xác nhận mật khẩu',
         'link_signin' => 'Đăng nhập tại đây',
-        'message_sign_in' => 'Bạn đã có tài khoản?',
+        'link_regist' => 'Bạn chưa có tài khoản? Đăng ký tại đây.',
 
         /* Error validate form */
         'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
@@ -53,6 +53,13 @@
         'err_password1' => 'Vui lòng nhập mật khẩu của bạn',
         'err_password2' => 'Mật khẩu của bạn quá ngắn',
         'err_password3' => 'Mật khẩu tối đa 20 ký tự',
-        'err_re_password1' => 'Mật khẩu không khớp'
+        'err_re_password1' => 'Mật khẩu không khớp',
+        'err_sign_in' => 'Tài khoản của bạn không đúng. Vui lòng thử lại',
+        'msg_sign_in' => 'Bạn đã đăng nhập trước đó bằng email này. Vui lòng đăng nhập với tài khoản cũ',
+        'err_exception' => 'Có lỗi khi xác thực. Vui lòng thử lại',
+
+        // button
+        'login_facebook' => 'Đăng nhập bằng Facebook',
+        'login_google' => 'Đăng nhập bằng Google',
     ]
 ?>  

@@ -27,9 +27,28 @@ p {
 }
 
 .error{
-	color: red;
+	color: #ff9a00;
 	font-style: italic;
 	display: inline-block;
+}
+
+.btn
+{
+    background: #cbc750;
+    border: none;
+    width: 100px;
+    height: 20px;
+    font-weight: bold;
+    color: black;
+    display: block;
+	margin-bottom: 10px;
+}
+
+.btn_submit{
+	width: auto;
+    padding: 10px;
+    background: #1276e2 !important;
+    color: #fff !important;
 }
 
 img {
