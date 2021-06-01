@@ -41,7 +41,6 @@ p {
     background: #cbc750;
     border: none;
     width: 100px;
-    height: 20px;
     font-weight: bold;
     color: black;
     display: block;
@@ -73,6 +72,11 @@ img {
 	margin: 0px;
 	padding: 0px;
 	border: none;
+}
+
+.user_avatar{
+	width: 100%;
+	height: auto;
 }
 
 .cleaner {
@@ -362,6 +366,9 @@ img {
 	float: left;
 	width: 100px;
 	margin-right: 20px;
+	background: #fff;
+    margin-right: 20px;
+    padding: 10px;
 }
 
 #templatemo_content_right p {

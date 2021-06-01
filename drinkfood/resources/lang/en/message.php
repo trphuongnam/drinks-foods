@@ -1,5 +1,6 @@
 <?php
     return [
+        // Page name
         'home' => 'Home',
         'product' => 'Product',
         'regist' => 'Regist',
@@ -7,6 +8,10 @@
         'sign_out' => 'Sign out',
         'cart' => 'Cart',
         'contact' => 'Contact',
+        'user_info' => 'User information',
+        'edit_profile' => 'Edit profile',
+
+        // Element website
         'slogant' => 'The most prestigious ordering website in Da Nang',
         'foods' => 'Foods',
         'drinks' => 'Drinks',
@@ -41,6 +46,20 @@
         'reset_password' => 'Reset password',
         'title_mail_reset_pass' => 'Confirm Update Password Success',
         
+        
+        'msg_sign_in' => 'You have previously signed in with this email. Please login with old account',
+        'err_exception' => 'An error occurred while authenticating. Please try again',
+        'user_not_exist' => 'User not exist',
+        'history_order' => 'History order',
+        'num_order' => 'Num order',
+        'order_name' => 'Order name',
+        'time_order' => 'Time order',
+        'status' => 'Status',
+        'invoice_print' => 'Print invoice',
+        'invoice_export' => 'Export invoice',
+        'option' => 'Option',
+        'status_order' => '{1} Complete|{2} Cancelled|{3} Unfulfilled',
+
         /* Error validate form */
         'err_fullname' => 'Please enter the full them and your name',
         'err_gender' => 'Please choose your gender',
@@ -78,5 +97,8 @@
         'login_google' => 'Login with Google',
         'send_request' => 'Send Request',
         'cancel' => 'Cancel',
+        'edit' => 'Edit',
+        'save' => 'Save',
+        'update' => 'Update',
     ]
 ?>  

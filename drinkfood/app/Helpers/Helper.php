@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 
+/* Function show profile link and button logout in menu */
 function showProfileLink()
 {
     $style_display = "";
@@ -23,7 +24,7 @@ function showProfileLink()
         if ($type_network == "fb") $icon_network = "(<i class='fab fa-facebook'></i>)";
         
         $style_display = "display:none";
-        $profile_link = "<li><a href=".url('user')."/".$userInfo->url_key."-".$userInfo->uid."><i class='fas fa-user'>&nbsp;&nbsp;&nbsp;</i>".$userInfo->fullname."&nbsp;&nbsp;".$icon_network."</a></li>";
+        $profile_link = "<li><a href=".url('user')."><i class='fas fa-user'>&nbsp;&nbsp;&nbsp;</i>".$userInfo->fullname."&nbsp;&nbsp;".$icon_network."</a></li>";
         $logout_link = "<li><a href=".url('log_out')."><i class='fas fa-sign-out-alt'>&nbsp;&nbsp;&nbsp;</i>".trans('message.sign_out')."</a></li>";
        
     }
@@ -35,5 +36,6 @@ function showProfileLink()
     ];
     return $arr_link;
 } 
+/* End: function showProfileLink() */
 
 ?>

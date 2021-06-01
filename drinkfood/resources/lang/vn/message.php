@@ -1,5 +1,6 @@
 <?php
     return [
+        //Page name
         'home' => 'Trang chủ',
         'product' => 'Sản phẩm',
         'regist' => 'Đăng ký',
@@ -7,6 +8,10 @@
         'sign_out' => 'Đăng xuất',
         'cart' => 'Giỏ hàng',
         'contact' => 'Liên hệ',
+        'user_info' => 'Thông tin người dùng',
+        'edit_profile' => 'Chỉnh sửa thông tin',
+
+        // Website element
         'slogant' => 'Website đặt hàng uy tín nhất Đà Nẵng',
         'foods' => 'Đồ ăn',
         'drinks' => 'Đồ uống',
@@ -40,6 +45,18 @@
         'forgot_password' => 'Quên mật khẩu',
         'reset_password' => 'Đặt lại mật khẩu',
         'title_mail_reset_pass' => 'Xác Nhận Cập Nhật Mật Khẩu Thành Công',
+        'history_order' => 'Lịch sử đặt hàng',
+        'num_order' => 'STT',
+        'order_name' => 'Tên đơn hàng',
+        'time_order' => 'Thời gian đặt',
+        'status' => 'Trạng thái',
+        'invoice_print' => 'In hóa đơn',
+        'invoice_export' => 'Xuất hóa đơn',
+        'option' => 'Tùy chọn',
+        'completed' => 'Hoàn thành',
+        'cancelled' => 'Đã hủy',
+        'unfulfilled' => 'Chưa thực hiện',
+        'status_order' => '{1} Hoàn thành|{2} Đã hủy|{3} Chưa thực hiện',
 
         /* Error validate form */
         'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
@@ -68,11 +85,15 @@
         'attention_reset_pass' => 'Chú ý: Hãy đổi mật khẩu này sau khi cập nhật xong',
         'how_to_login' => 'Cách đăng nhập:',
         'how_to_login_tutorial' => '{1} -Cách 1: Đăng nhập với tài khoản Google hoặc Facebook mà bạn đã đăng ký với chúng tôi.|{2} -Cách 2: Đăng nhập trực tiếp với email và password trên form đăng nhập.',
+        'user_not_exist' => 'Không tồn tại người dùng',
 
         // button
         'login_facebook' => 'Đăng nhập bằng Facebook',
         'login_google' => 'Đăng nhập bằng Google',
         'send_request' => 'Gửi yêu cầu',
         'cancel' => 'Hủy bỏ',
+        'edit' => 'Chỉnh sửa',
+        'save' => 'Lưu',
+        'update' => 'Cập nhật',
     ]
 ?>  

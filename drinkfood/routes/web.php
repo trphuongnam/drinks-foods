@@ -38,4 +38,6 @@ Route::group(['middleware' => 'language'], function()
 
     /* Route forgot password */
     Route::resource('forgot_password', 'App\Http\Controllers\Public\ForgotPasswordController')->middleware('checkUserLogin');
+    
+    Route::resource('user', 'App\Http\Controllers\Public\ProfileUserController')->only(['index', 'edit', 'update']);
 });
