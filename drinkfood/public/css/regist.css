@@ -18,20 +18,13 @@
     display: inline-block;
     font-weight: bold;
 }
-.btn
-{
-    background: #cbc750;
-    border: none;
-    width: 100px;
-    height: 20px;
-    font-weight: bold;
-    color: black;
-}
+
 #select_gender{
     display: flex;
 }
 .btn_regist{
     margin-right: 10px;
+    width: auto;
 }
 .link1{
     color: blue;

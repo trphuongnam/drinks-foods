@@ -2,9 +2,13 @@
     <ul id="menu_desktop">
         <li><a href="{{url('/')}}" class="current">{{ trans('message.home') }}</a></li>
         <li><a href="{{url('/product')}}">{{ trans('message.product') }}</a></li>
-        <li><a href="{{url('/regist')}}">{{ trans('message.regist') }}</a></li>            
+        <li style="{!!showProfileLink()['style']!!}"><a href="{{url('/sign_in')}}">{{ trans('message.sign_in') }}</a></li>            
         <li><a href="{{url('/cart')}}">{{ trans('message.cart') }}</a></li>  
         <li><a href="{{url('/contact')}}">{{ trans('message.contact') }}</a></li>
+
+        {{-- Get link profile & link logout in Helper --}}
+        {!!showProfileLink()['profile_link']!!}
+        {!!showProfileLink()['logout_link']!!}
     </ul>
 
     <div id="dropdown">
@@ -15,6 +19,8 @@
             <li><a href="{{url('/regist')}}">{{ trans('message.regist') }}</a></li>            
             <li><a href="{{url('/cart')}}">{{ trans('message.cart') }}</a></li>  
             <li><a href="{{url('/contact')}}">{{ trans('message.contact') }}</a></li>
+            {!!showProfileLink()['profile_link']!!}
+            {!!showProfileLink()['logout_link']!!}
         </ul>
     </div>
 

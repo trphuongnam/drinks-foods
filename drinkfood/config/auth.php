@@ -114,4 +114,10 @@ return [
 
     'password_timeout' => 10800,
 
+    // Config google sign in
+    'socialite' => [
+        'drivers' => [
+            'google',
+        ],
+    ],
 ];

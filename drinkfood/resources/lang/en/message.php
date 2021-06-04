@@ -36,6 +36,9 @@
         'password' => 'Password',
         're_password' => 'Re password',
         'link_signin' => 'Sign in here',
+        'link_regist' => 'Do not have an account? Regist here.',
+        'msg_sign_in' => 'You have previously signed in with this email. Please login with old account',
+        'err_exception' => 'An error occurred while authenticating. Please try again',
 
         /* Error validate form */
         'err_fullname' => 'Please enter the full them and your name',
@@ -52,6 +55,15 @@
         'err_password1' => 'Please enter your password',
         'err_password2' => 'Your password is too short',
         'err_password3' => 'Password up to 20 characters',
-        'err_re_password1' => 'Password incorrect'
+        'err_re_password1' => 'Password incorrect',
+        'err_sign_in' => 'Your account is incorrect. Please try again',
+
+        /* Send email */
+        'send_mail_success' => 'Đã gửi thông tin vào email của bạn. Bạn hãy kiểm tra lại email của mình',
+        'send_mail_error' => 'Email lỗi',
+
+        // button
+        'login_facebook' => 'Login with Facebook',
+        'login_google' => 'Login with Google',
     ]
 ?>  
