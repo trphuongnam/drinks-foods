@@ -23,9 +23,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($url_key)
+    {
+        return view('public.pages.product');
+    }
+
+    public function showDetailProduct($cat_key, $product_key)
     {
         return view('public.pages.product_detail');
     }
-
 }

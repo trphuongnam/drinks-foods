@@ -57,6 +57,8 @@
         'cancelled' => 'Đã hủy',
         'unfulfilled' => 'Chưa thực hiện',
         'status_order' => '{1} Hoàn thành|{2} Đã hủy|{3} Chưa thực hiện',
+        'amount' => 'Số lượng:',
+        'total'=>'Tổng cộng:',
 
         /* Error validate form */
         'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
@@ -97,5 +99,6 @@
         'edit' => 'Chỉnh sửa',
         'save' => 'Lưu',
         'update' => 'Cập nhật',
+        'delete_product' => 'Xóa sản phẩm'
     ]
 ?>  

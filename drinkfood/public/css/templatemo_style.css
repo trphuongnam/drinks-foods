@@ -331,9 +331,15 @@ img {
 #templatemo_content_right .templatemo_product_box {
 	float: left;
 	width: 303px;
-	height: 230px;
+	height: 300px;
 	padding: 10px;
 	border: 1px solid #333;
+	margin-bottom: 20px;
+}
+
+.templatemo_product_box:nth-child(2n+1)
+{
+	margin-right: 20px;
 }
 
 #templatemo_content_right h1 {
@@ -393,7 +399,14 @@ img {
 .product_box {
     width: 100%;
     box-sizing: border-box;
+	display: table;
 }
+
+.product_cart{
+	border-bottom: 1px solid;
+	margin-bottom: 20px;
+}
+
 .content_bar{
 	padding: 10px;
     margin: 0 0 20px 0;
@@ -478,6 +491,37 @@ img {
     border: 1px solid;
     padding: 0px 10px !important;
     background: black;
+}
+
+.order_bar{
+	border: 1px solid;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    display: table;
+    background: aliceblue;
+    color: black;
+    border-radius: 10px;
+	padding: 10px;
+}
+
+.order_bar_left{
+	width: 70%;
+    box-sizing: border-box;
+    padding: 0 !important;
+    margin: 0 !important;
+    float: left;
+}
+.total_price{
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+}
+.order_bar_right{
+	width: 30%;
+    float: left;
+    display: table;
+    box-sizing: border-box;
 }
 /* end of content */
 

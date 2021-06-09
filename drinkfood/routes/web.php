@@ -21,7 +21,8 @@ Route::group(['middleware' => 'language'], function()
     
     /* Route product page */
     Route::resource('product', 'App\Http\Controllers\Public\ProductController')->only(['index', 'show']);
-    
+    Route::get('product/{cat_key}/{product_key}', 'App\Http\Controllers\Public\ProductController@showDetailProduct');
+
     /* Route regist*/
     Route::resource('regist', 'App\Http\Controllers\Public\RegistController');
 
@@ -39,5 +40,9 @@ Route::group(['middleware' => 'language'], function()
     /* Route forgot password */
     Route::resource('forgot_password', 'App\Http\Controllers\Public\ForgotPasswordController')->middleware('checkUserLogin');
     
+    /* Route profile user */
     Route::resource('user', 'App\Http\Controllers\Public\ProfileUserController')->only(['index', 'edit', 'update']);
+
+    /* Route cart */
+    Route::resource('cart', 'App\Http\Controllers\Public\CartController');
 });
