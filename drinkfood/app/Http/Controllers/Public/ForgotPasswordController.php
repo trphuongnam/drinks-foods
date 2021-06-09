@@ -22,7 +22,6 @@ class ForgotPasswordController extends Controller
 
         /* Check email of user with info of users table */
         $checkEmail = User::where('email', $request->email)->get();
-        //return $checkEmail;
         if(count($checkEmail) > 0)
         {
             /* update old password to password default of system */
@@ -48,9 +47,6 @@ class ForgotPasswordController extends Controller
         }else {
             $request->session()->flash('err_check_mail', trans('message.err_check_mail'));
             return url('/forgot_password');
-        }
-        
-        
+        }   
     }
-
 }
