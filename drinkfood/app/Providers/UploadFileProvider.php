@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\LoginService;
+use App\Services\UploadFileService;
 
-class LoginServiceProvider extends ServiceProvider
+class UploadFileProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,8 +14,8 @@ class LoginServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Services\LoginService', function($LoginService){
-            return new LoginService();
+        $this->app->bind(UploadFileService::class, function($uploadFile){
+            return new UploadFileService;
         });
     }
 

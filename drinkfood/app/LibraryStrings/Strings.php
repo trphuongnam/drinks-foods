@@ -1,5 +1,5 @@
 <?php
-    namespace App\thuvien_xuly;
+    namespace App\LibraryStrings;
 
     class Strings{
 

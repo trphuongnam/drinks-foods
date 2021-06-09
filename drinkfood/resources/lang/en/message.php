@@ -45,8 +45,6 @@
         'forgot_password' => 'Forgot password',
         'reset_password' => 'Reset password',
         'title_mail_reset_pass' => 'Confirm Update Password Success',
-        
-        
         'msg_sign_in' => 'You have previously signed in with this email. Please login with old account',
         'err_exception' => 'An error occurred while authenticating. Please try again',
         'user_not_exist' => 'User not exist',
@@ -82,6 +80,8 @@
         'err_check_mail' => 'No account information for this email',
         'reset_pass_fail' => 'Mail send error',
         'reset_pass_success' => 'Password reset successful. Please check your email for a new password',
+        'file_not_correct' => 'File is not in the correct format (png, jpg, jpeg)',
+        'err_update' => 'Unable to update information. Please check again',
 
         /* Send email */
         'send_mail_success' => 'Đã gửi thông tin vào email của bạn. Bạn hãy kiểm tra lại email của mình',

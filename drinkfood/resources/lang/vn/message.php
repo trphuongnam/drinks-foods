@@ -86,7 +86,9 @@
         'how_to_login' => 'Cách đăng nhập:',
         'how_to_login_tutorial' => '{1} -Cách 1: Đăng nhập với tài khoản Google hoặc Facebook mà bạn đã đăng ký với chúng tôi.|{2} -Cách 2: Đăng nhập trực tiếp với email và password trên form đăng nhập.',
         'user_not_exist' => 'Không tồn tại người dùng',
-
+        'file_not_correct' => '{1}File không đúng định dạng cho phép (png, jpg, jpeg) |{2} Kích thước file giới hạn 2Mb',
+        'err_update' => 'Không thể cập nhật thông tin. Vui lòng kiểm tra lại',
+        
         // button
         'login_facebook' => 'Đăng nhập bằng Facebook',
         'login_google' => 'Đăng nhập bằng Google',

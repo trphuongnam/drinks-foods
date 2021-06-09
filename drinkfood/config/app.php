@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\LoginServiceProvider::class,
+        App\Providers\UploadFileProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
