@@ -31,6 +31,10 @@
             @if (session()->has('err_exception'))
                 <span class="error">{{session()->get('err_exception')}}</span>
             @endif
+
+            @if (session()->has('reset_pass_success'))
+                <span class="error">{{session()->get('reset_pass_success')}}</span>
+            @endif
             {{-- End: Check errors --}}
             
             <div class="form_group">
@@ -43,6 +47,7 @@
             </div>
             <div class="form_group">
                 <input type="submit" value="{{ trans('message.sign_in') }}" class="btn btn_regist">
+                <a  href="{{route('forgot_password.index')}}" class="link1">{{ trans('message.forgot_password') }}</a><br>
                 <a  href="{{route('regist.index')}}" class="link1">{{ trans('message.link_regist') }}</a>
                 <a href="{{route('login.facebook')}}" class="btn btn_submit"><i class="fab fa-facebook">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.login_facebook') }}</a>
                 <a href="{{route('login.google')}}" class="btn btn_submit"><i class="fab fa-google">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.login_google') }}</a>

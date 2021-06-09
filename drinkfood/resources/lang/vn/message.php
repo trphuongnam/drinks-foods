@@ -37,6 +37,9 @@
         're_password' => 'Xác nhận mật khẩu',
         'link_signin' => 'Đăng nhập tại đây',
         'link_regist' => 'Bạn chưa có tài khoản? Đăng ký tại đây.',
+        'forgot_password' => 'Quên mật khẩu',
+        'reset_password' => 'Đặt lại mật khẩu',
+        'title_mail_reset_pass' => 'Xác Nhận Cập Nhật Mật Khẩu Thành Công',
 
         /* Error validate form */
         'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
@@ -57,9 +60,19 @@
         'err_sign_in' => 'Tài khoản của bạn không đúng. Vui lòng thử lại',
         'msg_sign_in' => 'Bạn đã đăng nhập trước đó bằng email này. Vui lòng đăng nhập với tài khoản cũ',
         'err_exception' => 'Có lỗi khi xác thực. Vui lòng thử lại',
+        'err_check_mail' => 'Không có thông tin tài khoản của email này',
+        'reset_pass_fail' => 'Gửi email lỗi',
+        'reset_pass_success' => 'Đặt lại mật khẩu thành công. Vui lòng kiểm tra email để lấy mật khẩu mới',
+        
+        /* Email */
+        'attention_reset_pass' => 'Chú ý: Hãy đổi mật khẩu này sau khi cập nhật xong',
+        'how_to_login' => 'Cách đăng nhập:',
+        'how_to_login_tutorial' => '{1} -Cách 1: Đăng nhập với tài khoản Google hoặc Facebook mà bạn đã đăng ký với chúng tôi.|{2} -Cách 2: Đăng nhập trực tiếp với email và password trên form đăng nhập.',
 
         // button
         'login_facebook' => 'Đăng nhập bằng Facebook',
         'login_google' => 'Đăng nhập bằng Google',
+        'send_request' => 'Gửi yêu cầu',
+        'cancel' => 'Hủy bỏ',
     ]
 ?>  

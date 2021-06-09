@@ -37,9 +37,10 @@
         're_password' => 'Re password',
         'link_signin' => 'Sign in here',
         'link_regist' => 'Do not have an account? Regist here.',
-        'msg_sign_in' => 'You have previously signed in with this email. Please login with old account',
-        'err_exception' => 'An error occurred while authenticating. Please try again',
-
+        'forgot_password' => 'Forgot password',
+        'reset_password' => 'Reset password',
+        'title_mail_reset_pass' => 'Confirm Update Password Success',
+        
         /* Error validate form */
         'err_fullname' => 'Please enter the full them and your name',
         'err_gender' => 'Please choose your gender',
@@ -57,13 +58,25 @@
         'err_password3' => 'Password up to 20 characters',
         'err_re_password1' => 'Password incorrect',
         'err_sign_in' => 'Your account is incorrect. Please try again',
+        'msg_sign_in' => 'You have previously signed in with this email. Please login with old account',
+        'err_exception' => 'An error occurred while authenticating. Please try again',
+        'err_check_mail' => 'No account information for this email',
+        'reset_pass_fail' => 'Mail send error',
+        'reset_pass_success' => 'Password reset successful. Please check your email for a new password',
 
         /* Send email */
         'send_mail_success' => 'Đã gửi thông tin vào email của bạn. Bạn hãy kiểm tra lại email của mình',
         'send_mail_error' => 'Email lỗi',
 
+        /* Email */
+        'attention_reset_pass' => 'Attention: Please change this password after update is complete',
+        'how_to_login' => 'How to login:',
+        'how_to_login_tutorial' => '{1} - Method 1: Sign in with the Google or Facebook account that you have registered with us.|{2} - Method 2: Login directly with the email and password provided on the login form.',
+
         // button
         'login_facebook' => 'Login with Facebook',
         'login_google' => 'Login with Google',
+        'send_request' => 'Send Request',
+        'cancel' => 'Cancel',
     ]
 ?>  

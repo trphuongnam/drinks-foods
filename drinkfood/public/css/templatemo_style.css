@@ -32,6 +32,10 @@ p {
 	display: inline-block;
 }
 
+.form_input{
+	height: 25px;
+}
+
 .btn
 {
     background: #cbc750;
@@ -41,7 +45,21 @@ p {
     font-weight: bold;
     color: black;
     display: block;
-	margin-bottom: 10px;
+	margin: 0px 10px 10px 0px;
+}
+
+.btn_green{
+	background: green;
+    padding: 10px;
+    float: left;
+    width: auto;
+}
+
+.btn_red{
+	background: red;
+    padding: 10px;
+    float: left;
+    width: auto;
 }
 
 .btn_submit{
@@ -461,6 +479,36 @@ img {
 	font-weight: normal;
 }
 /* end of footer */
+
+/* Loading css */
+.background_loading{
+	width: 50%;
+    height: 200px;
+    z-index: 1;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	display: none;
+}
+
+.progress-3 {
+	width:120px;
+	height:20px;
+	border-radius: 20px;
+	background:
+	 repeating-linear-gradient(135deg,#f03355 0 10px,#ffa516 0 20px) left/0%   100% no-repeat,
+	 repeating-linear-gradient(135deg,#ddd    0 10px,#eee    0 20px) left/100% 100%;
+	animation:p3 2s infinite;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  @keyframes p3 {
+	  100% {background-size:100% 100%}
+  }
+/* Loading css */
 
 /* Css for tablet */
 @media only screen and (min-width: 601px) and (max-width: 1000px) {

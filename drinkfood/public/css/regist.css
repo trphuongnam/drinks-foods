@@ -1,5 +1,6 @@
 .form_wrapper{
     width: 100%;
+    position: relative;
 }
 .form{
     width: 50%;
@@ -8,7 +9,21 @@
     background: grey;
     color: azure;
     padding: 10px;
+    display: table;
 }
+
+#forgot_password_form{
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: aliceblue;
+    color: black;
+    height: 150px;
+    border-radius: 10px;
+}
+
 .form_group {
     box-sizing: border-box;
     margin-bottom: 10px;
@@ -17,6 +32,9 @@
     width: 140px;
     display: inline-block;
     font-weight: bold;
+}
+.form_input{
+    height: 25px;
 }
 
 #select_gender{
