@@ -19,4 +19,5 @@
             @endforeach
         </ul>
     </div>
+    @yield('filter_bar')
 </div>

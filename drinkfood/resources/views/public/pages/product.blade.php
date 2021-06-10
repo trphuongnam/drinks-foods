@@ -1,6 +1,8 @@
 @extends('public/layouts/master_layout')
 @section('title', trans('message.product'))
-
+@section('filter_bar')
+    @include('public/layouts/elements/filter_bar')
+@endsection
 @section('content')
 
 {{-- Begin: Box content --}}
@@ -9,20 +11,7 @@
     {{-- Begin: content bar --}}
     <div class="content_bar">
         <div class="title_content">
-            <span class="title_bar">{{ trans('message.product') }}</span>
-        </div>
-
-        <div class="filter">
-            <form action="#" method="POST">
-                <label>{{ trans('message.filter') }}</label>
-                <select name="filter" id="filter">
-                    <option value="1">{{ trans_choice('message.filter_type', 1) }}</option>
-                    <option value="2">{{ trans_choice('message.filter_type', 2) }}</option>
-                    <option value="3">{{ trans_choice('message.filter_type', 3) }}</option>
-                    <option value="4">{{ trans_choice('message.filter_type', 4) }}</option>
-                    <option value="5">{{ trans_choice('message.filter_type', 5) }}</option>
-                </select>
-            </form>
+            <span class="title_bar"><a href="{{url('/product')}}">{!! trans('message.product')!!}</a>{!!showCategroryTitle($typeCat)!!}</span>
         </div>
     </div>
     {{-- End: content bar --}}
@@ -51,7 +40,7 @@
             </div>
           @endforeach
         @else
-            <img src="{{asset('images/icons/product_not_found.png')}}" class="product_not_found">
+            <div class="blank_page" style="background-image:url({{asset('images/icons/product_not_found.png')}})"></div>
         @endif
     </div>
     {{-- End: product box --}}

@@ -1,6 +1,8 @@
 @extends('public/layouts/master_layout')
 @section('title', 'Trang chủ')
-
+@section('filter_bar')
+    @include('public/layouts/elements/filter_bar')
+@endsection
 @section('content')
 <div class="box_content">
     

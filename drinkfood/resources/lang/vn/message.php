@@ -59,6 +59,10 @@
         'status_order' => '{1} Hoàn thành|{2} Đã hủy|{3} Chưa thực hiện',
         'amount' => 'Số lượng:',
         'total'=>'Tổng cộng:',
+        'all' => 'Tất cả',
+        'start_price' => 'Giá bắt đầu',
+        'end_price' => 'Giá kết thúc',
+        'choose_rating' => 'Chọn số sao',
 
         /* Error validate form */
         'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
@@ -88,6 +92,14 @@
         'user_not_ratings' => 'Bạn chưa có đánh giá',
         'err_rating' => 'Vui lòng đăng nhập để đánh giá sản phẩm',
         'thank_rating' => 'Cám ơn bạn đã đánh giá sản phẩm',
+        'filter_product' => 'Lọc sản phẩm',
+        'search' => 'Tìm kiếm',
+        'rating'=> 'Đánh giá',
+        'price_start' => 'Giá bắt đầu',
+        'price_end' => 'Giá kết thúc',
+        'accept'=> 'Áp dụng',
+        'choose_price' => 'Sắp xếp giá',
+        'choose_sort_order' => 'Thứ tự sắp xếp',
         
         /* Email */
         'attention_reset_pass' => 'Chú ý: Hãy đổi mật khẩu này sau khi cập nhật xong',

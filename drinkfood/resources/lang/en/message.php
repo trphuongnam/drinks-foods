@@ -59,6 +59,10 @@
         'status_order' => '{1} Complete|{2} Cancelled|{3} Unfulfilled',
         'amount' => 'Amount:',
         'total'=>'Total:',
+        'all' => 'All',
+        'start_price' => 'Start price',
+        'end_price' => 'End price',
+        'choose_rating' => 'Choose number of stars',
 
         /* Error validate form */
         'err_fullname' => 'Please enter the full them and your name',
@@ -90,6 +94,14 @@
         'user_not_ratings' => 'You have no reviews yet',
         'err_rating' => 'Please login to rate this product',
         'thank_rating' => 'Thank you for rating the product',
+        'filter_product' => 'Filter products',
+        'search' => 'Search',
+        'rating'=> 'Rating',
+        'price_start' => 'Price start',
+        'price_end' => 'Price end',
+        'accept'=> 'Accept',
+        'choose_price' => 'Choose price',
+        'choose_sort_order' => 'Choose sort order',
 
         /* Send email */
         'send_mail_success' => 'Đã gửi thông tin vào email của bạn. Bạn hãy kiểm tra lại email của mình',

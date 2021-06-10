@@ -20,7 +20,7 @@ Route::group(['middleware' => 'language'], function()
     Route::resource('/', 'App\Http\Controllers\Public\HomeController');
     
     /* Route product page */
-    Route::resource('product', 'App\Http\Controllers\Public\ProductController')->only(['index', 'show']);
+    Route::get('product/{cat_key?}', 'App\Http\Controllers\Public\ProductController@show')->name('show.product_list');
     Route::get('product/{cat_key}/{product_key?}', 'App\Http\Controllers\Public\ProductController@showDetailProduct');
 
     /* Route regist*/
