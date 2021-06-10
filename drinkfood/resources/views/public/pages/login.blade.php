@@ -35,6 +35,10 @@
             @if (session()->has('reset_pass_success'))
                 <span class="error">{{session()->get('reset_pass_success')}}</span>
             @endif
+
+            @if (session()->has('err_rating'))
+                <span class="error">{{session()->get('err_rating')}}</span>
+            @endif
             {{-- End: Check errors --}}
             
             <div class="form_group">

@@ -30,7 +30,8 @@
         },
         "files": [
             "app/Helpers/Helper.php",
-            "app/Helpers/UserHelper.php"
+            "app/Helpers/UserHelper.php",
+            "app/Helpers/RatingHelper.php"
         ]
     },
     "autoload-dev": {

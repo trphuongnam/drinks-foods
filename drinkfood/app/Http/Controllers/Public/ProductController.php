@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Facades\Config;
+use App\Services\ConditionQueryService;
 
 class ProductController extends Controller
 {
@@ -14,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('public.pages.product');
+        $products = Product::scopeProduct();
+        return view('public.pages.product', ['products'=>$products]);
     }
 
     /**
@@ -23,13 +28,23 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($url_key)
+    public function show(ConditionQueryService $conditionQuery, $cat_key)
     {
-        return view('public.pages.product');
+        /* Call function createConditionQueryProduct() retrieve condition */
+        $condition = $conditionQuery->createConditionQueryProduct($cat_key);
+        $products = Product::scopeProduct($condition);
+
+        return view('public.pages.product', ['products'=>$products]);
     }
 
     public function showDetailProduct($cat_key, $product_key)
     {
-        return view('public.pages.product_detail');
+        $arrProductKey = explode("-", $product_key);
+        $uidProduct = $arrProductKey[count($arrProductKey) - 1];
+
+        $productDetail = Product::scopeProductDetail($uidProduct);
+
+        return view('public.pages.product_detail',["productDetail" => $productDetail]);
     }
+
 }

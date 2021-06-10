@@ -21,7 +21,7 @@ Route::group(['middleware' => 'language'], function()
     
     /* Route product page */
     Route::resource('product', 'App\Http\Controllers\Public\ProductController')->only(['index', 'show']);
-    Route::get('product/{cat_key}/{product_key}', 'App\Http\Controllers\Public\ProductController@showDetailProduct');
+    Route::get('product/{cat_key}/{product_key?}', 'App\Http\Controllers\Public\ProductController@showDetailProduct');
 
     /* Route regist*/
     Route::resource('regist', 'App\Http\Controllers\Public\RegistController');
@@ -29,6 +29,7 @@ Route::group(['middleware' => 'language'], function()
     /* Route sign in & log out*/
     Route::resource('sign_in', 'App\Http\Controllers\Public\LoginController')->only('index', 'store')->middleware('checkUserLogin');
     Route::get('log_out', 'App\Http\Controllers\Public\LoginController@sign_out');
+    
     /* Route login facebook */
     Route::get('login_facebook', 'App\Http\Controllers\Public\LoginController@redirectToFacebook')->name('login.facebook')->middleware('checkUserLogin');
     Route::get('facebook/callback', 'App\Http\Controllers\Public\LoginController@facebookCallback')->middleware('checkUserLogin');
@@ -45,4 +46,7 @@ Route::group(['middleware' => 'language'], function()
 
     /* Route cart */
     Route::resource('cart', 'App\Http\Controllers\Public\CartController');
+
+    /* Route ratings product */
+    Route::post('ratings', 'App\Http\Controllers\Public\RatingController@storeRatings');
 });
