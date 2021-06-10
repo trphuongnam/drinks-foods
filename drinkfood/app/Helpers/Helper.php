@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 /* Function show profile link and button logout in menu */
 function showProfileLink()
@@ -37,5 +38,20 @@ function showProfileLink()
     return $arr_link;
 } 
 /* End: function showProfileLink() */
+
+/* Begin: Function show list category */
+function showCategory()
+{
+    return Category::where("status", 1)->get();
+}
+
+
+/* Begin: Function check image product */
+function productImage($image)
+{
+    if($image == "")  return asset("images/img_default.jpg");
+    else return asset("uploads/images/products/$image");
+}
+/* End: Function check image product */
 
 ?>

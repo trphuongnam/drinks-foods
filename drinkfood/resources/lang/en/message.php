@@ -57,6 +57,8 @@
         'invoice_export' => 'Export invoice',
         'option' => 'Option',
         'status_order' => '{1} Complete|{2} Cancelled|{3} Unfulfilled',
+        'amount' => 'Amount:',
+        'total'=>'Total:',
 
         /* Error validate form */
         'err_fullname' => 'Please enter the full them and your name',
@@ -100,5 +102,6 @@
         'edit' => 'Edit',
         'save' => 'Save',
         'update' => 'Update',
+        'delete_product' => 'Delete product',
     ]
 ?>  
