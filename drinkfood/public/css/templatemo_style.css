@@ -31,7 +31,10 @@ p {
 	font-style: italic;
 	display: inline-block;
 }
-
+.active{
+	color: #fff !important;
+    border-bottom: 1px solid #fff;
+}
 .form_input{
 	height: 25px;
 }
@@ -73,7 +76,9 @@ img {
 	padding: 0px;
 	border: none;
 }
-
+.product_not_found{
+	width: 100%;
+}
 .avatar_input{
 	float: left;
     width: 70%;
@@ -331,7 +336,7 @@ img {
 #templatemo_content_right .templatemo_product_box {
 	float: left;
 	width: 303px;
-	height: 300px;
+	height: auto;
 	padding: 10px;
 	border: 1px solid #333;
 	margin-bottom: 20px;
@@ -512,6 +517,11 @@ img {
     margin: 0 !important;
     float: left;
 }
+.price{
+	color: chocolate;
+    font-size: 20px;
+    font-weight: bold;
+}
 .total_price{
 	font-size: 20px;
 	font-weight: bold;
@@ -622,18 +632,32 @@ img {
 	}
 
 	#templatemo_content_right .templatemo_product_box {
-		width: 45%;
+		width: 100%;
 		height: auto;
 		padding: 10px 0px;
 	}
 
 	.box_img {
-		width: 45%;
-		height: 100%;
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
 	}
 
 	.templatemo_product_box .product_info {
-		width: 45%;
+		width: 50%;
+		float: left;
+		box-sizing: border-box;
+		padding: 0px 0px 0px 10px;
+	}
+
+	.product_description{
+		width: 50%;
+		float: left;
+		box-sizing: border-box;
+	}
+
+	.cleaner{
+		clear: none;
 	}
 
 	#templatemo_footer {
@@ -812,6 +836,7 @@ img {
 
 	.box_img {
 		width: 100%;
+		margin-bottom: 10px;
 	}
 	
 	.image_panel{

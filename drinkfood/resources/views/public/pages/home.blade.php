@@ -40,19 +40,15 @@
                     <img src="{{productImage($product->image)}}" alt="image" />
                 </div>
                 <div class="product_info">
-                    <p>{{$product->description}}</p>
-                    <h3>{{$product->price}} VNĐ</h3>
+                    <span class="price">{{number_format($product->price, 0, ',', '.')}} VNĐ</span>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        {!!showRating($product->id)!!}
                     </div>
                     <div class="buy_now_button"><a href="javascript:void(0)" id="btn_add_cat_{{$product->uid}}" onclick="addCart({{$product->uid}})">{{ trans('message.order') }}</a></div>
                     <div class="detail_button"><a href="{{url('/product'.'/'.$product->cat_url_key.'-'.$product->uid_cat.'/'.$product->url_key.'-'.$product->uid)}}">{{ trans('message.detail') }}</a></div>
                 </div>
                 <div class="cleaner">&nbsp;</div>
+                <div class="product_description">{{$product->description}}</div>
             </div>
           @endif 
         @endforeach
@@ -81,13 +77,9 @@
                 </div>
                 <div class="product_info">
                     <p>{{$product->description}}</p>
-                    <h3>{{$product->price}} VNĐ</h3>
+                    <h3>{{number_format($product->price, 0, ',', '.')}} VNĐ</h3>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        {!!showRating($product->id)!!}
                     </div>
                     <div class="buy_now_button"><a href="javascript:void(0)" id="btn_add_cat_{{$product->uid}}" onclick="addCart({{$product->uid}})">{{ trans('message.order') }}</a></div>
                     <div class="detail_button"><a href="{{url('/product'.'/'.$product->cat_url_key.'-'.$product->uid_cat.'/'.$product->url_key.'-'.$product->uid)}}">{{ trans('message.detail') }}</a></div>

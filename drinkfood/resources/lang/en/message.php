@@ -84,6 +84,12 @@
         'reset_pass_success' => 'Password reset successful. Please check your email for a new password',
         'file_not_correct' => 'File is not in the correct format (png, jpg, jpeg)',
         'err_update' => 'Unable to update information. Please check again',
+        'no_ratings' => '(No ratings)',
+        'not_found' => 'The information you were looking for could not be found',
+        'product_not_ratings' => 'There are no reviews yet',
+        'user_not_ratings' => 'You have no reviews yet',
+        'err_rating' => 'Please login to rate this product',
+        'thank_rating' => 'Thank you for rating the product',
 
         /* Send email */
         'send_mail_success' => 'Đã gửi thông tin vào email của bạn. Bạn hãy kiểm tra lại email của mình',
@@ -95,6 +101,7 @@
         'how_to_login_tutorial' => '{1} - Method 1: Sign in with the Google or Facebook account that you have registered with us.|{2} - Method 2: Login directly with the email and password provided on the login form.',
 
         // button
+        'add_cart' => 'Add cart',
         'login_facebook' => 'Login with Facebook',
         'login_google' => 'Login with Google',
         'send_request' => 'Send Request',
@@ -103,5 +110,6 @@
         'save' => 'Save',
         'update' => 'Update',
         'delete_product' => 'Delete product',
+        'btn_ratings' => 'New rating',
     ]
 ?>  

@@ -82,6 +82,12 @@
         'err_check_mail' => 'Không có thông tin tài khoản của email này',
         'reset_pass_fail' => 'Gửi email lỗi',
         'reset_pass_success' => 'Đặt lại mật khẩu thành công. Vui lòng kiểm tra email để lấy mật khẩu mới',
+        'no_ratings' => '(Chưa có đánh giá)',
+        'not_found' => 'Không tìm thấy thông tin bạn cần tìm',
+        'product_not_ratings' => 'Chưa có đánh giá',
+        'user_not_ratings' => 'Bạn chưa có đánh giá',
+        'err_rating' => 'Vui lòng đăng nhập để đánh giá sản phẩm',
+        'thank_rating' => 'Cám ơn bạn đã đánh giá sản phẩm',
         
         /* Email */
         'attention_reset_pass' => 'Chú ý: Hãy đổi mật khẩu này sau khi cập nhật xong',
@@ -92,6 +98,7 @@
         'err_update' => 'Không thể cập nhật thông tin. Vui lòng kiểm tra lại',
         
         // button
+        'add_cart' => 'Thêm vào',
         'login_facebook' => 'Đăng nhập bằng Facebook',
         'login_google' => 'Đăng nhập bằng Google',
         'send_request' => 'Gửi yêu cầu',
@@ -99,6 +106,7 @@
         'edit' => 'Chỉnh sửa',
         'save' => 'Lưu',
         'update' => 'Cập nhật',
-        'delete_product' => 'Xóa sản phẩm'
+        'delete_product' => 'Xóa sản phẩm',
+        'btn_ratings' => 'Đánh giá mới',
     ]
 ?>  
