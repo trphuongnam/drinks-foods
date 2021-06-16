@@ -92,6 +92,8 @@
         'user_not_ratings' => 'Bạn chưa có đánh giá',
         'err_rating' => 'Vui lòng đăng nhập để đánh giá sản phẩm',
         'thank_rating' => 'Cám ơn bạn đã đánh giá sản phẩm',
+        'err_add_cart' => '{1} Vui lòng đăng nhập để thêm sản phẩm vào giỏ|{2} Lỗi khi tạo đơn hàng. Vui lòng thử lại',
+        'success_add_cart' => 'Đã thêm sản phẩm vào giỏ',
         'filter_product' => 'Lọc sản phẩm',
         'search' => 'Tìm kiếm',
         'rating'=> 'Đánh giá',

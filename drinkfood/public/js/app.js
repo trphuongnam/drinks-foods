@@ -142,3 +142,34 @@ function requestAjaxRating(stars)
             $("#star_rating").css("display","none");
         });
 }
+
+/* Begin: Function ajax handling add product to cart */
+function addCart(uidProduct)
+{
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/Php_nam_P1/drinkfood/public/cart",
+        dataType:"text",
+        data: {
+            'uidProduct':uidProduct
+        }
+    }).done(function( msg ) {
+        var objMessage = JSON.parse(msg);
+
+        /* Create div display message from server return */
+        messageElement = "<div class='message_alert warning'><i class='far fa-times-circle'>&nbsp;&nbsp;</i>"+objMessage.message+"</div>";
+        if(objMessage.status == 1) messageElement = "<div class='message_alert success'><i class='far fa-check-circle'>&nbsp;&nbsp;</i>"+objMessage.message+"</div>";
+        
+        /* Set time after 3s remove div message */
+        $('body').append(messageElement);
+        setTimeout(function(){ 
+            $(".message_alert").remove();
+        }, 3000);
+    });
+}
+/* Begin: Function ajax handling add product to cart */

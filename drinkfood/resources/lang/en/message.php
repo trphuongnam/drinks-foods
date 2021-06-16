@@ -94,6 +94,8 @@
         'user_not_ratings' => 'You have no reviews yet',
         'err_rating' => 'Please login to rate this product',
         'thank_rating' => 'Thank you for rating the product',
+        'err_add_cart' => '{1} Vui lòng đăng nhập để thêm sản phẩm vào giỏ|{2} Lỗi khi tạo đơn hàng. Vui lòng thử lại',
+        'success_add_cart' => 'Product added to cart',
         'filter_product' => 'Filter products',
         'search' => 'Search',
         'rating'=> 'Rating',
