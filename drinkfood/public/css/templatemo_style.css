@@ -25,7 +25,11 @@ p {
 	margin: 0px;
 	padding: 0px;
 }
-
+.blank_page{
+	height: 280px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 .error{
 	color: #ff9a00;
 	font-style: italic;
@@ -342,6 +346,12 @@ img {
 	margin-bottom: 20px;
 }
 
+#templatemo_content_right .templatemo_product_box:hover {
+	box-shadow: rgb(239 219 219 / 10%) 0px 0px 20px;
+	z-index: 1;
+	background: rgb(239 219 219 / 10%);
+}
+
 .templatemo_product_box:nth-child(2n+1)
 {
 	margin-right: 20px;
@@ -532,6 +542,14 @@ img {
     float: left;
     display: table;
     box-sizing: border-box;
+}
+
+select#rating_filter{
+    color: yellow !important;
+    font-weight: 900;
+}
+.input_filter{
+	margin-bottom: 10px;
 }
 /* end of content */
 
@@ -828,7 +846,7 @@ img {
 		height: auto;
 		padding: 10px 0px;
 	}
-
+	
 	.info_product{
 		width:100%;
 		padding: 0 0 0 0px !important;

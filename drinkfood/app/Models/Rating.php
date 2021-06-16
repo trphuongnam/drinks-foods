@@ -25,11 +25,6 @@ class Rating extends Model
         return $this->belongsTo("App\Models\Product", "id_product", "id");
     }
 
-    protected function scopeGetRatingProduct($idProduct)
-    {
-        return Rating::where("id_product", $idProduct)->get();
-    }
-
     protected function scopeGetStarUserRating($idProduct, $idCurrentUser)
     {
         return Rating::where(["id_product"=>$idProduct, "id_user"=>$idCurrentUser])->value("star");

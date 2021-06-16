@@ -45,6 +45,12 @@ function showCategory()
     return Category::where("status", 1)->get();
 }
 
+/* Show category name in title bar */
+function showCategroryTitle($typeCat)
+{
+    $arrayTypeCat = [''=>__('message.all'), '1'=>__('message.foods'), '2'=>__('message.drinks')];
+    return " <i class='fas fa-arrow-right'></i> <a href='".url('/product').'/'.$typeCat."'>".$arrayTypeCat[$typeCat]."</a>";
+}
 
 /* Begin: Function check image product */
 function productImage($image)
@@ -54,4 +60,55 @@ function productImage($image)
 }
 /* End: Function check image product */
 
+/* Function add params to link paginate */
+function addParamsLinkPaginate()
+{
+    $paramFilter = "";
+    if(request()->filled('search')) $paramFilter .= "&search=".request()->search;
+    if(request()->filled('order')) $paramFilter .= "&order=".request()->order;
+    if(request()->filled('price_start')) $paramFilter .= "&price_start=".request()->price_start;
+    if(request()->filled('price_end')) $paramFilter .= "&price_end=".request()->price_end;
+    if(request()->filled('rating')) $paramFilter .= "&rating=".request()->rating;
+    return $paramFilter;
+}
+
+/* Function show selectbox choose order */
+function showSelectBoxOrder($orderParam)
+{
+    $arrayOrderOption = [
+        1 => "&#xf15d;&nbsp;&nbsp; A-Z",
+        2 => "&#xf0de;&nbsp;&nbsp;".trans_choice('message.filter_type', 2),
+        3 => "&#xf0dd;&nbsp;&nbsp;".trans_choice('message.filter_type', 3),
+    ];
+
+    $optionOrder = "";
+    for($i = 1; $i <= 3; $i++)
+    {
+        if($orderParam == $i) $selected = "selected";
+        else $selected = "";
+        $optionOrder .= "<option value='".$i."' $selected>$arrayOrderOption[$i]</option>";
+    }
+    return $optionOrder;
+}
+
+/* Function show selectbox choose star rating of filter bar */
+function showSelectBoxRatingFilter($ratingParam)
+{
+    $arrayStarOption = [
+        1 => "&#xf006; &#xf006; &#xf006; &#xf006; &#xf005;",
+        2 => "&#xf006; &#xf006; &#xf006; &#xf005; &#xf005;",
+        3 => "&#xf006; &#xf006; &#xf005; &#xf005; &#xf005;",
+        4 => "&#xf006; &#xf005; &#xf005; &#xf005; &#xf005;",
+        5 => "&#xf005; &#xf005; &#xf005; &#xf005; &#xf005;",
+    ];
+
+    $optionRating = "";
+    for($i = 5; $i >= 1; $i--)
+    {
+        if($ratingParam == $i) $selected = "selected";
+        else $selected = "";
+        $optionRating .= "<option value='".$i."' $selected>$arrayStarOption[$i]</option>";
+    }
+    return $optionRating;
+}
 ?>

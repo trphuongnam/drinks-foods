@@ -14,7 +14,7 @@ class HomeController extends Controller
                             ->join("categories", "categories.id", "=", "products.id_cat")
                             ->select("products.*", "categories.uid as uid_cat", "categories.url_key as cat_url_key")
                             ->orderBy("id", "DESC")->get();
-        return view('public.pages.home', ['products'=>$products]);
+        return view('public.pages.home', ['products'=>$products, 'cat_key'=>'']);
     }
 
     function language($lang)

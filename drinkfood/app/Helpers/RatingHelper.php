@@ -1,27 +1,17 @@
 <?php
 use App\Models\Rating;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 function showRating($idProduct)
 {
-    $productRatings = Rating::scopeGetRatingProduct($idProduct);
-        
-    $totalRatings = 0;
-    $averageRating = 0;
-    $starsElement = "";
-
+    $productRatings = Product::scopeRatingProduct($idProduct);
+    
     /* Check if ratings of product */
-    if(count($productRatings) > 0)
+    $starsElement = "";
+    if($productRatings != null)
     {
-        for($i = 0; $i < count($productRatings); $i++)
-        {
-            $totalRatings += $productRatings[$i]["star"];
-        }
-
-        /* Average rating of product */
-        $averageRating = round($totalRatings/count($productRatings));
-
-        for($star = 1; $star <= $averageRating; $star++)
+        for($star = 1; $star <= $productRatings; $star++)
         {
             $starsElement .= "<i class='fas fa-star rating'></i>";
         }
