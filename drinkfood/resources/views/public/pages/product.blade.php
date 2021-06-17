@@ -30,7 +30,7 @@
                     <div class="rating">
                         {!!showRating($product->id)!!}
                     </div>
-                    <div class="buy_now_button"><a href="#">{{ trans('message.add_cart') }}</a></div>
+                    <div class="buy_now_button"><a href="javascript:void(0)" id="btn_add_cat_{{$product->uid}}" onclick="addCart('{{$product->uid}}')">{{ trans('message.add_cart') }}</a></div>
                     <div class="detail_button"><a href="{{url('/product'.'/'.$product->cat_url_key.'-'.$product->uid_cat.'/'.$product->url_key.'-'.$product->uid)}}">{{ trans('message.detail') }}</a></div>
                 </div>
                 <div class="cleaner">&nbsp;</div>
@@ -41,7 +41,7 @@
           @endforeach
         @else
             <div class="blank_page" style="background-image:url({{asset('images/icons/product_not_found.png')}})"></div>
-        @endif
+            @endif
     </div>
     {{-- End: product box --}}
     
@@ -51,5 +51,4 @@
 {{-- Begin: paginate bar --}}
 {{ $products->links("public.layouts.elements.paginate_bar") }}
 {{-- End: paginate bar --}}
-
 @endsection

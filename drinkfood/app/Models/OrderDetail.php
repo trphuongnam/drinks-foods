@@ -10,6 +10,15 @@ class OrderDetail extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = [
+        'id_order',
+        'id_product',
+        'quantity',
+        'unit_price',
+        'uid',
+        'url_key'
+    ];
+
     public function order()
     {
         return $this->belongsTo("App\Models\Order", "id_order", "id");

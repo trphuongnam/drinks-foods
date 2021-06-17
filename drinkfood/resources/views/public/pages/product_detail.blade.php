@@ -36,7 +36,7 @@
                 <a href="javascript:void(0)" id="btn_ratings">{{ trans('message.btn_ratings') }}</a>
             </li>
         </ul>
-        <div class="buy_now_button"><a href="#"><i class="fas fa-cart"></i>{{ trans('message.order') }}</a></div>
+        <div class="buy_now_button"><a href="javascript:void(0)" id="btn_add_cat_{{$productDetail[0]->uid}}" onclick="addCart('{{$productDetail[0]->uid}}')">{{ trans('message.add_cart') }}</a></div>
         <p>{{$productDetail[0]->description}} </p>
 
         {{-- Button share social network --}}

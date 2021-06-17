@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateProductsTable extends Migration
+class EditOrderDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class UpdateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer("stars")->after("type")->nullable()->change();
+        Schema::table('order_details', function (Blueprint $table) {
+            $table->renameColumn('total', 'quantity');
+            $table->renameColumn('amount', 'unit_price');
         });
     }
 
