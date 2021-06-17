@@ -565,8 +565,11 @@ img {
 .order_bar_right{
 	width: 30%;
     float: left;
-    display: table;
+    display: flex;
     box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 select#rating_filter{
@@ -625,6 +628,64 @@ select#rating_filter{
   }
 /* Loading css */
 
+/* Loading 2 */
+@keyframes ldio-kuo96gb6c4 {
+	0% { transform: rotate(0) }
+	100% { transform: rotate(360deg) }
+  }
+  .ldio-kuo96gb6c4 div { box-sizing: border-box!important }
+  .ldio-kuo96gb6c4 > div {
+	position: absolute;
+	width: 144px;
+	height: 144px;
+	top: 28px;
+	left: 28px;
+	border-radius: 50%;
+	border: 16px solid #000;
+	border-color: #fe718d transparent #fe718d transparent;
+	animation: ldio-kuo96gb6c4 1s linear infinite;
+  }
+  .ldio-kuo96gb6c4 > div:nth-child(2) { border-color: transparent }
+  .ldio-kuo96gb6c4 > div:nth-child(2) div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: rotate(45deg);
+  }
+  .ldio-kuo96gb6c4 > div:nth-child(2) div:before, .ldio-kuo96gb6c4 > div:nth-child(2) div:after { 
+	content: "";
+	display: block;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	top: -16px;
+	left: 48px;
+	background: #fe718d;
+	border-radius: 50%;
+	box-shadow: 0 128px 0 0 #fe718d;
+  }
+  .ldio-kuo96gb6c4 > div:nth-child(2) div:after { 
+	left: -16px;
+	top: 48px;
+	box-shadow: 128px 0 0 0 #fe718d;
+  }
+  .loadingio-spinner-dual-ring-w43m9acj56m {
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	overflow: hidden;
+	background: none;
+  }
+  .ldio-kuo96gb6c4 {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform: translateZ(0) scale(1);
+	backface-visibility: hidden;
+	transform-origin: 0 0; /* see note above */
+  }
+  .ldio-kuo96gb6c4 div { box-sizing: content-box; }
+/* Loading 2 */
 /* Css for tablet */
 @media only screen and (min-width: 601px) and (max-width: 1000px) {
 	

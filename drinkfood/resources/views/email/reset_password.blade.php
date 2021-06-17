@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Email thông báo cập nhật mật khẩu</title>
+    <title>{{ trans_choice('message.email_title', 2) }}</title>
 
     <style>
         *{
@@ -36,7 +36,7 @@
 <body>
     <div id="wrapper">
         <h1>Drinks & Foods</h1>
-        <h3>{{ trans('message.title_mail_reset_pass') }}</h3>
+        <h3>{{ trans_choice('message.email_title', 2) }}</h3>
         <p class="content_mail">
             {{ trans('message.fullname') }}: <span class="text_info">{{$user_info['fullname']}}</span> <br>
             {{ trans('message.email') }}: <span class="text_info">{{$user_info['email']}}</span> <br>

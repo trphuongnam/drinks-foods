@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Public\HomeController;
+use App\Http\Controllers\Public\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,7 +47,12 @@ Route::group(['middleware' => 'language'], function()
     Route::resource('user', 'App\Http\Controllers\Public\ProfileUserController')->only(['index', 'edit', 'update']);
 
     /* Route cart */
-    Route::resource('cart', 'App\Http\Controllers\Public\CartController');
+    Route::resource('cart', 'App\Http\Controllers\Public\CartController')->only(['index', 'store', 'show', 'destroy']);
+    Route::post('cart/{uidProduct}', 'App\Http\Controllers\Public\CartController@removeProduct')->name('cart.removeProduct');
+    Route::post('cart/order/set_session', 'App\Http\Controllers\Public\CartController@setSession')->name('cart.setSession');
+
+    /* Route order */
+    Route::resource('order', 'App\Http\Controllers\Public\OrderController')->only('store', 'destroy');
 
     /* Route ratings product */
     Route::post('ratings', 'App\Http\Controllers\Public\RatingController@storeRatings');

@@ -73,8 +73,21 @@ class Product extends Model
           ->get();
     }
 
+    protected function scopeGetInfoProductCart($idProduct)
+    {
+        return Product::where("products.id", $idProduct)
+          ->join('categories', 'categories.id', 'products.id_cat')
+          ->select("products.*", "categories.name as cat_name", "categories.url_key as cat_url_key", "categories.uid as uid_cat")      
+          ->get()->toArray();
+    }
+
     protected function scopeRatingProduct($idProduct)
     {
         return Product::where("id", $idProduct)->value("stars");
+    }
+
+    protected function scopeGetNameProduct($idProduct)
+    {
+        return Product::where("id", $idProduct)->value("name");
     }
 }

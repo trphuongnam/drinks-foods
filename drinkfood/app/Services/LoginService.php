@@ -120,7 +120,7 @@ Class LoginService
             /* End:if($UserGoogleData == null) */    
             
         } catch (\Exception $e) {
-            session()->flash('err_exception', trans('message.err_exception').$e);
+            session()->flash('err_exception', trans('message.err_exception'));
             return redirect()->route('sign_in.index');
         }
     }

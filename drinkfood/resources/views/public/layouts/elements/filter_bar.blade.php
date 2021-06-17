@@ -30,6 +30,6 @@
           {!!showSelectBoxRatingFilter(request()->rating)!!}
         </select>
       </div>
-      <button type="submit" class="btn">{{ trans('message.accept') }}</button>
+      <button data-pjax type="submit" class="btn">{{ trans('message.accept') }}</button>
     </form>
 </div>

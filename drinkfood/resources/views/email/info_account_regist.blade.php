@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Email xác nhận thông tin đăng ký</title>
+    <title>{{ trans_choice('message.email_title', 3) }}</title>
 
     <style>
         *{
@@ -36,7 +36,7 @@
 <body>
     <div id="wrapper">
         <h1>Drinks & Foods</h1>
-        <h3>Xác Nhận Thông Tin Đăng Ký</h3>
+        <h3>{{ trans_choice('message.email_title', 3) }}</h3>
         <p class="content_mail">           
             Tên: <span class="text_info">{{$user_infos['name']}}</span> <br>
             Email: <span class="text_info">{{$user_infos['email']}}</span> <br>
