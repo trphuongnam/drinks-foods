@@ -1,9 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Session;
 use App\Models\Product;
+use App\Models\User;
 
 /* Function show profile link and button logout in menu */
 function showProfileLink()
@@ -115,7 +117,7 @@ function showSelectBoxRatingFilter($ratingParam)
     return $optionRating;
 }
 
-/* Function return amount and quantity of product */
+/* Function return amount and quantity of product in cart*/
 $GLOBALS['arrayAmountProduct'] = [];
 function calcAmountProduct($unitPrice, $idOrder, $idProduct, $uidProduct)
 {
@@ -131,6 +133,7 @@ function calcAmountProduct($unitPrice, $idOrder, $idProduct, $uidProduct)
     return $amountProduct;
 }
 
+/* Function get quantity of product */
 function getQuantity($idOrder, $idProduct, $uidProduct)
 {
     if(Session::has($uidProduct))
@@ -152,6 +155,7 @@ function calcTotalOrder()
     return $totalOrder;
 }
 
+/* Function get name product */
 function getNameProduct($idProduct)
 {
     return Product::scopeGetNameProduct($idProduct);
@@ -175,4 +179,35 @@ function showContentEmail($detailOrder)
     return $rowTable;
 }
 
+/* Function get historyOrder */
+function getHistoryOrder($idUser)
+{
+    return Order::scopeGetHistoryOrder($idUser);
+}
+
+function formatCurrency($currency)
+{
+    return number_format($currency, 0, ',', '.')." VND";
+}
+
+/* Function change color text with status */
+function changeColorStatus($status){
+    switch ($status) {
+        case 1:
+            return "black";
+            break;
+        case 2:
+            return "blue";
+            break;
+        case 3:
+            return "orange";
+            break;
+        case 4:
+            return "green";
+            break;
+        default:
+            return "red";
+            break;
+    }
+}
 ?>

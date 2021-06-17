@@ -10,6 +10,7 @@
         'contact' => 'Contact',
         'user_info' => 'User information',
         'edit_profile' => 'Edit profile',
+        'order_detail' => 'Order detail',
 
         // Element website
         'slogant' => 'The most prestigious ordering website in Da Nang',
@@ -96,7 +97,7 @@
         'user_not_ratings' => 'You have no reviews yet',
         'err_rating' => 'Please login to rate this product',
         'thank_rating' => 'Thank you for rating the product',
-        'err_add_cart' => '{1} Vui lòng đăng nhập để thêm sản phẩm vào giỏ|{2} Lỗi khi tạo đơn hàng. Vui lòng thử lại',
+        'err_add_cart' => '{1} Please login to add products to your cart|{2} Error creating order. Please try again',
         'success_add_cart' => 'Product added to cart',
         'filter_product' => 'Filter products',
         'search' => 'Search',
@@ -108,8 +109,11 @@
         'choose_sort_order' => 'Choose sort order',
         'delete_product_order_error' => 'Error when deleting product',
         'delete_product_order_success' => 'Delete product successfully',
-        'status_order' => '{0} Unfinished |{1} Awaiting Processing |{2} Processed |{3} On Delivery |{4} Completed |{5} Cancelled',
+        'status_order' => '{0} Unfinished |{1} Waiting for accept |{2} Accepted - Processing |{3} On Delivery |{4} Completed |{5} Cancelled',
         'error_order' => 'There was an error placing the order. Please try again',
+        'delete_cart_success' => 'Deleted cart',
+        'delete_cart_error' => 'Can\'t delete cart, Please try again',
+        'delete_order' => '{1} Delete order success |{2} Can\'n delete order',
 
         /* Send email */
         'send_mail_success' => 'Information has been sent to your email. Please check your email again',

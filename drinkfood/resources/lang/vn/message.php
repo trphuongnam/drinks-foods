@@ -10,6 +10,7 @@
         'contact' => 'Liên hệ',
         'user_info' => 'Thông tin người dùng',
         'edit_profile' => 'Chỉnh sửa thông tin',
+        'order_detail' => 'Chi tiết đơn hàng',
 
         // Website element
         'slogant' => 'Website đặt hàng uy tín nhất Đà Nẵng',
@@ -106,8 +107,11 @@
         'choose_sort_order' => 'Thứ tự sắp xếp',
         'delete_product_order_error' => 'Lỗi khi xóa sản phẩm',
         'delete_product_order_success' => 'Xóa sản phẩm thành công',
-        'status_order' => '{0} Chưa hoàn tất |{1} Đang Chờ Xử Lý |{2} Đã Xử Lý |{3} Đang Giao Hàng |{4} Hoàn Tất |{5} Đã Hủy',
+        'status_order' => '{0} Chưa hoàn tất |{1} Đang Chờ Xác Nhận |{2} Đã Xác Nhận - Đang Xử Lý |{3} Đang Giao Hàng |{4} Hoàn Tất |{5} Đã Hủy',
         'error_order' => 'Có lỗi khi đặt đơn hàng. Vui lòng thử lại',
+        'delete_cart_success' => 'Xóa giỏ hàng thành công',
+        'delete_cart_error' => 'Không thể xóa giỏ hàng. Vui lòng thử lại',
+        'delete_order' => '{1} Xóa đơn hàng thành công |{2} Không thể xóa đơn hàng',
         
         /* Send email */
         'send_mail_success' => 'Thông tin đã được gửi đến email của bạn. Vui lòng kiểm tra lại email của bạn',

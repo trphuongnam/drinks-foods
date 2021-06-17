@@ -45,7 +45,7 @@
             </ul>
             <div class="order_bar_right">
                 <a href="javascript:void(0)" id="btn_accept_order" class="btn btn_green" onclick="accept_order({{$idOrder}})"><i class="fas fa-shipping-fast">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.order') }}</a>
-                <a href="javascript:void(0)" id="btn_cancel_order" class="btn btn_red"><i class="fas fa-window-close">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.cancel') }}</a>
+                <a href="javascript:void(0)" id="btn_cancel_order" class="btn btn_red" onclick="destroy_cart({{$idOrder}})"><i class="fas fa-window-close">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.cancel') }}</a>
             </div> 
         </div>
         {{-- End: Total bar --}}
