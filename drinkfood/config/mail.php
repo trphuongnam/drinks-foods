@@ -14,7 +14,6 @@ return [
     */
 
     'default' => env('MAIL_MAILER', 'smtp'),
-
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
@@ -88,6 +87,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'bccmail' => env('MAIL_BCC'),
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

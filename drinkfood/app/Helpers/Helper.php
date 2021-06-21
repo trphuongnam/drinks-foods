@@ -1,6 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
+use App\Models\OrderDetail;
+use Illuminate\Support\Facades\Session;
+use App\Models\Product;
 
 /* Function show profile link and button logout in menu */
 function showProfileLink()
@@ -111,4 +114,65 @@ function showSelectBoxRatingFilter($ratingParam)
     }
     return $optionRating;
 }
+
+/* Function return amount and quantity of product */
+$GLOBALS['arrayAmountProduct'] = [];
+function calcAmountProduct($unitPrice, $idOrder, $idProduct, $uidProduct)
+{
+    if(Session::has($uidProduct))
+    {
+        $productInfo = Session::get($uidProduct);
+        $amountProduct = $productInfo['amountProduct'];
+    }else{
+        $quantityProduct = OrderDetail::scopeQuantityProduct($idOrder, $idProduct);
+        $amountProduct = $unitPrice*$quantityProduct;
+    }
+    array_push($GLOBALS['arrayAmountProduct'], $amountProduct);
+    return $amountProduct;
+}
+
+function getQuantity($idOrder, $idProduct, $uidProduct)
+{
+    if(Session::has($uidProduct))
+    {
+        $productInfo = Session::get($uidProduct);
+        return $productInfo['quantity'];
+    }
+    return OrderDetail::scopeQuantityProduct($idOrder, $idProduct);
+}
+
+/* Function calc total order */
+function calcTotalOrder()
+{
+    $totalOrder = 0;
+    for($i = 0; $i < count($GLOBALS['arrayAmountProduct']); $i++)
+    {
+        $totalOrder += $GLOBALS['arrayAmountProduct'][$i];
+    }
+    return $totalOrder;
+}
+
+function getNameProduct($idProduct)
+{
+    return Product::scopeGetNameProduct($idProduct);
+}
+
+function showContentEmail($detailOrder)
+{
+    $numOrder = 0;
+    $rowTable = "";
+    for ($i = 0; $i < count($detailOrder); $i++) { 
+        $numOrder++;
+        $idProduct = $detailOrder[$i]['id_product'];
+        $quantity = $detailOrder[$i]['quantity'];
+        $unitPrice = number_format($detailOrder[$i]['unit_price'], 0, ',', '.')." VND";
+        $amountProduct = number_format($detailOrder[$i]['unit_price']*$detailOrder[$i]['quantity'], 0, ',', '.')." VND";
+
+        $rowTable .= "<tr class='row_content'><td>".$numOrder."</td><td>".getNameProduct($idProduct)."</td>
+            <td>".$quantity."</td><td>".$unitPrice."</td>
+            <td>".$amountProduct."</td></tr>";
+    }
+    return $rowTable;
+}
+
 ?>

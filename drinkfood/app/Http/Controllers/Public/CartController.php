@@ -12,6 +12,8 @@ use App\Models\Product;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Public\SendMailController;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -22,7 +24,24 @@ class CartController extends Controller
     
     public function index()
     {
-        return view("public.pages.cart");
+        if(Auth::check() == true)
+        {
+            $idOrder = Order::where([['id_user_created', '=', Auth::user()->id], ['status', '=', 0]])->value('id');
+            $cartDetail = OrderDetail::scopeDetailCart($idOrder);
+            $arrayProduct = [];
+            if(count($cartDetail) > 0)
+            {
+                for($i = 0; $i < count($cartDetail); $i++)
+                {
+                    $productOrder = Product::scopeGetInfoProductCart($cartDetail[$i]->id_product);
+                    array_push($arrayProduct, $productOrder);                    
+                }          
+                return view("public.pages.cart", ['arrayProduct'=>$arrayProduct, 'idOrder'=>$idOrder,'status'=>1]);
+            }else{
+                return view("public.pages.cart", ['arrayProduct'=>$arrayProduct, 'status'=>0]);
+            }
+        }
+        else return redirect()->route('sign_in.index');
     }
 
     /* Function add product to cart */
@@ -107,6 +126,24 @@ class CartController extends Controller
         }else{
             return ['message' => __('message.not_exist_product'), 'status' => 2];
         }  
+    }
+
+    /* Function remove product in the cart */
+    public function removeProduct(Request $req)
+    {
+        $deleteProduct = OrderDetail::where([['id_product','=',$req->idProduct], ['id_order','=',$req->idOrder]])->delete();
+        if($deleteProduct == true)
+        {
+            /* Delete session product saved */
+            $req->session()->forget($req->uidProduct);
+            return ['status'=>true, 'message'=>__('message.delete_product_order_success')];
+        }else return ['status'=>false, 'message'=>__('message.delete_product_order_error')];
+    }
+
+    /* Function set session when user update quantity product in the cart */
+    public function setSession(Request $request)
+    {        
+        return $request->session()->put($request->uidProduct, $request->all());
     }
 
     public function show($id)

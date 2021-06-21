@@ -177,6 +177,7 @@ return [
         App\Providers\LoginServiceProvider::class,
         App\Providers\UploadFileProvider::class,
         App\Providers\ConditionQueryProvider::class,
+        App\Providers\OrderProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 

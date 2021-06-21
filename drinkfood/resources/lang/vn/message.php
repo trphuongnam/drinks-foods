@@ -49,6 +49,7 @@
         'num_order' => 'STT',
         'order_name' => 'Tên đơn hàng',
         'time_order' => 'Thời gian đặt',
+        'product_name' => 'Tên sản phẩm',
         'status' => 'Trạng thái',
         'invoice_print' => 'In hóa đơn',
         'invoice_export' => 'Xuất hóa đơn',
@@ -57,7 +58,8 @@
         'cancelled' => 'Đã hủy',
         'unfulfilled' => 'Chưa thực hiện',
         'status_order' => '{1} Hoàn thành|{2} Đã hủy|{3} Chưa thực hiện',
-        'amount' => 'Số lượng:',
+        'amount' => 'Thành tiền:',
+        'quantity' => 'Số lượng:',
         'total'=>'Tổng cộng:',
         'all' => 'Tất cả',
         'start_price' => 'Giá bắt đầu',
@@ -102,8 +104,17 @@
         'accept'=> 'Áp dụng',
         'choose_price' => 'Sắp xếp giá',
         'choose_sort_order' => 'Thứ tự sắp xếp',
+        'delete_product_order_error' => 'Lỗi khi xóa sản phẩm',
+        'delete_product_order_success' => 'Xóa sản phẩm thành công',
+        'status_order' => '{0} Chưa hoàn tất |{1} Đang Chờ Xử Lý |{2} Đã Xử Lý |{3} Đang Giao Hàng |{4} Hoàn Tất |{5} Đã Hủy',
+        'error_order' => 'Có lỗi khi đặt đơn hàng. Vui lòng thử lại',
         
+        /* Send email */
+        'send_mail_success' => 'Thông tin đã được gửi đến email của bạn. Vui lòng kiểm tra lại email của bạn',
+        'send_mail_error' => 'Lỗi khi gửi email',
+
         /* Email */
+        'email_title' => '{1} XÁC NHẬN THÔNG TIN ĐƠN HÀNG |{2} XÁC NHẬN CẬP NHẬT MẬT KHẨU THÀNH CÔNG |{3} XÁC NHẬN THÔNG TIN ĐĂNG KÝ',
         'attention_reset_pass' => 'Chú ý: Hãy đổi mật khẩu này sau khi cập nhật xong',
         'how_to_login' => 'Cách đăng nhập:',
         'how_to_login_tutorial' => '{1} -Cách 1: Đăng nhập với tài khoản Google hoặc Facebook mà bạn đã đăng ký với chúng tôi.|{2} -Cách 2: Đăng nhập trực tiếp với email và password trên form đăng nhập.',
