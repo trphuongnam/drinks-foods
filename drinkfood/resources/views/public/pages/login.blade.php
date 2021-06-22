@@ -16,31 +16,11 @@
 
     {{-- Begin: form regist--}}
     <div class="form_wrapper">
+        {{-- Show message --}}
+        <span class="error">{{showMessageLogin()}}</span>
+        
         <form action="{{url('/sign_in')}}" method="POST" id="regist_form" class="form">
-            @csrf
-
-            {{-- Begin: Check errors --}}
-            @if (session()->has('err_sign_in'))
-                <span class="error">{{session()->get('err_sign_in')}}</span>
-            @endif
-
-            @if (session()->has('msg_sign_in'))
-                <span class="error">{{session()->get('msg_sign_in')}}</span>
-            @endif
-
-            @if (session()->has('err_exception'))
-                <span class="error">{{session()->get('err_exception')}}</span>
-            @endif
-
-            @if (session()->has('reset_pass_success'))
-                <span class="error">{{session()->get('reset_pass_success')}}</span>
-            @endif
-
-            @if (session()->has('err_rating'))
-                <span class="error">{{session()->get('err_rating')}}</span>
-            @endif
-            {{-- End: Check errors --}}
-            
+            @csrf           
             <div class="form_group">
                 <label for="email" class="title_input">{{ trans('message.email') }}:* </label>
                 <input type="text" name="email" id="email" class="form_input" value="{{old('email')}}">

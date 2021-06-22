@@ -26,7 +26,7 @@ Route::group(['middleware' => 'language'], function()
     Route::get('product/{cat_key}/{product_key?}', 'App\Http\Controllers\Public\ProductController@showDetailProduct');
 
     /* Route regist*/
-    Route::resource('regist', 'App\Http\Controllers\Public\RegistController')->middleware('checkUserLogin');
+    Route::resource('regist', 'App\Http\Controllers\Public\RegistController')->only('index', 'store')->middleware('checkUserLogin');
 
     /* Route sign in & log out*/
     Route::resource('sign_in', 'App\Http\Controllers\Public\LoginController')->only('index', 'store')->middleware('checkUserLogin');
@@ -44,7 +44,7 @@ Route::group(['middleware' => 'language'], function()
     Route::resource('forgot_password', 'App\Http\Controllers\Public\ForgotPasswordController');
     
     /* Route profile user */
-    Route::resource('user', 'App\Http\Controllers\Public\ProfileUserController')->only(['index', 'edit', 'update'])->middleware('checkLoginPublic');
+    Route::resource('user', 'App\Http\Controllers\Public\UserController')->only(['index', 'edit', 'update'])->middleware('checkLoginPublic');
 
     /* Route cart */
     Route::resource('cart', 'App\Http\Controllers\Public\CartController')->only(['index', 'store', 'destroy']);
@@ -57,5 +57,6 @@ Route::group(['middleware' => 'language'], function()
     /* Route ratings product */
     Route::post('ratings', 'App\Http\Controllers\Public\RatingController@storeRatings');
 
+    /* Route export invoice pdf */
     Route::get('/export/invoice/{uidOrder}', 'App\Http\Controllers\PDFExportController@exportInvoice')->middleware('checkLoginPublic');
 });

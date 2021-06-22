@@ -114,6 +114,11 @@
         'delete_cart_success' => 'Deleted cart',
         'delete_cart_error' => 'Can\'t delete cart, Please try again',
         'delete_order' => '{1} Delete order success |{2} Can\'n delete order',
+        'email_exist' => 'Email exist. Please check again',
+        'phone_exist' => 'Phone exist. Please check again',
+        'username_exist' => 'Username exist. Please check again',
+        'regist_user' => '{1} Regist user is success |{2} Can\'t regist user. Please try again.',
+        'update_password' => 'Update password',
 
         /* Send email */
         'send_mail_success' => 'Information has been sent to your email. Please check your email again',
