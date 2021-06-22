@@ -686,6 +686,19 @@ select#rating_filter{
   }
   .ldio-kuo96gb6c4 div { box-sizing: content-box; }
 /* Loading 2 */
+
+/* dialog */
+#dialog{
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    border: 1px solid;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: black;
+    padding: 20px;
+}
 /* Css for tablet */
 @media only screen and (min-width: 601px) and (max-width: 1000px) {
 	
@@ -865,6 +878,10 @@ select#rating_filter{
 	#templatemo_footer {
 		width: 100%;
 	}
+
+	#dialog{
+		width: 80%;
+	}
 }
 
 /* Css for mini smartphone */
@@ -971,5 +988,9 @@ select#rating_filter{
 
 	#templatemo_footer {
 		width: 100%;
+	}
+
+	#dialog{
+		width: 80%;
 	}
 }

@@ -9,6 +9,8 @@ use App\Models\User;
 use App\LibraryStrings\Strings;
 use Illuminate\Support\Str;
 use App\Services\LoginService;
+use App\Http\Controllers\Public\SendMailController;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -20,7 +22,7 @@ class LoginController extends Controller
     public $send_mail_controller;
     function __construct()
     {
-        
+        $this->sendMailController = new SendMailController;
     }
 
     public function index()
@@ -33,7 +35,17 @@ class LoginController extends Controller
     {
         $check_login = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
         if($check_login == true)
-        {
+        {    
+            if($request->session()->has('resend_email_'.Auth::user()->uid))
+            {
+                $information = $request->session()->get('resend_email_'.Auth::user()->uid);
+                try {
+                    $this->sendMailController->sendMailUpdatePassword(Auth::user()->email, $information);
+                    $request->session()->forget($request->session()->get('resend_email_'.Auth::user()->uid));
+                } catch (\Throwable $th) {
+                    Session::put('resend_email_'.Auth::user()->uid, $information);
+                } 
+            }
             return redirect()->route('index');
         }else{
             $request->session()->flash('err_sign_in', trans('message.err_sign_in'));

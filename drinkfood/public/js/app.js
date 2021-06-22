@@ -82,7 +82,6 @@ $(document).ready(function(){
         rating_5();
     });
     /* End: Funtion rating product */
-
 });
 
 /* Begin: Function show menu */

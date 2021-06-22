@@ -37,7 +37,8 @@
             "app/Helpers/RegistHelper.php",
             "app/Helpers/LoginHelper.php",
             "app/Helpers/EmailHelper.php",
-            "app/Helpers/HistoryOrderHelper.php"
+            "app/Helpers/HistoryOrderHelper.php",
+            "app/Helpers/UpdatePasswordHelper.php"
         ]
     },
     "autoload-dev": {

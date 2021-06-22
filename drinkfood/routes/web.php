@@ -45,6 +45,7 @@ Route::group(['middleware' => 'language'], function()
     
     /* Route profile user */
     Route::resource('user', 'App\Http\Controllers\Public\UserController')->only(['index', 'edit', 'update'])->middleware('checkLoginPublic');
+    Route::post('profile/edit_pass', 'App\Http\Controllers\Public\UserController@editPassword')->name('cart.editPassword');
 
     /* Route cart */
     Route::resource('cart', 'App\Http\Controllers\Public\CartController')->only(['index', 'store', 'destroy']);

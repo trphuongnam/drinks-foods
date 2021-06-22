@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Services\UploadFileService;
+use App\Http\Controllers\Public\SendMailController;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\UpdatePasswordRequest;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->sendMailController = new SendMailController;   
+    }
     /* Function show info current user login */
     public function index()
     {
@@ -31,8 +38,8 @@ class UserController extends Controller
     /* Function update profile user */
     public function update(Request $request, UploadFileService $uploadFileService, $uid_user)
     {
-        $userInfo = $request->except(['email', 'showusername', 'showpassword', '_token', '_method']);
-
+        $userInfo = $request->except(['email', 'showusername', 'showpassword', 'newpassword', 'repassword','_token', '_method']);
+        
         /* Check has file upload */
         if($request->hasFile('avatar'))
         { 
@@ -47,5 +54,31 @@ class UserController extends Controller
         
         if($updateInfo) return back();
         else return redirect()->back()->with("err_update", _('message.err_update'));
+    }
+
+    public function editPassword(UpdatePasswordRequest $request)
+    {
+        $newPassword = $request->only('password');
+        $newPassword['password'] = bcrypt($request->password);
+        $updatePassword = User::where('id', Auth::user()->id)->update($newPassword);     
+        
+        /* Create array contain info user */
+        $information = [
+            'fullname' => Auth::user()->fullname,
+            'email' => Auth::user()->email,
+            'password' => $request->password
+        ];
+        
+        if($updatePassword) {
+            try {
+                $this->sendMailController->sendMailUpdatePassword(Auth::user()->email, $information);
+                Auth::logout();
+                return redirect()->route('sign_in.index')->with('reset_pass_success', __('message.reset_pass_success'));
+            } catch (\Throwable $th) {
+                Session::put('resend_email_'.Auth::user()->uid, $information);
+                Auth::logout();
+                return redirect()->route('sign_in.index')->with('reset_pass_success', __('message.reset_pass_success'));
+            }   
+        }else return redirect()->route('user.index')->with("err_update", _('message.err_update'));
     }
 }
