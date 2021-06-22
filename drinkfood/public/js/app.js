@@ -300,7 +300,7 @@ function accept_order(idOrder)
         $('#btn_cancel_order').css('display', 'none');
 
         /* Change button order to loading bar */
-        $(".order_bar_right").append("<div class='loadingio-spinner-dual-ring-w43m9acj56m'><div class='ldio-kuo96gb6c4'><div></div><div><div></div></div>");
+        $(".order_bar_right").append("<div class='lds-dual-ring loadingio-spinner-dual-ring-w43m9acj56m'><div class='ldio-kuo96gb6c4'><div></div><div><div></div></div>");
 
         /* Get all uidProduct move in to array */
         var arrayUidProduct = [];
@@ -338,7 +338,138 @@ function accept_order(idOrder)
             }else{
                 elementMessage = "<div class='message_alert warning'><i class='far fa-check-circle'>&nbsp;&nbsp;</i>"+msg.message+"</div>";
                 $(".lds-dual-ring").remove();
+                $('#btn_accept_order').css('display', 'block');
+                $('#btn_cancel_order').css('display', 'block');
+                $('.btn_del_product').css('display', 'block');
+                $('.quantity').prop("readonly", false);
+            }
 
+            /* Set time after 3s remove div message */
+            $('body').append(elementMessage);
+            setTimeout(function(){ 
+                $(".message_alert").remove();
+            }, 3000);
+        });
+    }
+}
+
+function destroy_order(idOrder)
+{
+    if(!confirm("Do you really want to do this?")) {
+        return false;
+    }else{
+        /* hidden button delete product */
+        $('.btn_del_product').css('display', 'none');
+        $('.quantity').prop("readonly", true);
+        $('#btn_accept_order').css('display', 'none');
+        $('#btn_cancel_order').css('display', 'none');
+
+        /* Change button order to loading bar */
+        $(".order_bar_right").append("<div class='lds-dual-ring loadingio-spinner-dual-ring-w43m9acj56m'><div class='ldio-kuo96gb6c4'><div></div><div><div></div></div>");
+
+        /* Get all uidProduct move in to array */
+        var arrayUidProduct = [];
+        $(".product_cart").each(function (index, value) {
+            arrayUidProduct.push($(this).attr('id'));
+        });
+
+        /* Call ajax function to destroy function in server */
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/Php_nam_P1/drinkfood/public/cart/"+idOrder,
+            type: 'delete',
+            dataType: 'text',
+            data: {
+                "arrayUidProduct": arrayUidProduct,
+            }
+        }).done(function(msg){
+            objMsg = JSON.parse(msg)
+            if(objMsg.status == true)
+            {
+                // 1 Remove all current products
+                $(".product_cart").remove();
+                // 2 Update num product in title bar
+                $(".total_product").html('(0 Sản phẩm)');
+                $(".total_price").html('0 VND');
+                $(".total_price").attr('data', 0);
+
+                elementMessage = "<div class='message_alert success'><i class='far fa-check-circle'>&nbsp;&nbsp;</i>"+objMsg.message+"</div>";
+                $(".order_bar_right").html("<img src='https://img.icons8.com/emoji/100/000000/check-box-with-check-emoji.png'/>");
+            }else{
+                elementMessage = "<div class='message_alert warning'><i class='far fa-check-circle'>&nbsp;&nbsp;</i>"+objMsg.message+"</div>";
+                $(".lds-dual-ring").remove();
+                $('#btn_accept_order').css('display', 'block');
+                $('#btn_cancel_order').css('display', 'block');
+                $('.btn_del_product').css('display', 'block');
+                $('.quantity').prop("readonly", false);
+            }
+
+            /* Set time after 3s remove div message */
+            $('body').append(elementMessage);
+            setTimeout(function(){ 
+                $(".message_alert").remove();
+            }, 3000);
+        });
+    }
+}
+
+function destroy_cart(idOrder)
+{
+    if(!confirm("Do you really want to do this?")) {
+        return false;
+    }else{
+        /* hidden button delete product */
+        $('.btn_del_product').css('display', 'none');
+        $('.quantity').prop("readonly", true);
+        $('#btn_accept_order').css('display', 'none');
+        $('#btn_cancel_order').css('display', 'none');
+
+        /* Change button order to loading bar */
+        $(".order_bar_right").append("<div class='loading_spin loadingio-spinner-dual-ring-w43m9acj56m'><div class='ldio-kuo96gb6c4'><div></div><div><div></div></div>");
+
+        /* Get all uidProduct move in to array */
+        var arrayUidProduct = [];
+        $(".product_cart").each(function (index, value) {
+            if (typeof $(this).attr('id') !== 'undefined' && $(this).attr('id') !== false) {
+                arrayUidProduct.push($(this).attr('id'));
+            }
+        });
+
+        /* Call ajax function to destroy function in server */
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/Php_nam_P1/drinkfood/public/cart/"+idOrder,
+            type: 'delete',
+            dataType: 'text',
+            data: {
+                "arrayUidProduct": arrayUidProduct,
+            }
+        }).done(function(msg){
+            console.log(msg);
+            objMsg = JSON.parse(msg)
+            if(objMsg.status == true)
+            {
+                // 1 Remove all current products
+                $(".product_cart").remove();
+                // 2 Update num product in title bar
+                $(".total_product").html('(0 Sản phẩm)');
+                $(".total_price").html('0 VND');
+                $(".total_price").attr('data', 0);
+
+                elementMessage = "<div class='message_alert success'><i class='far fa-check-circle'>&nbsp;&nbsp;</i>"+objMsg.message+"</div>";
+                $(".order_bar_right").html("<img src='https://img.icons8.com/emoji/100/000000/check-box-with-check-emoji.png'/>");
+            }else{
+                console.log(objMsg.exception)
+                elementMessage = "<div class='message_alert warning'><i class='far fa-check-circle'>&nbsp;&nbsp;</i>"+objMsg.message+"</div>";
+                $(".loading_spin").remove();
                 $('#btn_accept_order').css('display', 'block');
                 $('#btn_cancel_order').css('display', 'block');
                 $('.btn_del_product').css('display', 'block');

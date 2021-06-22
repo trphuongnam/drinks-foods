@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     protected $fillable = [
         'name',
         'id_user_created',
@@ -24,5 +27,10 @@ class Order extends Model
     public function order_detail()
     {
         return $this->hasMany("App\Models\OrderDetail", "id_order", "id");
+    }
+
+    protected function scopeGetHistoryOrder($idUser)
+    {
+        return Order::orderBy('id', 'desc')->with('order_detail')->where('id_user_created', $idUser)->paginate(5);
     }
 }

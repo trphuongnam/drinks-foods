@@ -38,4 +38,9 @@ class OrderDetail extends Model
     {
         return OrderDetail::where([['id_order', '=', $idOrder], ['id_product', '=', $idProduct]])->value('quantity');
     }
+
+    protected function scopGetDetailOrder($idOrder)
+    {
+        return OrderDetail::where('id_order', $idOrder)->get();
+    }
 }
