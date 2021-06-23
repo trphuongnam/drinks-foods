@@ -1,0 +1,19 @@
+.box_img{
+    height: auto;
+}
+.img_form{
+    width: 100px;
+}
+.box_detail
+{
+    z-index: 100;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content{
+    background-color: cornsilk !important;
+    color: darkslategray !important;
+}

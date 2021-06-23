@@ -11,6 +11,7 @@
         'user_info' => 'User information',
         'edit_profile' => 'Edit profile',
         'order_detail' => 'Order detail',
+        'website_manager' => 'Wesite manager',
 
         // Element website
         'slogant' => 'The most prestigious ordering website in Da Nang',

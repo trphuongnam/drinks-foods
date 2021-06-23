@@ -11,6 +11,7 @@
         'user_info' => 'Thông tin người dùng',
         'edit_profile' => 'Chỉnh sửa thông tin',
         'order_detail' => 'Chi tiết đơn hàng',
+        'website_manager' => 'Quản trị website',
 
         // Website element
         'slogant' => 'Website đặt hàng uy tín nhất Đà Nẵng',

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\OrderController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::group(['middleware' => 'language'], function()
 {
     Route::get('/language/{lang}', [HomeController::class, 'language'])->name('language');
     
+    /* Begin: Route public */
     /* Route home page */
     Route::resource('/', 'App\Http\Controllers\Public\HomeController');
     
@@ -60,4 +62,15 @@ Route::group(['middleware' => 'language'], function()
 
     /* Route export invoice pdf */
     Route::get('/export/invoice/{uidOrder}', 'App\Http\Controllers\PDFExportController@exportInvoice')->middleware('checkLoginPublic');
+    /* End: Route Public */
+
+    /* Route admin */
+    Route::resource('login', 'App\Http\Controllers\Admin\LoginController');
+    Route::get('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
+    Route::prefix('/admin')->middleware('CheckLoginAdmin')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.dashboard');
+
+        /* Route manager product */
+        Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');
+    });
 });
