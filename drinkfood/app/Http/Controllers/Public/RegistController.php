@@ -4,82 +4,53 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\LibraryStrings\Strings;
+use Illuminate\Support\Str;
 
 class RegistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->strings = new Strings;
+    }
+    
     public function index()
     {
         return view('public.pages.regist');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        return ("Đăng ký thành viên thành công");
-    }
+        $rules = [
+            'email' => 'unique:users,email',
+            'phone' => 'unique:users,phone',
+            'username' => 'unique:users,username'
+        ];
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $messages = [
+            'email.unique' => __('message.email_exist'),
+            'phone.unique' => __('message.phone_exist'),
+            'username.unique' => __('message.username_exist')
+        ];
+        $validate = $request->validate($rules, $messages);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if($validate == true)
+        {
+            $infoRegistUser = $request->except(['re_password']);
+            $infoRegistUser['password'] = bcrypt($request->password);
+            $infoRegistUser['uid'] = $this->strings->rand_string();
+            $infoRegistUser['url_key'] = Str::slug($request->fullname);
+    
+            $registUser = User::create($infoRegistUser);
+            if($registUser)
+            {
+                $request->session()->flash('regist_success', trans_choice('message.regist_user', 1));
+                return redirect()->route('sign_in.index');
+            }else{
+                $request->session()->flash('regist_errors', trans_choice('message.regist_user', 2));
+                return redirect()->route('regist.index')->withInput();
+            }
+        }
     }
 }

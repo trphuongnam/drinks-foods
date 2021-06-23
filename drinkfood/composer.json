@@ -33,7 +33,11 @@
         "files": [
             "app/Helpers/Helper.php",
             "app/Helpers/UserHelper.php",
-            "app/Helpers/RatingHelper.php"
+            "app/Helpers/RatingHelper.php",
+            "app/Helpers/RegistHelper.php",
+            "app/Helpers/LoginHelper.php",
+            "app/Helpers/EmailHelper.php",
+            "app/Helpers/HistoryOrderHelper.php"
         ]
     },
     "autoload-dev": {

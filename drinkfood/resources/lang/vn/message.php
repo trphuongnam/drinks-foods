@@ -112,7 +112,12 @@
         'delete_cart_success' => 'Xóa giỏ hàng thành công',
         'delete_cart_error' => 'Không thể xóa giỏ hàng. Vui lòng thử lại',
         'delete_order' => '{1} Xóa đơn hàng thành công |{2} Không thể xóa đơn hàng',
-        
+        'email_exist' => 'Email đã tồn tại. Vui lòng kiểm tra lại',
+        'phone_exist' => 'Số điện thoại đã tồn tại. Vui lòng kiểm tra lại',
+        'username_exist' => 'Tên người dùng đã tồn tại. Vui lòng kiểm tra lại',
+        'regist_user' => '{1} Đăng ký người dùng thành công |{2} Không thể đăng ký người dùng. Vui lòng thử lại',
+        'update_password' => 'Cập nhật mật khẩu',
+
         /* Send email */
         'send_mail_success' => 'Thông tin đã được gửi đến email của bạn. Vui lòng kiểm tra lại email của bạn',
         'send_mail_error' => 'Lỗi khi gửi email',

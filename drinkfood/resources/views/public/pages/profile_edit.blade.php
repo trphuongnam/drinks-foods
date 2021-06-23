@@ -74,6 +74,7 @@
             </div>
             <div class="form_group">
                 <input type="submit" value="{{ trans('message.update') }}" class="btn btn_green">
+                <a href="javascript:void(0)">{{ trans('message.update_password') }}</a>
             </div>
         </form>
     </div>
