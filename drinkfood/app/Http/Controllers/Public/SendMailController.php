@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailSigninUser;
 use App\Mail\EmailResetPassword;
 use App\Mail\EmailOrders;
+use App\Mail\EmailUpdatePassword;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class SendMailController extends Controller
 {
@@ -24,13 +27,16 @@ class SendMailController extends Controller
 
     function sendMailResetPassword($email_received, $info_user)
     {
-        /* Send email with send() function of Mail object */
         $sending_mail = Mail::to($email_received)->send(new EmailResetPassword($info_user));
     }
 
     function sendMailOrders($email_received, $info_orders)
     {
-        /* Send email with send() function of Mail object */
         $sending_mail = Mail::to($email_received)->bcc(config('mail.bccmail'))->send(new EmailOrders($info_orders));
+    }
+
+    function sendMailUpdatePassword($email_received, $information)
+    {
+        Mail::to($email_received)->bcc(config('mail.bccmail'))->send(new EmailUpdatePassword($information));                  
     }
 }

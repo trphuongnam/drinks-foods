@@ -16,12 +16,6 @@
         <form action="{{url('/user')}}/{{$userInfo->uid}}" method="POST" id="edit_user_form" class="form form_data" enctype="multipart/form-data">
             
             {{-- Begin: Show errors --}}
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <span class="error">{{$error}}</span>
-                @endforeach
-            @endif
-
             @if (Session::has('err_update'))
                 <span class="error">{{Session::get('err_update')}}</span>
             @endif
@@ -73,13 +67,15 @@
                 <input type="password" name="showpassword" id="password" class="form_input" value="{{$userInfo->password}}" readonly>
             </div>
             <div class="form_group">
-                <input type="submit" value="{{ trans('message.update') }}" class="btn btn_green">
-                <a href="javascript:void(0)">{{ trans('message.update_password') }}</a>
+                <input type="submit" value="{{ trans('message.update') }}" id="btn_update_info" class="btn btn_green">
+                <a href="javascript:void(0)" id="btn_show_new_password">{{ trans('message.update_password') }}</a>
             </div>
+            
+            {{showErrorValidate($errors)}}
         </form>
     </div>
     {{-- End: User information edit--}}
-    
+    @include('public/pages/elements/update_password_form')
 </div>
 @include('public/layouts/elements/check_validate')
 @endsection

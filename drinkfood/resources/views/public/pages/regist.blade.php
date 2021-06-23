@@ -19,6 +19,8 @@
         @foreach ($errors->all() as $message)
             <p class="error">{{$message}}</p><br>
         @endforeach
+        <p>{{showMessageRegist()}}</p>
+        
         <form action="{{url('/regist')}}" method="POST" id="regist_form" class="form form_data">
             @csrf
             <div class="form_group">
