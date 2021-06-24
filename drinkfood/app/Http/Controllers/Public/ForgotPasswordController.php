@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers\Public;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\Public\SendMailController;
-use Illuminate\Support\Facades\Lang;
-use App\LibraryStrings\Strings;
+use App\Services\ResetPasswordService;
 
 class ForgotPasswordController extends Controller
 {
@@ -16,37 +12,25 @@ class ForgotPasswordController extends Controller
         return view('public.pages.forgot_password');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, ResetPasswordService $resetPasswordService)
     {
-        $sendMail = new SendMailController;
-
-        /* Check email of user with info of users table */
-        $checkEmail = User::where('email', $request->email)->get();
-        if(count($checkEmail) > 0)
+        $resultResetPassword = $resetPasswordService->resetPassword($request, $request->email);
+        if($resultResetPassword['status'] == true)
         {
-            /* update old password to password default of system */
-            $newPassword = rand(0000000000,9999999999);
-            $user = $request->query();
-            $user['password'] = bcrypt($newPassword);
-            $update_password = User::where('id', $checkEmail[0]['id'])->update($user);
-
-            if($update_password) 
-            {               
-                /* Send email confirm info has change */
-                $infoUserSend = [
-                                'email' => $checkEmail[0]->email,
-                                'fullname' => $checkEmail[0]->fullname,
-                                'username' => $checkEmail[0]->username,
-                                'password' => $newPassword
-                            ];
-                
-                $sendingMail = $sendMail->sendMailResetPassword($request->email, $infoUserSend);
-                $request->session()->flash('reset_pass_success', trans('message.reset_pass_success'));
-                return url('/sign_in');              
-            }
-        }else {
+            $request->session()->flash('reset_pass_success', trans('message.reset_pass_success'));
+            return redirect()->route('sign_in.index'); 
+        }
+        
+        if($resultResetPassword['status'] == false && $resultResetPassword['msg'] == 'err_check_mail')
+        {
             $request->session()->flash('err_check_mail', trans('message.err_check_mail'));
-            return url('/forgot_password');
-        }   
+            return redirect()->route('forgot_password.index');
+        }       
+
+        if($resultResetPassword['status'] == false && $resultResetPassword['msg'] == 'send_mail_error')
+        {
+            $request->session()->flash('send_mail_error', trans('message.send_mail_error'));
+            return redirect()->route('forgot_password.index');
+        }         
     }
 }

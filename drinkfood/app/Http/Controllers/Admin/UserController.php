@@ -8,6 +8,9 @@ use App\Models\User;
 use App\Http\Requests\UserManageRequest;
 use Illuminate\Support\Str;
 use App\LibraryStrings\Strings;
+use App\Http\Requests\UpdateUserRequest;
+use App\Services\UploadFileService;
+use App\Services\ResetPasswordService;
 
 class UserController extends Controller
 {
@@ -69,6 +72,27 @@ class UserController extends Controller
 
     }
 
+    public function edit($uidUser)
+    {
+        $users = User::where('uid', $uidUser)->get();
+        if(count($users) > 0) return view('admin.pages.users.user_edit', ['users'=>$users]);
+        else return redirect()->route('user.index');
+    }
+
+    public function update(UpdateUserRequest $request, UploadFileService $uploadFileService, $uidUser)
+    {
+        $infoUpdate = $request->except('_method', '_token');
+        $infoUpdate['url_key'] = Str::slug($request->fullname);
+        if($request->hasFile('image'))
+        {
+            $pathSaveFile = public_path('/uploads/images/users');
+            $infoUpdate['image'] = $uploadFileService->UploadImage($request, $request->file('image'), $pathSaveFile);
+        }
+        $updateUser = User::where('uid', $uidUser)->update($infoUpdate);
+        if($updateUser == true) return redirect()->route('user.index')->with('update_success', __('user_lang.update_success'));
+        else return redirect()->route('user.index')->with('update_error', __('user_lang.update_error'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,11 +100,19 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function blockUser($uid)
-    {
-        $user['status'] = 2;
-        $blockUser = User::where('uid', $uid)->update($user);
-        if($blockUser == true) return redirect()->back()->with('block_success', __('user_lang.block_success'));
-        else return redirect()->back()->with('block_error', __('user_lang.block_error'));
+    {   
+        /* Check if info of current user not admin then block */
+        $typeUser = User::where('uid', $uid)->value('type');
+        if($typeUser != 1)
+        {
+            $user['status'] = 2;
+            $blockUser = User::where('uid', $uid)->update($user);
+            if($blockUser == true) return redirect()->back()->with('block_success', __('user_lang.block_success'));
+            else return redirect()->back()->with('block_error', __('user_lang.block_error'));
+        }else{
+            return redirect()->route('user.index')->with('block_error', __('user_lang.not_block_user'));
+        }
+        
     }
 
     public function unBlockUser($uid)
@@ -99,5 +131,27 @@ class UserController extends Controller
         if($request->type == '0' || $request->type == 1 || $request->type == 2) array_push($condition, ['type', '=', $request->type]);
         if($request->status == 1 || $request->status == 2) array_push($condition, ['status', '=', $request->status]);
         return $condition;
+    }
+
+    public function resetPassword(Request $request, ResetPasswordService $resetPasswordService)
+    {
+        $resetPassword = $resetPasswordService->resetPassword($request, $request->route('email'));
+
+        if($resetPassword['status'] == true)
+        {
+            return redirect()->back()->with('reset_pass_success', __('message.reset_pass_success'));
+            
+        }
+
+        if($resetPassword['status'] == false && $resetPassword['msg'] == 'err_check_mail')
+        {
+            return redirect()->back()->with('err_check_mail', __('message.err_check_mail'));
+        }       
+
+        if($resetPassword['status'] == false && $resetPassword['msg'] == 'send_mail_error')
+        {
+            return redirect()->back()->with('send_mail_error', __('message.send_mail_error'));
+        } 
+
     }
 }

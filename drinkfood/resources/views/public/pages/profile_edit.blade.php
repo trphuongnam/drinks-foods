@@ -26,9 +26,9 @@
             <input name="_method" type="hidden" value="PUT">
             <div class="form_group">
                 <div class="box_img box_avatar">
-                    <img src="{{checkUserAvatar($userInfo->image, $userInfo->gender)}}" class="user_avatar" alt="">
+                    <img src="{{checkUserAvatar($userInfo->image, $userInfo->gender)}}" class="user_avatar img_form" alt="">
                 </div>
-                <input type="file" name="image" id="avatar" class="form_input avatar_input">
+                <input type="file" name="image" id="avatar" onchange="readURL(this);" class="form_input avatar_input">
             </div>
             <div class="form_group">
                 <label for="fullname" class="title_input">{{ trans('message.fullname') }}:* </label>
