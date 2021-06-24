@@ -11,6 +11,7 @@ use App\LibraryStrings\Strings;
 use App\Http\Requests\UpdateUserRequest;
 use App\Services\UploadFileService;
 use App\Services\ResetPasswordService;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -67,28 +68,31 @@ class UserController extends Controller
      */
     public function show($uid)
     {
-        $users = User::where('uid', $uid)->get();
+        $user = $this->findUser($uid);
+        $users = $user->get();
         return view('admin.pages.users.user_detail', ['users'=>$users]);
 
     }
 
     public function edit($uidUser)
     {
-        $users = User::where('uid', $uidUser)->get();
-        if(count($users) > 0) return view('admin.pages.users.user_edit', ['users'=>$users]);
-        else return redirect()->route('user.index');
+        $user = $this->findUser($uidUser);
+        $users = $user->get();
+        return view('admin.pages.users.user_edit', ['users'=>$users]);
     }
 
     public function update(UpdateUserRequest $request, UploadFileService $uploadFileService, $uidUser)
     {
+        $user = $this->findUser($uidUser);
+
         $infoUpdate = $request->except('_method', '_token');
-        $infoUpdate['url_key'] = Str::slug($request->fullname);
+        $infoUpdate['url_key'] = Str::slug($request->fullname);       
         if($request->hasFile('image'))
         {
             $pathSaveFile = public_path('/uploads/images/users');
             $infoUpdate['image'] = $uploadFileService->UploadImage($request, $request->file('image'), $pathSaveFile);
         }
-        $updateUser = User::where('uid', $uidUser)->update($infoUpdate);
+        $updateUser = $user->update($infoUpdate);
         if($updateUser == true) return redirect()->route('user.index')->with('update_success', __('user_lang.update_success'));
         else return redirect()->route('user.index')->with('update_error', __('user_lang.update_error'));
     }
@@ -102,11 +106,12 @@ class UserController extends Controller
     public function blockUser($uid)
     {   
         /* Check if info of current user not admin then block */
-        $typeUser = User::where('uid', $uid)->value('type');
-        if($typeUser != 1)
-        {
-            $user['status'] = 2;
-            $blockUser = User::where('uid', $uid)->update($user);
+        $typeUser = User::where('uid', Auth::user()->uid)->value('type');
+        if($typeUser == 1)
+        {   
+            $user = $this->findUser($uid);
+            $user->status = 2;
+            $blockUser = $user->save();
             if($blockUser == true) return redirect()->back()->with('block_success', __('user_lang.block_success'));
             else return redirect()->back()->with('block_error', __('user_lang.block_error'));
         }else{
@@ -117,8 +122,9 @@ class UserController extends Controller
 
     public function unBlockUser($uid)
     {
-        $user['status'] = 1;
-        $unblockUser = User::where('uid', $uid)->update($user);
+        $user = $this->findUser($uid);
+        $user->status = 1;
+        $unblockUser = $user->save();
         if($unblockUser == true) return redirect()->back()->with('unblock_success', __('user_lang.unblock_success'));
         else return redirect()->back()->with('unblock_error', __('user_lang.unblock_error'));
     }
@@ -153,5 +159,17 @@ class UserController extends Controller
             return redirect()->back()->with('send_mail_error', __('message.send_mail_error'));
         } 
 
+    }
+
+    private function findUser($uidUser)
+    {
+        /* Select id user from uid */
+        $idUser = User::where('uid', $uidUser)->value('id');
+        $user = User::find($idUser);
+        if($user == null)
+        {
+            return abort(redirect()->route('user.index'));
+        }
+        else return $user;
     }
 }

@@ -52,7 +52,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputFile">{{ trans('product_lang.choose_image') }}:</label>
-            <img class="img_form" src="{{productImage($product[0]->image)}}" alt="">
+            <img class="img_form" src="" alt="">
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" value="{{old('image')}}" onchange="readURL(this);" id="image" name="image">

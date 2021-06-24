@@ -77,4 +77,10 @@ class User extends Authenticatable
     {
         return User::where('id', $idUser)->get();
     }
+
+    protected function scopeGetEmailAdmin()
+    {
+        return User::where([['type', '=', config('enums.userTypes.admin')], ['status', '=', config('enums.userStatus.active')]])
+                        ->select('email')->get()->toArray();
+    }
 }

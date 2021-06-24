@@ -15,5 +15,7 @@
         'btn_handling' => '{1} Xác nhận đơn hàng|{2} Giao hàng|{3} Hoàn tất đơn hàng',
         'update_status_order_success' => 'Cập nhật trạng thái đơn hàng thành công',
         'update_status_order_error' => 'Cập nhật trạng thái đơn hàng không thành công. Vui lòng thử lại',
+        'orders_sold' => 'Đơn hàng đã bán',
+        'orders' =>'Đơn hàng',
     ]
 ?>
