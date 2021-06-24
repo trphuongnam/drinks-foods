@@ -21,5 +21,6 @@
         'orders_delivered' => 'Orders are being delivered',
         'orders_cancelled' => 'Order canceled',
         'orders' =>'Orders',
+        'date' => 'Date',
     ]
 ?>
