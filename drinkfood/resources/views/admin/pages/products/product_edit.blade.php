@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>{{ trans('message.product_name') }}:</label>
+              <label>{{ trans('message.product_name') }} (*) :</label>
               <input type="text" class="form-control" name="name" value="{{$product[0]->name}}">
               @if ($errors->has('name'))
               <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('name')) }}</p>
@@ -57,7 +57,7 @@
             <img class="img_form" src="{{productImage($product[0]->image)}}" alt="">
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" value="{{$product[0]->image}}" id="image" name="image">
+                <input type="file" class="custom-file-input" value="{{$product[0]->image}}" onchange="readURL(this);" id="image" name="image">
                 <label class="custom-file-label" for="exampleInputFile"></label>
               </div>
               @if ($errors->has('image'))
@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>{{ trans('message.price') }}:</label>
+              <label>{{ trans('message.price') }} (*) :</label>
               <input type="text" class="form-control" name="price" value="{{$product[0]->price}}">
               @if ($errors->has('price'))
               <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('price')) }}</p>

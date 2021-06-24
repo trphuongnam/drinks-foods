@@ -78,6 +78,7 @@ Route::prefix('/admin')->group(function () {
         /* Route manager product */
         Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');
         Route::get('/product/change_cat/{id_product}', 'App\Http\Controllers\Admin\ProductController@getCategoryWithType')->name('product.change_cat');
+        Route::post('/product/change_status/{uid_product}', 'App\Http\Controllers\Admin\ProductController@changeStatus')->name('product.change_status');
 
         /* Route manage category */
         Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');

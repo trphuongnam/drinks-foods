@@ -22,6 +22,7 @@
                     <th>{{trans('product_lang.product_name')}}</th>
                     <th>{{trans('message.category')}}</th>
                     <th>{{trans('product_lang.description')}}</th>
+                    <th>{{trans('message.price').' / '.trans('message.rating')}}</th>
                     <th>{{trans('message.status')}}</th>
                     <th>{{trans('message.option')}}</th>
                 </tr>
@@ -37,13 +38,18 @@
                       <img class="img_form" src="{{productImage($product->image)}}" alt="">
                   </td>
                   <td>{{getCategoryName($product->id_cat)}}</td>
-                  <td>{{$product->description}}</td>
                   <td>
-                    @if ($product->status == 1)
-                    <div class="bg-success color-palette"><span>{{ trans_choice('message.hidden', 1) }}</span></div>
-                    @else
-                    <div class="bg-warning color-palette"><span>{{ trans_choice('message.hidden', 2) }}</span></div>
-                    @endif  
+                    {{$product->description}}
+                  </td>
+                  <td>
+                    {{number_format($product->price, 0, ',', '.').' VND'}} <br>
+                    <span class="ratings">{!!showRating($product->id)!!}</span>
+                  </td>
+                  <td>
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="customSwitch{{$product->uid}}" onclick="changeStatus('{{$product->uid}}')" status={{$product->status}} {{($product->status == 1) ? 'checked' : ''}}>
+                      <label class="custom-control-label" for="customSwitch{{$product->uid}}" id="msg_status_{{$product->uid}}">{{ trans_choice('message.hidden', $product->status) }}</label>
+                    </div>
                   </td>
                   <td>
                       <a href="{{url('/admin/product'.'/'.$product->uid)}}" class="btn btn-app" title="Chi tiết" id="btn_detail_{{$product->uid}}" onclick="show_detail('{{$product->uid}}')"><i class="fas fa-eye"></i>{{ trans('message.detail') }}</a>
