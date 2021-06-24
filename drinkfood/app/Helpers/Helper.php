@@ -32,13 +32,12 @@ function showProfileLink()
         $style_display = "display:none";
         $profile_link = "<li><a href=".url('user')."><i class='fas fa-user'>&nbsp;&nbsp;&nbsp;</i>".$userInfo->fullname."&nbsp;&nbsp;".$icon_network."</a></li>";
         $logout_link = "<li><a href=".url('log_out')."><i class='fas fa-sign-out-alt'>&nbsp;&nbsp;&nbsp;</i>".trans('message.sign_out')."</a></li>";
-       
     }
      
     $arr_link = [
         'style'=>$style_display,
         'profile_link'=>$profile_link,
-        'logout_link'=>$logout_link
+        'logout_link'=>$logout_link,
     ];
     return $arr_link;
 } 
