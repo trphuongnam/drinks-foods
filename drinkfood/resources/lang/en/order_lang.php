@@ -12,9 +12,7 @@
         'cancelled' => 'Cancelled',
         'delivery_in_progress' => 'Delivery in progress',
         'processing' => 'Processing',
-        'accept_order' => 'Accept order',
-        'delivery' => 'Delivery',
-        'finish_order' => 'Finish order',
+        'btn_handling' => '{1} Accept order|{2} Delivery|{3} Finish order',
         'update_status_order_success' => 'Update status of order success',
         'update_status_order_error' => 'Update status of order not success. Please try again',
     ]

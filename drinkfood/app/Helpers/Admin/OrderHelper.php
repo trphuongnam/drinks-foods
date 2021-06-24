@@ -1,28 +1,45 @@
 <?php
 use App\Models\User;
 
-function displayStatusOrder($order)
+function displayStatusOrder($status, $uidOrder)
 {
-    $class = "";
-    if($order == config('enums.orderStatusValue.awaiting_confirmation')) $class = "bg-warning color-palette";
-    if($order == config('enums.orderStatusValue.processing')) $class = "bg-primary color-palette";
-    if($order == config('enums.orderStatusValue.delivery_in_progress')) $class = "bg-info color-palette";
-    if($order == config('enums.orderStatusValue.finished')) $class = "bg-success color-palette";
-    if($order == config('enums.orderStatusValue.Cancelled')) $class = "bg-danger color-palette";
-
-    return "<span class='".$class."'>".trans('order_lang.'.config('enums.orderStatus.'.$order))."</span>";
+    $class_status = build_status_class($status);
+    $class = "bg-".$class_status." color-palette";
+    return "<span class='".$class."' id='order_$uidOrder' status=$status>".trans('order_lang.'.config('enums.orderStatus.'.$status))."</span>";
 }
 
+function build_status_class($status){
+    switch ($status) {
+        case config('enums.orderStatusValue.awaiting_confirmation'):
+            $class = "warning";
+            break;
+        case config('enums.orderStatusValue.processing'):
+            $class = "primary";
+            break;
+        case config('enums.orderStatusValue.delivery_in_progress'):
+            $class = "info";
+            break;
+        case config('enums.orderStatusValue.finished'):
+            $class = "success";
+            break;
+        case config('enums.orderStatusValue.Cancelled'):
+            $class = "danger";
+            break;
+        default:
+            $class = "";
+            break;
+    }
+    return $class;
+}
 function getInfoUserOrder($idUser)
 {
     return User::scopeInfoUser($idUser);    
 }
 
-function showButtonHandling($status)
+function showButtonHandling($status, $uidOrder)
 {
-    if($status == config('enums.orderStatusValue.awaiting_confirmation')) return "<button class='btn btn-block btn-warning col-3'>".trans('order_lang.accept_order')."</button>";
-    if($status == config('enums.orderStatusValue.processing')) return "<button class='btn btn-block btn-warning col-3'>".trans('order_lang.delivery')."</button>";
-    if($status == config('enums.orderStatusValue.delivery_in_progress')) return "<button class='btn btn-block btn-warning col-3'>".trans('order_lang.finish_order')."</button>";
+    $class_status = build_status_class($status);
+    if($status != 4)  return "<a href='javascript:void(0)' class='btn btn-block btn-$class_status' id='$uidOrder' onclick='accept_order(\"$uidOrder\")' >".trans_choice('order_lang.btn_handling', $status)."</a>";
 }
 
 function selectedStatusOrder($status)

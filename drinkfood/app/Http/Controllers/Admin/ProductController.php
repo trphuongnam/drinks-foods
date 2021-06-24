@@ -100,4 +100,12 @@ class ProductController extends Controller
     {
         return Category::getCategoryChangeType($type);
     }
+
+    /* Function change status of product */
+    public function changeStatus(Request $request)
+    {
+        $product['status'] = $request->status;
+        $statusUpdate = Product::where('uid', $request->uidProduct)->update($product);
+        return ['sttUpdate' => $statusUpdate, 'message'=>trans_choice('message.hidden', $request->status)];
+    }
 }

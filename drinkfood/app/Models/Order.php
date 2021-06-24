@@ -49,7 +49,7 @@ class Order extends Model
         $queryOrder = Order::orderBy('id', 'DESC')
             ->where($condition)
             ->join('users', 'orders.id_user_created', '=', 'users.id')
-            ->select('orders.*', 'users.fullname as user_fullname');
+            ->select('orders.*', 'users.fullname as user_fullname', 'users.email as user_email', 'users.phone as user_phone', 'users.address as user_address');
 
         if($requestParams->filled('start_date') && $requestParams->filled('end_date')) $queryOrder->whereBetween('date_order', [$requestParams->start_date, $requestParams->end_date]);
         else if($requestParams->filled('start_date')) $queryOrder->whereBetween('orders.date_order', [$requestParams->start_date, date('Y-m-d')]);
