@@ -16,6 +16,12 @@
         'userTypes' => [
             'normalUser' => 0,
             'admin' => 1
+        ],
+
+        //Status display
+        'statusDisplay' => [
+            'display' => 1,
+            'hidden' => 2
         ]
     ];
 ?>

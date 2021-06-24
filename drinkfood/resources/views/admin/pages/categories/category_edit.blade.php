@@ -58,6 +58,7 @@
           </div>
         </div>
         <input name="uid" type="hidden" value="{{$category[0]->uid}}">
+        <input name="id" type="hidden" value="{{$category[0]->id}}">
         <button type="submit" class="btn btn-app button_header"><i class="fas fa-save"></i>{{ trans('message.save') }}</button>
       </form>
     </div>

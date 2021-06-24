@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\CategoryManageRequest;
 use App\LibraryStrings\Strings;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -59,18 +61,7 @@ class CategoryController extends Controller
         if($saveCategory) return redirect()->back()->with('save_success', __('category_lang.save_success'));
         else return redirect()->back()->withInput();
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -95,9 +86,19 @@ class CategoryController extends Controller
         $category = $request->except(['_method', '_token']);
         $category['url_key'] = Str::slug($request->name);
 
-        $updateCategory = Category::where('uid', $uid)->update($category);
-        if($updateCategory) return redirect()->route('category.index')->with('update_success', __('category_lang.update_success'));
-        else return redirect()->back()->with('update_error', __('category_lang.update_error'));
+        DB::beginTransaction();
+        try {
+            Category::where('uid', $uid)->update($category);
+            
+            /* Update status product of category*/
+            $product['status'] = $request->status;
+            Product::where('id_cat', $request->id)->update($product);
+            DB::commit();
+            return redirect()->route('category.index')->with('update_success', __('category_lang.update_success'));
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->with('update_error', __('category_lang.update_error'));
+        }
     }
 
     /**

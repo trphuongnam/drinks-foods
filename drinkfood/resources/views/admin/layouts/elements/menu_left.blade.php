@@ -46,13 +46,13 @@
           <li class="nav-item">
             <a href="{{url('/admin/product')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>{{ trans('list_products') }}</p>
+              <p>{{ trans('message.list_products') }}</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('/admin/category')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>{{ trans('list_categories') }}</p>
+              <p>{{ trans('message.list_categories') }}</p>
             </a>
           </li>
         </ul>

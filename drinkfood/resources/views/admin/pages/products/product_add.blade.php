@@ -1,86 +1,97 @@
 @extends('admin.layouts.master_layout')
 
-@section('title', 'Quản lý sản phẩm')
+@section('title', trans('message.manage_product'))
 
-@section('content_title', 'Nhập Sản Phẩm')
+@section('content_title', trans('product_lang.add_product'))
     
 @section('content')
 <div class="card">
     <div class="card-header">
-      @if ($errors->any())
-      <ul>
-        @foreach ($errors->all() as $error)
-            <div class="alert alert-danger alert-dismissible"><i class="icon fas fa-ban"></i> <b>Chú ý:</b> {{ $error }}</div>
-        @endforeach
-      </ul>
-    @endif
+      @if (session()->has('save_success'))
+        <div class="alert alert-success alert-dismissible"><i class="icon fas fa-check"></i> {{session()->get('save_success')}}</div>
+      @endif
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-      <form action="{{url('/admin/product/save')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{url('/admin/product')}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @include('admin.pages.products.elements.select_type')
+        @include('admin.pages.products.elements.select_category')
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>Tên sản phẩm:</label>
+              <label>{{ trans('message.product_name') }}:</label>
               <input type="text" class="form-control" name="name" value="{{old('name')}}">
+              @if ($errors->has('name'))
+              <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('name')) }}</p>
+              @endif
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>Mô tả:</label>
-              <textarea class="form-control" rows="3" name="description" value="{{old('description')}}"></textarea>
+              <label>{{ trans('message.store') }}:</label>
+              <input type="text" class="form-control" name="brand" value="{{old('brand')}}">
+              @if ($errors->has('brand'))
+              <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('brand')) }}</p>
+              @endif
             </div>
           </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label>Nội dung:</label>
-                {{-- <textarea class="form-control" id="content" rows="3" name="content" value="{{old('content')}}"></textarea> --}}
-              </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>{{ trans('message.description') }}:</label>
+              <textarea class="form-control" rows="3" name="description" value="{{old('description')}}"></textarea>
+              @if ($errors->has('description'))
+              <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('description')) }}</p>
+              @endif
             </div>
+          </div>
         </div>
         <div class="form-group">
-            <label for="exampleInputFile">Chọn ảnh:</label>
+            <label for="exampleInputFile">{{ trans('product_lang.choose_image') }}:</label>
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" value="{{old('image')}}" id="image" name="image">
                 <label class="custom-file-label" for="exampleInputFile"></label>
               </div>
+              @if ($errors->has('image'))
+                <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('image')) }}</p>
+                @endif
             </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputFile">Chọn file:</label>
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" value="{{old('file')}}" id="file" name="file" multiple>
-                <label class="custom-file-label" for="exampleInputFile"></label>
-              </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>{{ trans('message.price') }}:</label>
+              <input type="text" class="form-control" name="price" value="{{old('price')}}">
+              @if ($errors->has('price'))
+              <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('price')) }}</p>
+              @endif
             </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-sm-12">
             <!-- radio -->
             <div class="form-group">
-                <label>Trạng thái:</label>
+                <label>{{ trans('message.status') }}:</label>
                 <div class="form-check">
                     <input class="form-check-input" value="1" type="radio" name="status" checked>
-                    <label class="form-check-label">Hiển thị</label>
+                    <label class="form-check-label">{{ trans_choice('message.hidden', 1) }}</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" value="0" type="radio" name="status">
-                    <label class="form-check-label">Ẩn</label>
+                    <label class="form-check-label">{{ trans_choice('message.hidden', 2) }}</label>
                 </div>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-app button_header"><i class="fas fa-save"></i>Lưu</button>
+        <button type="submit" class="btn btn-app button_header"><i class="fas fa-save"></i>{{ trans('message.save') }}</button>
       </form>
     </div>
     <!-- /.card-body -->
   </div>
-  {{-- @include('/admin/layouts/elements/ckeditorjs') --}}
 @endsection

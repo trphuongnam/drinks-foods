@@ -7,15 +7,15 @@ class UploadFileService
 {
 
     /* Function upload avatar */
-    function UploadAvatar($req, $file, $pathSaveFile)
+    function UploadImage($req, $file, $pathSaveFile)
     {
         $rules = [
-                "avatar" => "mimes:jpeg,png,jpg|max:2048",
-            ];
+            "image" => "mimes:jpeg,png,jpg|max:2048",
+        ];
 
         $messages = [
-                "avatar.mimes" => trans_choice('message.file_not_correct', 1),
-                "avatar.max" => trans_choice('message.file_not_correct', 2)
+                "image.mimes" => trans_choice('message.file_not_correct', 1),
+                "image.max" => trans_choice('message.file_not_correct', 2)
             ];
 
         $validate = $req->validate($rules, $messages);
@@ -30,7 +30,7 @@ class UploadFileService
             return $newNameFile;
         }else{
             return redirect()->back();
-        }  
+        }
     }
 }
 
