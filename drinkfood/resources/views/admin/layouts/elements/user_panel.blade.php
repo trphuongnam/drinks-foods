@@ -3,7 +3,7 @@
     <img src="{{checkUserAvatar(Auth::user()->image, Auth::user()->gender)}}" class="elevation-2" alt="User Image">
   </div>
   <div class="info">
-    <a href="{{url('admin/profile')}}/{{Auth::user()->url_key}}-{{Auth::user()->uid}}" class="d-block">{{Auth::user()->fullname}}</a>
+    <a href="{{url('admin/user/').'/'.Auth::user()->uid}}" class="d-block">{{Auth::user()->fullname}}</a>
     <a href="{{url('/logout')}}" class="btn"><i class="fas fa-sign-out-alt">Đăng xuất</i></a>
   </div>
 </div>

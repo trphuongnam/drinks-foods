@@ -16,6 +16,7 @@ Class OrderService
             $arrayUidProduct = $request->arrayUidProduct;
             $idOrder = $request->idOrder;
             $totalAmount = $request->totalAmount;
+            $date_order = date('Y-m-d h:i:s');
 
             for($i = 0; $i < count($arrayUidProduct); $i++)
             {
@@ -38,7 +39,7 @@ Class OrderService
             }
 
             /* Update status and total amount in to orders table */
-            Order::where(['id' => $idOrder])->update(['status' => 1, 'total_amount'=>$totalAmount]);
+            Order::where(['id' => $idOrder])->update(['date_order'=>$date_order, 'status' => 1, 'total_amount'=>$totalAmount]);
 
             /* Send email info order */
             $sendingMailOrder = $this->sendEmailOrder($idOrder);
