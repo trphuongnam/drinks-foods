@@ -131,6 +131,8 @@
         'update_password' => 'Cập nhật mật khẩu',
         'no_categories_yet' => 'Không có danh mục',
         'no_products_yet' => 'Không có sản phẩm',
+        'account_blocked' => 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ lại với Quản Trị Viên',
+        'err_select_type' => 'Vui lòng chọn loại người dùng',
 
         /* Send email */
         'send_mail_success' => 'Thông tin đã được gửi đến email của bạn. Vui lòng kiểm tra lại email của bạn',

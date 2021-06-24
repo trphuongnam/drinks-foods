@@ -40,7 +40,8 @@
             "app/Helpers/HistoryOrderHelper.php",
             "app/Helpers/UpdatePasswordHelper.php",
             "app/Helpers/Admin/CategoryHelper.php",
-            "app/Helpers/Admin/ProductHelper.php"
+            "app/Helpers/Admin/ProductHelper.php",
+            "app/Helpers/Admin/UserHelper.php"
         ]
     },
     "autoload-dev": {

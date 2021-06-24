@@ -15,13 +15,20 @@
         // Type user
         'userTypes' => [
             'normalUser' => 0,
-            'admin' => 1
+            'admin' => 1,
+            'manager' => 2
         ],
 
         //Status display
         'statusDisplay' => [
             'display' => 1,
             'hidden' => 2
+        ],
+
+        /* User status */
+        'userStatus' => [
+            'active' => 1,
+            'blocked' => 2
         ]
     ];
 ?>

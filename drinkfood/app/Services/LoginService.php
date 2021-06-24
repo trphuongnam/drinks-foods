@@ -54,11 +54,17 @@ Class LoginService
                 /* End: if(empty($userEmail)) */
 
             }else{
-                if(!empty(Auth::loginUsingId($UserData[0]['id'])))
+                if($UserData[0]['status'] == 1)
                 {
-                    return redirect()->route('index');
-                }   
-                else return redirect()->route('sign_in.index');
+                    if(!empty(Auth::loginUsingId($UserData[0]['id'])))
+                    {
+                        return redirect()->route('index');
+                    }   
+                    else return redirect()->route('sign_in.index');
+                }else{
+                    return redirect()->route('sign_in.index')->with('account_blocked', trans('message.account_blocked'));
+                }
+                
             }  
             /* End: if($UserData == null) */  
             
@@ -107,13 +113,18 @@ Class LoginService
                 /* End: if(empty($userEmail)) */
 
             }else{
-
-                /* Check if exists info account of current user, redirect to home page*/
-                if(!empty(Auth::loginUsingId($UserGoogleData[0]['id'])))
+                /* Check if exists info account of current user and status == 1, redirect to home page*/
+                if($UserGoogleData[0]['status'] == 1)
                 {
-                    return redirect()->route('index');
-                }   
-                else return redirect()->route('sign_in.index');
+                    if(!empty(Auth::loginUsingId($UserGoogleData[0]['id'])))
+                    {
+                        return redirect()->route('index');
+                    }   
+                    else return redirect()->route('sign_in.index');
+                }else{
+                    return redirect()->route('sign_in.index')->with('account_blocked', trans('message.account_blocked'));
+                }
+                
                 /* End: if(!empty(Auth::loginUsingId($UserGoogleData[0]['id']))) */
 
             }

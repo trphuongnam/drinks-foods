@@ -63,17 +63,25 @@ Route::group(['middleware' => 'language'], function()
     /* Route export invoice pdf */
     Route::get('/export/invoice/{uidOrder}', 'App\Http\Controllers\PDFExportController@exportInvoice')->middleware('checkLoginPublic');
     /* End: Route Public */
+});
 
-    /* Route admin */
-    Route::resource('login', 'App\Http\Controllers\Admin\LoginController');
-    Route::get('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
-    Route::prefix('/admin')->middleware('CheckLoginAdmin')->group(function () {
+/* Route admin */
+Route::resource('login', 'App\Http\Controllers\Admin\LoginController');
+Route::get('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name('admin.logout');
+Route::prefix('/admin')->group(function () {
+    Route::middleware(['CheckLoginAdmin', 'language'])->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.dashboard');
 
         /* Route manager product */
         Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');
         Route::get('/product/change_cat/{id_product}', 'App\Http\Controllers\Admin\ProductController@getCategoryWithType')->name('product.change_cat');
 
+        /* Route manage category */
         Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
+        
+        /* Route manage user */
+        Route::resource('/user', 'App\Http\Controllers\Admin\UserController')->only('index', 'create', 'store','show');
+        Route::get('/user/block/{uidUser}', 'App\Http\Controllers\Admin\UserController@blockUser');
+        Route::get('/user/unblock/{uidUser}', 'App\Http\Controllers\Admin\UserController@unBlockUser');
     });
 });
