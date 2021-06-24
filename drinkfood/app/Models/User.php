@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         return $this->hasMany("App\Models\Rating", "id_user", "id");
     }
+
+    protected function scopeInfoUser($idUser)
+    {
+        return User::where('id', $idUser)->get();
+    }
 }

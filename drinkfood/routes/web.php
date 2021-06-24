@@ -83,5 +83,9 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/user', 'App\Http\Controllers\Admin\UserController')->only('index', 'create', 'store','show');
         Route::get('/user/block/{uidUser}', 'App\Http\Controllers\Admin\UserController@blockUser');
         Route::get('/user/unblock/{uidUser}', 'App\Http\Controllers\Admin\UserController@unBlockUser');
+
+        /* Route manager order */
+        Route::resource('/order', 'App\Http\Controllers\Admin\OrderController')->only('index', 'show', 'update');
+
     });
 });

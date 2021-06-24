@@ -33,4 +33,21 @@ class Order extends Model
     {
         return Order::orderBy('id', 'desc')->with('order_detail')->where('id_user_created', $idUser)->paginate(5);
     }
+
+    protected function scopeGetInfoOrder($requestParams)
+    {
+        $condition = [];
+        if($requestParams->filled('content')) array_push($condition, ['name', '=', $requestParams->content]);
+        if($requestParams->filled('status') && $requestParams->status != "all") array_push($condition, ['orders.status', '=', $requestParams->status]);
+
+        $queryOrder = Order::orderBy('id', 'DESC')
+            ->where($condition)
+            ->join('users', 'orders.id_user_created', '=', 'users.id')
+            ->select('orders.*', 'users.fullname as user_fullname');
+
+        if($requestParams->filled('start_date') && $requestParams->filled('end_date')) $queryOrder->whereBetween('date_order', [$requestParams->start_date, $requestParams->end_date]);
+        else if($requestParams->filled('start_date')) $queryOrder->whereBetween('orders.date_order', [$requestParams->start_date, date('Y-m-d')]);
+        else if($requestParams->filled('end_date')) $queryOrder->whereBetween('orders.date_order', [date('Y-m-d'), $requestParams->end_date]);
+        return $queryOrder->paginate(10);
+    }
 }

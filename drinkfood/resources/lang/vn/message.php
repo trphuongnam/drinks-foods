@@ -65,7 +65,6 @@
         'completed' => 'Hoàn thành',
         'cancelled' => 'Đã hủy',
         'unfulfilled' => 'Chưa thực hiện',
-        'status_order' => '{1} Hoàn thành|{2} Đã hủy|{3} Chưa thực hiện',
         'amount' => 'Thành tiền:',
         'quantity' => 'Số lượng:',
         'total'=>'Tổng cộng:',
