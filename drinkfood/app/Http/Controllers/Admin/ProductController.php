@@ -66,7 +66,8 @@ class ProductController extends Controller
     public function edit($uid)
     {
         $product = Product::scopeProductInfo($uid);
-        $categories = Category::getCategoryChangeType($product[0]->type);
+        $categories = "";
+        if(count($product) > 0)  $categories = Category::getCategoryChangeType($product[0]->type);
         return view('admin.pages.products.product_edit', ['categories'=>$categories, 'product'=>$product]);
     }
 

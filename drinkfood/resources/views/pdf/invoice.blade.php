@@ -74,7 +74,7 @@
             {{ trans('message.fullname') }}: <span class="text_info">{{Auth::user()->fullname}}</span> <br>
             {{ trans('message.email') }}: <span class="text_info">{{Auth::user()->email}}</span> <br>
             {{ trans('message.order_name') }}: <span class="text_info">{{$data['orderInfo'][0]->name}}</span> <br>
-            {{ trans('message.time_order') }}: <span class="text_info">{{date('d-m-Y h:s', strtotime($data['orderInfo'][0]->updated_at))}}</span> <br>
+            {{ trans('message.time_order') }}: <span class="text_info">{{date('d-m-Y h:i:s', strtotime($data['orderInfo'][0]->date_order))}}</span> <br>
             {{ trans('message.status') }}: <span class="text_info">{{trans_choice('message.status_order',$data['orderInfo'][0]->status)}}</span> <br>
             <table class="table_wrapper">
                 <thead class="table_header">

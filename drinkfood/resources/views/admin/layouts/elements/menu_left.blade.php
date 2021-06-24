@@ -20,7 +20,7 @@
         </ul>
       </li>
 
-      {{--Begin: Menu quản lý bài viết --}}
+      {{--Begin: Menu manage product and categories --}}
       <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-copy"></i>
@@ -44,10 +44,10 @@
           </li>
         </ul>
       </li>
-        {{--End: Menu quản lý bài viết --}}
+        {{--End: Menu manage product and categories--}}
       
 
-        {{--Begin: Menu quản lý hình ảnh & album --}}
+        {{--Begin: Menu manage orders --}}
       <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="nav-icon far fa-image"></i>
@@ -65,10 +65,10 @@
           </li>
         </ul>
       </li>
-        {{--End: Menu quản lý hình ảnh & album --}}
+        {{--End: Menu manage orders--}}
 
 
-        {{--Begin: Menu quản lý user --}}
+        {{--Begin: Menu manage user --}}
       <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="nav-icon far fa-user"></i>
@@ -86,6 +86,6 @@
           </li>
         </ul>
       </li>
-        {{--End: Menu quản lý user --}}
+        {{--End: Menu manage user --}}
     </ul>
   </nav>

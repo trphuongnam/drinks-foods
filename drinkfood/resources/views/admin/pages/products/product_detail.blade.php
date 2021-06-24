@@ -6,6 +6,7 @@
     
 @section('content')
 <div class="col-lg-12">
+  @if (count($product) > 0)
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">{{$product[0]->name}}</h5>
@@ -29,4 +30,5 @@
       </div>
     </div>
   </div>
+  @endif
 @endsection

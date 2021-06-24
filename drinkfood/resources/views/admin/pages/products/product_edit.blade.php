@@ -13,6 +13,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+      @if (count($product) > 0)
       <form action="{{url('/admin/product/'.$product[0]->uid)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
@@ -32,7 +33,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="form-group">
-              <label>{{ trans('message.product_brand') }}:</label>
+              <label>{{ trans('message.store') }}:</label>
               <input type="text" class="form-control" name="brand" value="{{$product[0]->brand}}">
               @if ($errors->has('brand'))
               <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('brand')) }}</p>
@@ -44,7 +45,7 @@
           <div class="col-sm-12">
             <div class="form-group">
               <label>{{ trans('message.description') }}:</label>
-              <textarea class="form-control" rows="3" name="description" value="{{$product[0]->description}}"></textarea>
+              <textarea class="form-control" rows="3" name="description" >{{$product[0]->description}}</textarea>
               @if ($errors->has('description'))
               <p class="text-center bg-warning">{{ trans('product_lang.'.$errors->first('description')) }}</p>
               @endif
@@ -86,6 +87,7 @@
         </div>
         <button type="submit" class="btn btn-app button_header"><i class="fas fa-save"></i>{{ trans('message.save') }}</button>
       </form>
+      @endif
     </div>
     <!-- /.card-body -->
   </div>

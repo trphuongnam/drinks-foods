@@ -36,7 +36,7 @@ class Order extends Model
 
     protected function scopeGetInfoOrder($requestParams)
     {
-        $condition = [];
+        $condition = [['orders.status', '<>', 0]];
         if($requestParams->filled('content')) array_push($condition, ['name', '=', $requestParams->content]);
         if($requestParams->filled('status') && $requestParams->status != "all") array_push($condition, ['orders.status', '=', $requestParams->status]);
 

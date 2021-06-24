@@ -19,8 +19,8 @@
             <tr class="table_content" style="color:{{changeColorStatus($order->status)}}">
                 <td>{{$loop->iteration}}</td>
                 <td>{{$order->name}}</td>
-                <td>{{date('d-m-Y', strtotime($order->updated_at))}}</td>
-                <td>{{formatCurrency($order->total_amount)}}</td>
+                <td>{{($order->date_order != null) ? date('d-m-Y h:i', strtotime($order->date_order)) : ""}}</td>
+                <td>{{($order->total_amount != null) ? formatCurrency($order->total_amount)  : ""}}</td>
                 <td>{{ trans_choice('message.status_order', $order->status)}}</td>
                 <td>
                     <a href="{{url('/order').'/'.$order->url_key.'-'.$order->uid}}" class="btn btn_green"><i class="fas fa-info-circle">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.detail') }}</a>

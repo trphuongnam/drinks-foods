@@ -13,6 +13,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+      @if (count($category) > 0)
       <form action="{{url('/admin/category'.'/'.$category[0]->uid)}}" method="POST">
         @csrf
         <input name="_method" type="hidden" value="PUT">
@@ -61,6 +62,7 @@
         <input name="id" type="hidden" value="{{$category[0]->id}}">
         <button type="submit" class="btn btn-app button_header"><i class="fas fa-save"></i>{{ trans('message.save') }}</button>
       </form>
+      @endif
     </div>
     <!-- /.card-body -->
   </div>
