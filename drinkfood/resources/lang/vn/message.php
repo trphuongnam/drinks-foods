@@ -12,6 +12,11 @@
         'edit_profile' => 'Chỉnh sửa thông tin',
         'order_detail' => 'Chi tiết đơn hàng',
         'website_manager' => 'Quản trị website',
+        'manager_product' => 'Quản lý sản phẩm',
+        'manager_order' => 'Quản lý đơn hàng',
+        'manager_user' => 'Quản lý người dùng',
+        'list_products' => 'Danh sách sản phẩm',
+        'list_categories' => 'Danh sách danh mục',
 
         // Website element
         'slogant' => 'Website đặt hàng uy tín nhất Đà Nẵng',
@@ -68,6 +73,9 @@
         'start_price' => 'Giá bắt đầu',
         'end_price' => 'Giá kết thúc',
         'choose_rating' => 'Chọn số sao',
+        'category_name' => 'Tên danh mục',
+        'date_created' => 'Ngày tạo',
+        'description' => 'Mô tả',
 
         /* Error validate form */
         'err_fullname' => 'Vui lòng nhập đầy đủ họ và tên của bạn',
@@ -121,6 +129,8 @@
         'username_exist' => 'Tên người dùng đã tồn tại. Vui lòng kiểm tra lại',
         'regist_user' => '{1} Đăng ký người dùng thành công |{2} Không thể đăng ký người dùng. Vui lòng thử lại',
         'update_password' => 'Cập nhật mật khẩu',
+        'no_categories_yet' => 'Không có danh mục',
+        'no_products_yet' => 'Không có sản phẩm',
 
         /* Send email */
         'send_mail_success' => 'Thông tin đã được gửi đến email của bạn. Vui lòng kiểm tra lại email của bạn',
@@ -136,14 +146,18 @@
         'err_update' => 'Không thể cập nhật thông tin. Vui lòng kiểm tra lại',
         
         // button
+        'add' => 'Thêm mới',
         'add_cart' => 'Thêm vào',
         'login_facebook' => 'Đăng nhập bằng Facebook',
         'login_google' => 'Đăng nhập bằng Google',
         'send_request' => 'Gửi yêu cầu',
+        'detail' => 'Chi tiết',
         'cancel' => 'Hủy bỏ',
         'edit' => 'Chỉnh sửa',
         'save' => 'Lưu',
         'update' => 'Cập nhật',
+        'delete' => 'Xóa',
+        'hidden' => '{1} Hiển thị|{2} Ẩn',
         'delete_product' => 'Xóa sản phẩm',
         'btn_ratings' => 'Đánh giá mới',
     ]

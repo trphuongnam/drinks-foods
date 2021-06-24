@@ -12,6 +12,11 @@
         'edit_profile' => 'Edit profile',
         'order_detail' => 'Order detail',
         'website_manager' => 'Wesite manager',
+        'manager_product' => 'Products manager',
+        'manager_order' => 'Orders manager',
+        'manager_user' => 'Users manager',
+        'list_products' => 'Products list',
+        'list_categories' => 'Categories list',
 
         // Element website
         'slogant' => 'The most prestigious ordering website in Da Nang',
@@ -68,6 +73,9 @@
         'start_price' => 'Start price',
         'end_price' => 'End price',
         'choose_rating' => 'Choose number of stars',
+        'category_name' => 'Category name',
+        'date_created' => 'Date created',
+        'description' => 'Description',
 
         /* Error validate form */
         'err_fullname' => 'Please enter the full them and your name',
@@ -122,6 +130,9 @@
         'username_exist' => 'Username exist. Please check again',
         'regist_user' => '{1} Regist user is success |{2} Can\'t regist user. Please try again.',
         'update_password' => 'Update password',
+        'no_categories_yet' => 'No categories yet',
+        'no_products_yet' => 'No products yet',
+
 
         /* Send email */
         'send_mail_success' => 'Information has been sent to your email. Please check your email again',
@@ -134,14 +145,18 @@
         'how_to_login_tutorial' => '{1} - Method 1: Sign in with the Google or Facebook account that you have registered with us.|{2} - Method 2: Login directly with the email and password provided on the login form.',
 
         // button
+        'add' => 'Add',
         'add_cart' => 'Add cart',
         'login_facebook' => 'Login with Facebook',
         'login_google' => 'Login with Google',
         'send_request' => 'Send Request',
+        'detail' => 'Detail',
         'cancel' => 'Cancel',
         'edit' => 'Edit',
         'save' => 'Save',
         'update' => 'Update',
+        'delete' => 'Delete',
+        'hidden' => '{1} Display|{2} Hidden',
         'delete_product' => 'Delete product',
         'btn_ratings' => 'New rating',
     ]
