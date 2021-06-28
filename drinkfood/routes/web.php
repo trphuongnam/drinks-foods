@@ -72,5 +72,6 @@ Route::group(['middleware' => 'language'], function()
 
         /* Route manager product */
         Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');
+        Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
     });
 });

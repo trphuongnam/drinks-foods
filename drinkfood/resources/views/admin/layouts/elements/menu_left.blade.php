@@ -38,7 +38,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-copy"></i>
           <p>
-            Quản lý sản phẩm
+            {{ trans('message.manager_product') }}
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -46,13 +46,13 @@
           <li class="nav-item">
             <a href="{{url('/admin/product')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Danh Sách Sản Phẩm</p>
+              <p>{{ trans('list_products') }}</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{url('/admin/category')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Danh Sách Danh Mục</p>
+              <p>{{ trans('list_categories') }}</p>
             </a>
           </li>
         </ul>
@@ -65,7 +65,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon far fa-image"></i>
           <p>
-            Quản lý đơn hàng
+            {{ trans('message.manager_order') }}
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
@@ -98,7 +98,7 @@
         <a href="#" class="nav-link">
           <i class="nav-icon far fa-user"></i>
           <p>
-            Quản lý User
+            {{ trans('message.manager_user') }}
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>

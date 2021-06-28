@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'type',
+        'id_user_created',
+        'status',
+        'uid',
+        'url_key'
+    ];
 
     public function product()
     {
@@ -18,5 +27,4 @@ class Category extends Model
     {
         return $this->belongsTo("App\Models\User", "id_user_created", "id");
     }
-
 }
