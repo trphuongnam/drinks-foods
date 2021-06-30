@@ -3,6 +3,7 @@ use App\Models\User;
 
 function displayStatusOrder($order)
 {
+    $class = "";
     if($order == config('enums.orderStatusValue.awaiting_confirmation')) $class = "bg-warning color-palette";
     if($order == config('enums.orderStatusValue.processing')) $class = "bg-primary color-palette";
     if($order == config('enums.orderStatusValue.delivery_in_progress')) $class = "bg-info color-palette";
