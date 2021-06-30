@@ -1,16 +1,3 @@
-{{-- Begin: Thanh tìm kiếm --}}
-<div class="form-inline">
-  <div class="input-group" data-widget="sidebar-search">
-    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-    <div class="input-group-append">
-      <button class="btn btn-sidebar">
-        <i class="fas fa-search fa-fw"></i>
-      </button>
-    </div>
-  </div>
-</div>
-{{-- End: Thanh tìm kiếm --}}
-
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <!-- Add icons to the links using the .nav-icon class
@@ -71,21 +58,9 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
+            <a href="{{url('/admin/order')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Danh Sách Đơn Hàng</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Danh Sách Album</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Danh Sách Comment</p>
+              <p>{{ trans('order_lang.list_order') }}</p>
             </a>
           </li>
         </ul>
@@ -106,13 +81,7 @@
           <li class="nav-item">
             <a href="{{url('/admin/user')}}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Danh Sách User</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{url('/admin/user-authorize')}}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Phân Quyền User</p>
+              <p>{{ trans('user_lang.list_user') }}</p>
             </a>
           </li>
         </ul>

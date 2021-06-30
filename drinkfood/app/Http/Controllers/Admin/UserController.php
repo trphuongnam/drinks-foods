@@ -23,12 +23,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $condition = [];
-        if($request->searchtype == 0 && $request->filled('content')) array_push($condition, ['fullname', 'LIKE', '%'.$request->content.'%']);
-        if($request->searchtype == 1 && $request->filled('content')) array_push($condition, ['username', 'LIKE', '%'.$request->content.'%']);
-        if($request->type == '0' || $request->type == 1 || $request->type == 2) array_push($condition, ['type', '=', $request->type]);
-        if($request->status == 1 || $request->status == 2) array_push($condition, ['status', '=', $request->status]);
-
+        $condition = $this->createCondition($request); 
         $users = User::orderBy('status', 'ASC')->where($condition)->get();
         return view('admin.pages.users.user', ['users'=>$users]);
     }
@@ -96,26 +91,13 @@ class UserController extends Controller
         else return redirect()->back()->with('unblock_error', __('user_lang.unblock_error'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    private function createCondition($request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $condition = [];
+        if($request->searchtype == 0 && $request->filled('content')) array_push($condition, ['fullname', 'LIKE', '%'.$request->content.'%']);
+        if($request->searchtype == 1 && $request->filled('content')) array_push($condition, ['username', 'LIKE', '%'.$request->content.'%']);
+        if($request->type == '0' || $request->type == 1 || $request->type == 2) array_push($condition, ['type', '=', $request->type]);
+        if($request->status == 1 || $request->status == 2) array_push($condition, ['status', '=', $request->status]);
+        return $condition;
     }
 }

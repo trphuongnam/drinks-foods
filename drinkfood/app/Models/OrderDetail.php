@@ -43,4 +43,12 @@ class OrderDetail extends Model
     {
         return OrderDetail::where('id_order', $idOrder)->get();
     }
+
+    protected function scopeGetOrderDetailAdmin($idOrder)
+    {
+        return OrderDetail::where('orders.id', $idOrder)
+            ->join('orders', 'orders.id', '=', 'order_details.id_order')
+            ->select('order_details.*', 'orders.name as order_name', 'orders.id_user_created as id_user_created','orders.total_amount as total_amount', 'orders.date_order as date_order','orders.status as order_status')
+            ->get();
+    }
 }

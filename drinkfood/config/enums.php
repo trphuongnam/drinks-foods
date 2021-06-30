@@ -29,6 +29,23 @@
         'userStatus' => [
             'active' => 1,
             'blocked' => 2
+        ],
+
+        /* order status */
+        'orderStatus' => [
+            1 => 'awaiting_confirmation',
+            2 => 'processing',
+            3 => 'delivery_in_progress',
+            4 => 'finished',
+            5 => 'Cancelled',
+        ],
+
+        'orderStatusValue' => [
+            'awaiting_confirmation' => 1,
+            'processing' => 2,
+            'delivery_in_progress' => 3,
+            'finished' => 4,
+            'Cancelled' => 5,
         ]
     ];
 ?>
