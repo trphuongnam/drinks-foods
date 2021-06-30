@@ -15,5 +15,8 @@
   <link rel="stylesheet" href="{{asset('css/form.css')}}">
   <link rel="stylesheet" href="{{asset('css/master.css')}}">
 
+  {{-- Loading library google chart --}}
+  <script src="{{asset('js/loader.js')}}"></script> 
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="{{asset('/js/script.js')}}"></script>

@@ -42,7 +42,8 @@
             "app/Helpers/Admin/CategoryHelper.php",
             "app/Helpers/Admin/ProductHelper.php",
             "app/Helpers/Admin/UserHelper.php",
-            "app/Helpers/Admin/OrderHelper.php"
+            "app/Helpers/Admin/OrderHelper.php",
+            "app/Helpers/Admin/ChartHelper.php"
         ]
     },
     "autoload-dev": {
