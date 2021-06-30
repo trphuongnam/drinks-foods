@@ -8,7 +8,7 @@
     <div class="product_box">    
         <h1>{{ trans('message.user_info') }}</span></h1>
         <div class="image_panel">
-            <img src="{{checkUserAvatar($userInfo->avatar, $userInfo->gender)}}" alt="CSS Template" width="100" height="150" />
+            <img src="{{checkUserAvatar($userInfo->image, $userInfo->gender)}}" alt="CSS Template" width="100" height="150" />
         </div>
         <ul class="info_product">
             <li>{{ trans('message.fullname') }}: {{$userInfo->fullname}}</li>

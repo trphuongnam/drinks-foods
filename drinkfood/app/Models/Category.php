@@ -27,4 +27,14 @@ class Category extends Model
     {
         return $this->belongsTo("App\Models\User", "id_user_created", "id");
     }
+
+    protected function getCategoryChangeType($type)
+    {
+        return Category::where([['status','=', 1], ['type','=',$type]])->select('id', 'name')->get();
+    }
+
+    protected function scopeGetCatName($idCat)
+    {
+        return Category::where('id', $idCat)->value('name');
+    }
 }

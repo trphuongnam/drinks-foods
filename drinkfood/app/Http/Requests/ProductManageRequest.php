@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CategoryManageRequest extends FormRequest
+class ProductManageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,10 @@ class CategoryManageRequest extends FormRequest
     {
         return [
             'type' => 'required',
+            'category' => 'required',
             'name' => 'required',
             'description' => 'max:200',
-            'status' => 'required'
+            'price' => 'required',
         ];
     }
 
@@ -36,9 +37,10 @@ class CategoryManageRequest extends FormRequest
     {
         return [
             'type.required' => 'type_required',
+            'category.required' => 'category_required',
             'name.required' => 'name_required',
-            'description.max' => 'desc_max',
-            'status.required' => 'status_required'
+            'description.max' => 'description_max',
+            'price.required' => 'price_required',
         ];
     }
 }

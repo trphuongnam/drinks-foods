@@ -12,7 +12,18 @@ class Product extends Model
 
     protected $fillable = [
         'id',
-        'stars'
+        'name',
+        'description',
+        'brand',
+        'image',
+        'id_cat',
+        'id_user_created',
+        'price',
+        'type',
+        'status',
+        'uid',
+        'url_key',
+        'stars',
     ];
 
     public function rating()
@@ -61,6 +72,12 @@ class Product extends Model
 
         $products = $productQuery->paginate(10);
         return $products;
+    }
+
+    /* Function get infor product edit */
+    protected function scopeProductInfo($uidProduct)
+    {
+        return Product::where('uid', $uidProduct)->get();
     }
 
     /* Function get product detail */

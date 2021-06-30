@@ -1,6 +1,9 @@
 .active{
   color:#fff !important;
 }
+.ratings{
+  color: yellow !important;
+}
 .dialog_loading
 {
     width: 100%;

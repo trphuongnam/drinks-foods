@@ -72,6 +72,8 @@ Route::group(['middleware' => 'language'], function()
 
         /* Route manager product */
         Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');
+        Route::get('/product/change_cat/{id_product}', 'App\Http\Controllers\Admin\ProductController@getCategoryWithType')->name('product.change_cat');
+
         Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
     });
 });

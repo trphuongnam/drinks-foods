@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         /*If users not login redirect sign in page*/
         if(Auth::check()) return view('public.pages.profile_detail')->with('userInfo', Auth::user());   
-        else return redirect()->route('sign_in.index');  
+        else return redirect()->route('sign_in.index');
     }
     /* End: public function show($paramUrl) */
 
@@ -41,13 +41,12 @@ class UserController extends Controller
         $userInfo = $request->except(['email', 'showusername', 'showpassword', 'newpassword', 'repassword','_token', '_method']);
         
         /* Check has file upload */
-        if($request->hasFile('avatar'))
+        if($request->hasFile('image'))
         { 
             /* Create path save file */
             $pathSaveFile = public_path("uploads/images/users");
 
-            $fileName = $uploadFileService->UploadAvatar($request, $request->file('avatar'), $pathSaveFile); 
-            $userInfo['avatar'] = $fileName;
+            $userInfo['image'] = $uploadFileService->UploadImage($request, $request->file('image'), $pathSaveFile); 
         }
         
         $updateInfo = User::where("uid", $uid_user)->update($userInfo);

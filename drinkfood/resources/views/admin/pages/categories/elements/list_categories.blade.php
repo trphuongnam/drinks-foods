@@ -4,7 +4,14 @@
         <td>{{$loop->iteration}}</td>
         <td>{{trans('message.'.config('enums.productTypes.'.$category->type)).' / '.$category->name}}</td>
         <td>{{$category->description}}</td>
-        <td>{{date('d-m-Y', strtotime($category->created_at))}}</td>
+        <td>
+            {{date('d-m-Y', strtotime($category->created_at))}}
+            @if ($category->status == 1)
+            <div class="bg-success color-palette"><span>{{ trans_choice('message.hidden', 1) }}</span></div>
+            @else
+            <div class="bg-warning color-palette"><span>{{ trans_choice('message.hidden', 2) }}</span></div>
+            @endif
+        </td>
         <td>
             <a href="{{url('/admin/category'.'/'.$category->uid.'/edit')}}" class="btn btn-app" title="{{trans('message.edit')}}"><i class="fas fa-edit"></i>{{ trans('message.edit') }}</a>
             <form action="{{url('/admin/category'.'/'.$category->uid)}}" method="post">
