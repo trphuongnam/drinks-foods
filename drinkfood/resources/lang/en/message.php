@@ -132,7 +132,8 @@
         'update_password' => 'Update password',
         'no_categories_yet' => 'No categories yet',
         'no_products_yet' => 'No products yet',
-
+        'account_blocked' => 'Your account has been locked. Please contact the Administrator again',
+        'err_select_type' => 'Please select type user',
 
         /* Send email */
         'send_mail_success' => 'Information has been sent to your email. Please check your email again',

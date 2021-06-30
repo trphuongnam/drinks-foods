@@ -33,7 +33,7 @@ class LoginController extends Controller
     /* Hàm kiểm tra người dùng đăng nhập */
     public function store(Request $request)
     {
-        $check_login = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+        $check_login = Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1]);
         if($check_login == true)
         {    
             if($request->session()->has('resend_email_'.Auth::user()->uid))

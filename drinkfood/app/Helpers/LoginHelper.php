@@ -8,5 +8,6 @@ function showMessageLogin()
     if (session()->has('reset_pass_success')) return session()->get('reset_pass_success');
     if (session()->has('err_rating')) return session()->get('err_rating');
     if (session()->has('regist_success')) return session()->get('regist_success');   
+    if (session()->has('account_blocked')) return session()->get('account_blocked');
 }
 ?>
