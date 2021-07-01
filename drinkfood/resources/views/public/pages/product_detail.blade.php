@@ -33,10 +33,10 @@
                     <a href="javascript:void(0)" id="rating_5" class="no_rating" style="color: #fff"><i class="fas fa-star"></i></a>
                     <input type="hidden" id="id_product" value="{{$productDetail[0]->id}}">
                 </div>
-                <a href="javascript:void(0)" id="btn_ratings">{{ trans('message.btn_ratings') }}</a>
+                {!!showButtonRating()!!}
             </li>
         </ul>
-        <div class="buy_now_button"><a href="javascript:void(0)" id="btn_add_cat_{{$productDetail[0]->uid}}" onclick="addCart('{{$productDetail[0]->uid}}')">{{ trans('message.add_cart') }}</a></div>
+        {!!showButtonBuyProduct($productDetail[0]->uid)!!}
         <p>{{$productDetail[0]->description}} </p>
 
         {{-- Button share social network --}}

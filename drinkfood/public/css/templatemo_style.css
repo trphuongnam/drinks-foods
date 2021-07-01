@@ -25,6 +25,20 @@ p {
 	margin: 0px;
 	padding: 0px;
 }
+
+#popup_login{
+    position: fixed;
+    border: 1px solid;
+    width: 10%;
+    z-index: 10;
+    top: 50%;
+    right: 1%;
+    float: right;
+    padding: 10px;
+    background: coral;
+    border-radius: 10px;
+}
+
 .blank_page{
 	height: 280px;
     background-repeat: no-repeat;

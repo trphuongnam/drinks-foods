@@ -1,6 +1,8 @@
 @extends('public/layouts/master_layout')
 @section('title', trans('message.profile'))
-
+@section('filter_bar')
+    @include('public.layouts.elements.filter_order_bar')
+@endsection
 @section('content')
 <div class="box_content">
     

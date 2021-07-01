@@ -23,7 +23,7 @@
                     {{ trans('message.fullname') }}: <span class="text_info">{{Auth::user()->fullname}}</span> <br>
                     {{ trans('message.email') }}: <span class="text_info">{{Auth::user()->email}}</span> <br>
                     {{ trans('message.order_name') }}: <span class="text_info">{{$orderInfo[0]->name}}</span> <br>
-                    {{ trans('message.time_order') }}: <span class="text_info">{{($orderInfo[0]->date_order != null) ? date('d-m-Y h:i', strtotime($order->date_order)) : ""}}</span> <br>
+                    {{ trans('message.time_order') }}: <span class="text_info">{{($orderInfo[0]->date_order != null) ? date('d-m-Y h:i', strtotime($orderInfo[0]->date_order)) : ""}}</span> <br>
                     {{ trans('message.status') }}: <span class="text_info">{{trans_choice('message.status_order', $orderInfo[0]->status)}}</span> <br>
                 </th>
             </tr>

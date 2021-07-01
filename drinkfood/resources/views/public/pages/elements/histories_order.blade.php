@@ -27,6 +27,8 @@
                 </td>
             </tr>
             @endforeach
+        @else
+            <span class="error">{{ trans('message.not_found') }}</span>
         @endif 
     </table>
     {{ $listOrder->links("public.layouts.elements.paginate_bar") }}

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Public\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,15 @@ Route::group(['middleware' => 'language'], function()
 {
     Route::get('/language/{lang}', [HomeController::class, 'language'])->name('language');
     
+    Route::get('/search', [SearchController::class, 'search'])->name('search.handling');
+
     /* Begin: Route public */
     /* Route home page */
     Route::resource('/', 'App\Http\Controllers\Public\HomeController');
     
     /* Route product page */
     Route::get('product/{cat_key?}', 'App\Http\Controllers\Public\ProductController@show')->name('show.product_list');
-    Route::get('product/{cat_key}/{product_key?}', 'App\Http\Controllers\Public\ProductController@showDetailProduct');
+    Route::get('product/{cat_key}/{product_key?}', 'App\Http\Controllers\Public\ProductController@showDetailProduct')->name('product.detail');
 
     /* Route regist*/
     Route::resource('regist', 'App\Http\Controllers\Public\RegistController')->only('index', 'store')->middleware('checkUserLogin');
