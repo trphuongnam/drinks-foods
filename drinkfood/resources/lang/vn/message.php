@@ -132,6 +132,7 @@
         'no_products_yet' => 'Không có sản phẩm',
         'account_blocked' => 'Tài khoản của bạn đã bị khóa. Vui lòng liên hệ lại với Quản Trị Viên',
         'err_select_type' => 'Vui lòng chọn loại người dùng',
+        'message_popup'=>'tại đây để mua và đánh giá sản phẩm.',
 
         /* Send email */
         'send_mail_success' => 'Thông tin đã được gửi đến email của bạn. Vui lòng kiểm tra lại email của bạn',

@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Product extends Model
+class Product extends Model implements Searchable
 {
     
     use HasFactory;
@@ -25,6 +27,20 @@ class Product extends Model
         'url_key',
         'stars',
     ];
+
+    /* Function search of object searchable */
+    public function getSearchResult(): SearchResult
+    {
+        $idCategory = Product::where('id', $this->id)->value('id_cat');
+        $urlCategory = Category::where('id', $idCategory)->select('url_key', 'uid')->get();
+        $url = route('product.detail', $urlCategory[0]->url_key.'-'.$urlCategory[0]->uid.'/'.$this->url_key.'-'.$this->uid);
+
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
+    }
 
     public function rating()
     {

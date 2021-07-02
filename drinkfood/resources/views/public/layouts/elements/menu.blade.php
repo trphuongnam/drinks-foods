@@ -23,7 +23,6 @@
             {!!showProfileLink()['logout_link']!!}
         </ul>
     </div>
-
     <div class="language">
         <a href="javascript:void(0)" class="btn_show_language" onclick="show_language()"><i class="fas fa-language"></i></a>
         <ul id="lang_dropdown" style="display: none">
@@ -31,4 +30,7 @@
             <li><a href="{{url('/language')}}/en">English</a></li>
         </ul>
     </div>
+
+    {{-- Form search --}}
+    @include('public.layouts.elements.search_form')
 </div> 

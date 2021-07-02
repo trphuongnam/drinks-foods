@@ -31,7 +31,13 @@ class Order extends Model
 
     protected function scopeGetHistoryOrder($idUser)
     {
-        return Order::orderBy('id', 'desc')->with('order_detail')->where('id_user_created', $idUser)->paginate(5);
+        $condition = [['id_user_created', '=',$idUser]];
+        if(request()->filled('search')) array_push($condition, ['name', 'LIKE', "%".request()->search."%"]);
+        if(request()->has('status') && request()->status != 'all') array_push($condition, ['status', '=', request()->status]);
+
+        $queryOrder = Order::orderBy('id', 'desc')->with('order_detail')->where($condition);
+        if(request()->filled('date_order')) $queryOrder->whereDate('date_order', '=', request()->date_order);
+        return $queryOrder->paginate(5);
     }
 
     protected function scopeGetInfoOrder($requestParams)

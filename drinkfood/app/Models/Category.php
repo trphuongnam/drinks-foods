@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Category extends Model
+class Category extends Model implements Searchable
 {
     use HasFactory;
     protected $fillable = [
@@ -36,5 +38,16 @@ class Category extends Model
     protected function scopeGetCatName($idCat)
     {
         return Category::where('id', $idCat)->value('name');
+    }
+
+    /* Function search of object searchable */
+    public function getSearchResult(): SearchResult
+    {
+        $url = url('/product'.'/'.$this->url_key.'-'.$this->uid);
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url,
+        );
     }
 }
