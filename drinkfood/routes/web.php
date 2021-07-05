@@ -84,9 +84,10 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
         
         /* Route manage user */
-        Route::resource('/user', 'App\Http\Controllers\Admin\UserController')->only('index', 'create', 'store','show');
-        Route::get('/user/block/{uidUser}', 'App\Http\Controllers\Admin\UserController@blockUser');
-        Route::get('/user/unblock/{uidUser}', 'App\Http\Controllers\Admin\UserController@unBlockUser');
+        Route::resource('/user', 'App\Http\Controllers\Admin\UserController')->only('index', 'create', 'store', 'edit', 'update', 'show');
+        Route::get('/user/block/{uidUser}', 'App\Http\Controllers\Admin\UserController@blockUser')->name('user.block');
+        Route::get('/user/unblock/{uidUser}', 'App\Http\Controllers\Admin\UserController@unBlockUser')->name('user.unblock');
+        Route::get('/user/reset_password/{email}', 'App\Http\Controllers\Admin\UserController@resetPassword')->name('user.reset_password');
 
         /* Route manager order */
         Route::resource('/order', 'App\Http\Controllers\Admin\OrderController')->only('index', 'show', 'update');

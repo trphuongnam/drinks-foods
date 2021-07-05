@@ -22,6 +22,10 @@
     @if (session()->has('err_check_mail'))
         <span class="error">{{session()->get('err_check_mail')}}</span>
     @endif
+
+    @if (session()->has('send_mail_error'))
+        <span class="error">{{session()->get('send_mail_error')}}</span>
+    @endif
     {{-- End: Get message to system --}}
 
     {{-- Begin: form regist--}}

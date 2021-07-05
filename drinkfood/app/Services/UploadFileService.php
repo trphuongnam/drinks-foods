@@ -8,7 +8,7 @@ class UploadFileService
 
     /* Function upload avatar */
     function UploadImage($req, $file, $pathSaveFile)
-    {
+    {       
         $rules = [
             "image" => "mimes:jpeg,png,jpg|max:2048",
         ];

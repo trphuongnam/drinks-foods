@@ -76,7 +76,6 @@ class ProductController extends Controller
         $products = $request->except(['_method', '_token', 'category']);
         $products['url_key'] = Str::slug($request->name);
         $products['id_cat'] = $request->category;
-        
         if($request->hasFile('image'))
         {
             $pathSaveFile = public_path("uploads/images/products");
