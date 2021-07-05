@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('admin.layouts.elements.head')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
   <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
