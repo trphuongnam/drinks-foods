@@ -22,14 +22,14 @@ class OrderController extends Controller
         return view('admin.pages.orders.order_detail', ['detailOrder' => $detailOrder, 'uidOrder'=>$uid]);
     }
 
-    public function update(Request $request, $idOrder)
+    public function update(Request $request)
     {
         if($request->status == 1) $data['status'] = 2;
         if($request->status == 2) $data['status'] = 3;
         if($request->status == 3) $data['status'] = 4;
 
-        $updateStatus = Order::where('id', $idOrder)->update($data);
-        if($updateStatus == true) return redirect()->back()->with('update_status_order_success', __('order_lang.update_status_order_success'));
-        else  return redirect()->back()->with('update_status_order_error', __('order_lang.update_status_order_error'));
+        $updateStatus = Order::where('uid', $request->uidOrder)->update($data);
+        if($updateStatus == true) return ['status' => $data['status'], 'text_status' => __('order_lang.'.config('enums.orderStatus.'.$data['status'])), 'button'=>trans_choice('order_lang.btn_handling', $data['status'])];
+        else return ['status' => false, 'message'=>__('order_lang.update_status_order_error')];
     }
 }

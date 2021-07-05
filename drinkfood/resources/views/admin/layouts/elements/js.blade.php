@@ -6,7 +6,7 @@
 <script src="{{asset('js/admin/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('js/admin/adminlte.js')}}"></script>
-
+<script src="{{asset('js/admin/handlingOrder.js')}}"></script>
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
 <script src="{{asset('js/admin/jquery.mousewheel.js')}}"></script>

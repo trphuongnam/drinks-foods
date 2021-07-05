@@ -4,6 +4,11 @@
 .ratings{
   color: yellow !important;
 }
+.price{
+  font-weight: bold;
+  font-size: 20px;
+  color: darkorange;
+}
 .dialog_loading
 {
     width: 100%;

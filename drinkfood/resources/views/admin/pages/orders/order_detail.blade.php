@@ -29,9 +29,10 @@
                                     <li>{{ trans('message.email').": ".getInfoUserOrder($detailOrder[0]->id_user_created)[0]->email }}</li>
                                     <li>{{ trans('message.order_name').": ".$detailOrder[0]->order_name }}</li>
                                     <li>{{ trans('message.time_order').": ".date('d-m-Y h:i', strtotime($detailOrder[0]->date_order)) }}</li>
-                                    <li>{!! trans('message.status').": ".displayStatusOrder($detailOrder[0]->order_status) !!}</li>
+                                    <li>{!! trans('message.status').": ".displayStatusOrder($detailOrder[0]->order_status, $uidOrder) !!}</li>
                                 </ul>
-                                @include('admin.pages.orders.elements.form_update_status_order')
+                                {!!showButtonHandling($detailOrder[0]->order_status, $uidOrder)!!}
+                                <a class='btn btn-block btn-success col-3' href="{{url('/export/invoice'.'/'.$uidOrder)}}"><i class="fas fa-download">&nbsp;&nbsp;&nbsp;</i>{{ trans('message.invoice_export') }}</a>
                             </th>
                         </tr>
                         <tr>
