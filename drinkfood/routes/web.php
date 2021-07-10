@@ -85,7 +85,9 @@ Route::prefix('/admin')->group(function () {
 
         /* Route manage category */
         Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
-        
+        Route::post('/category/change_status/{uid_category}', 'App\Http\Controllers\Admin\CategoryController@changeStatus')->name('category.change_status');
+        Route::get('/category/get_product/{id_category}', 'App\Http\Controllers\Admin\CategoryController@showProduct')->name('category.get_product');
+
         /* Route manage user */
         Route::resource('/user', 'App\Http\Controllers\Admin\UserController')->only('index', 'create', 'store', 'edit', 'update', 'show');
         Route::get('/user/block/{uidUser}', 'App\Http\Controllers\Admin\UserController@blockUser')->name('user.block');

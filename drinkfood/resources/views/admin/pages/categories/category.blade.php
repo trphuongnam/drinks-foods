@@ -20,8 +20,8 @@
                 <tr>
                   <th>{{ trans('message.num_order') }}</th>
                   <th>{{ trans('message.category_name') }}</th>
-                  <th>{{ trans('message.description') }}</th>
-                  <th>{{ trans('message.date_created') }}</th>
+                  <th>{{ trans('message.description').' - '.trans('message.date_created')}}</th>
+                  <th>{{ trans('message.status') }}</th>
                   <th>{{ trans('message.option') }}</th>
                 </tr>
             </thead>
@@ -40,5 +40,7 @@
   <script>
     
   </script>
+
+  @include('admin.pages.categories.elements.detail_categories')
 @endsection
 
