@@ -76,6 +76,7 @@ Route::get('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name(
 Route::prefix('/admin')->group(function () {
     Route::middleware(['CheckLoginAdmin', 'language'])->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.dashboard');
+        Route::get('/export/statistics', 'App\Http\Controllers\ExportExcelController@exportStatistics')->name('admin.export.statistics');
 
         /* Route manager product */
         Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');
@@ -84,6 +85,8 @@ Route::prefix('/admin')->group(function () {
 
         /* Route manage category */
         Route::resource('/category', 'App\Http\Controllers\Admin\CategoryController');
+        Route::post('/category/change_status/{uid_category}', 'App\Http\Controllers\Admin\CategoryController@changeStatus')->name('category.change_status');
+        Route::get('/category/get_product/{id_category}', 'App\Http\Controllers\Admin\CategoryController@showProduct')->name('category.get_product');
         
         /* Route manage user */
         Route::resource('/user', 'App\Http\Controllers\Admin\UserController')->only('index', 'create', 'store', 'edit', 'update', 'show');

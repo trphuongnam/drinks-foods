@@ -26,35 +26,34 @@ class StatisticService
     {
         $arrayRatio = [];
 
-        if($request->filled('month')) $month = $request->month;
-        else $month = date('m');
+        if($request->has('date') &&  $request->has('month')) $date = date('Y').'-'.$request->month.'-'.$request->date;
+        else $date = date('Y-m-d');
                 
         /* Count total order finished */
-        $totalOrderFinished = Order::withTrashed()->where('status', config('enums.orderStatusValue.finished'))->whereMonth('date_order', $month)
-        ->whereYear('date_order', date('Y'))
+        $totalOrderFinished = Order::withTrashed()->where('status', config('enums.orderStatusValue.finished'))->whereBetween('date_order', [$date, $date.' 23:59:59'])
         ->count();
         array_push($arrayRatio, ['status'=>trans('order_lang.finished'), 'ratio'=>$totalOrderFinished]);
         
         /* Count total order waiting accept */
-        $totalOrderWaitingAccept = Order::withTrashed()->where('status', config('enums.orderStatusValue.awaiting_confirmation'))->whereMonth('date_order', $month)
+        $totalOrderWaitingAccept = Order::withTrashed()->where('status', config('enums.orderStatusValue.awaiting_confirmation'))->whereBetween('date_order', [$date, $date.' 23:59:59'])
         ->whereYear('date_order', date('Y'))
         ->count();
         array_push($arrayRatio, ['status'=>trans('order_lang.awaiting_confirmation'), 'ratio'=>$totalOrderWaitingAccept]);
         
         /* Count total order Processing */
-        $totalOrderProcessing = Order::withTrashed()->where('status', config('enums.orderStatusValue.processing'))->whereMonth('date_order', $month)
+        $totalOrderProcessing = Order::withTrashed()->where('status', config('enums.orderStatusValue.processing'))->whereBetween('date_order', [$date, $date.' 23:59:59'])
         ->whereYear('date_order', date('Y'))
         ->count();
         array_push($arrayRatio, ['status'=>trans('order_lang.processing'),  'ratio'=>$totalOrderProcessing]);
        
         /* Count total order deliveryed */
-        $totalOrderDelivery = Order::withTrashed()->where('status', config('enums.orderStatusValue.delivery_in_progress'))->whereMonth('date_order', $month)
+        $totalOrderDelivery = Order::withTrashed()->where('status', config('enums.orderStatusValue.delivery_in_progress'))->whereBetween('date_order', [$date, $date.' 23:59:59'])
         ->whereYear('date_order', date('Y'))
         ->count();
         array_push($arrayRatio, ['status'=>trans('order_lang.delivery_in_progress'),  'ratio'=>$totalOrderDelivery]);
 
         /* Count total order canceled */
-        $totalOrderCanceled = Order::withTrashed()->where('status', config('enums.orderStatusValue.Cancelled'))->whereMonth('date_order', $month)
+        $totalOrderCanceled = Order::withTrashed()->where('status', config('enums.orderStatusValue.Cancelled'))->whereBetween('date_order', [$date, $date.' 23:59:59'])
         ->whereYear('date_order', date('Y'))
         ->count();
         array_push($arrayRatio, ['status'=>trans('order_lang.Cancelled'),  'ratio'=>$totalOrderCanceled]);

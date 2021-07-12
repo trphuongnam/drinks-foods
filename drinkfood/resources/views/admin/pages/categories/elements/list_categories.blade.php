@@ -3,16 +3,20 @@
     <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{trans('message.'.config('enums.productTypes.'.$category->type)).' / '.$category->name}}</td>
-        <td>{{$category->description}}</td>
         <td>
-            {{date('d-m-Y', strtotime($category->created_at))}}
-            @if ($category->status == 1)
-            <div class="bg-success color-palette"><span>{{ trans_choice('message.hidden', 1) }}</span></div>
-            @else
-            <div class="bg-warning color-palette"><span>{{ trans_choice('message.hidden', 2) }}</span></div>
+            @if ($category->description != "")
+                {!! "<i>".$category->description."</i></br>"!!}
             @endif
+            {!! "<b>".date('d-m-Y', strtotime($category->created_at))."</b>"!!}
         </td>
         <td>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="cat_display_{{$category->uid}}" onclick="changeStatusCat('{{$category->uid}}')" status={{$category->status}} {{($category->status == 1) ? 'checked' : ''}}>
+                <label class="custom-control-label" for="cat_display_{{$category->uid}}" id="msg_status_{{$category->uid}}">{{ trans_choice('message.hidden', $category->status) }}</label>
+            </div>
+        </td>
+        <td>
+            <a href="javascript:void(0)" class="btn btn-app show_product_cat" id="show_product_cat_{{$category->id}}" title="{{trans('message.detail')}}" onclick="showDialog({{$category->id}})"><i class="fas fa-eye"></i>{{trans('message.detail')}}</a>
             <a href="{{url('/admin/category'.'/'.$category->uid.'/edit')}}" class="btn btn-app" title="{{trans('message.edit')}}"><i class="fas fa-edit"></i>{{ trans('message.edit') }}</a>
             <form action="{{url('/admin/category'.'/'.$category->uid)}}" method="post">
                 @method('DELETE')

@@ -16,6 +16,10 @@
         'update_status_order_success' => 'Cập nhật trạng thái đơn hàng thành công',
         'update_status_order_error' => 'Cập nhật trạng thái đơn hàng không thành công. Vui lòng thử lại',
         'orders_sold' => 'Đơn hàng đã bán',
+        'orders_pending' => 'Đơn hàng đang chờ xác nhận',
+        'orders_progress' => 'Đơn hàng đang thực hiện',
+        'orders_delivered' => 'Đơn hàng đang giao',
+        'orders_cancelled' => 'Đơn hàng đã hủy',
         'orders' =>'Đơn hàng',
     ]
 ?>

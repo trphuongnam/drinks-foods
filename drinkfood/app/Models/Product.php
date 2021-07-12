@@ -99,7 +99,7 @@ class Product extends Model implements Searchable
     /* Function get product detail */
     protected function scopeProductDetail($uidProduct)
     {
-        return Product::where("products.uid", $uidProduct)
+        return Product::where([["products.uid", '=',$uidProduct], ['products.status', '=', config('enums.statusDisplay.display')]])
           ->join("users", "users.id", "=", "products.id_user_created")
           ->join('categories', 'categories.id', 'products.id_cat')
           ->select("products.*", "users.fullname as user_fullname","categories.name as cat_name", "categories.url_key as cat_url_key", "categories.uid as uid_cat")      

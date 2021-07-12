@@ -16,6 +16,10 @@
         'update_status_order_success' => 'Update status of order success',
         'update_status_order_error' => 'Update status of order not success. Please try again',
         'orders_sold' => 'Orders sold',
+        'orders_pending' => 'Order is pending confirmation',
+        'orders_progress' => 'Orders in progress',
+        'orders_delivered' => 'Orders are being delivered',
+        'orders_cancelled' => 'Order canceled',
         'orders' =>'Orders',
     ]
 ?>

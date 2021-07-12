@@ -62,3 +62,61 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+/* Function change status of product when click to switch */
+function changeStatusCat(uid)
+{
+    var idSwitchButton = $('#cat_display_'+uid);
+    var idMessageStatus = $('#msg_status_'+uid);
+    currentStatus = $(idSwitchButton).attr('status');
+
+    /* Check current status of product */
+    if(currentStatus == 1) status = 2;
+    else status = 1;
+
+    /* Call ajax function update status of product*/
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "POST",
+        url: "/Php_nam_P1/drinkfood/public/admin/category/change_status/"+uid,
+        data: { status: status, uidCategory: uid }
+      }).done(function( msg ) {
+          if(msg['sttUpdate'] == true){
+            $(idSwitchButton).attr('status', status);
+            $(idMessageStatus).html(msg['message']);
+          }
+        });
+
+}
+
+/* Function show dialog of category */
+function showDialog(idCat)
+{
+    $("#cat_detail").css("display", "block");
+
+    /* Call ajax function get all product of category*/
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        method: "GET",
+        url: "/Php_nam_P1/drinkfood/public/admin/category/get_product/"+idCat,
+        data: {idCategory: idCat }
+    }).done(function( data ) {
+          console.log(data);
+          /* Show name category */
+          $("#title").html(data['title']);
+
+          /* Show list product of category */
+          $("#dialog_content").html(data['product']);
+
+          /* Show date create category */
+          $("#footer").html(data['footer']);
+        });
+}

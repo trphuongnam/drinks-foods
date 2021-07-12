@@ -113,4 +113,43 @@ class CategoryController extends Controller
         if($deleteCat) return redirect()->back()->with('delete_success', __('category_lang.delete_success'));
         else return redirect()->back()->with('delete_error', __('category_lang.delete_error'));
     }
+
+    public function changeStatus(Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            $category['status'] = $request->status;
+            $statusUpdate = Category::where('uid', $request->uidCategory)->update($category);
+            $idCat = Category::where('uid', $request->uidCategory)->value('id');
+            
+            /* Update status product of category*/
+            $product['status'] = $request->status;
+            Product::where('id_cat', $idCat)->update($product);
+            DB::commit();
+            return ['sttUpdate' => true, 'message'=>trans_choice('message.hidden', $request->status)];
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return ['sttUpdate' => false, 'message'=>trans_choice('message.hidden', $request->status)];
+        }
+        
+        
+    }
+
+    public function showProduct(Request $request)
+    {
+        $products = Category::with('product')->find($request->idCategory);
+
+        $product = "";
+        for($i = 0; $i < count($products->product); $i++)
+        {
+
+            $product .= "<div class='info-box mb-3 bg-success'><span class='info-box-icon'><img src='".productImage($products->product[$i]->image)."'/></span>
+                            <div class='info-box-content'><span class='info-box-text'>".$products->product[$i]->name."</span>
+                            <span class='info-box-number'>".number_format($products->product[$i]->price, 0, '', ',')." VND</span></div>
+                        </div>";
+        }
+
+        $content = ['title' => $products->name, 'product' => $product, 'footer'=> $products->created_at];
+        return $content;
+    }
 }

@@ -3,26 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use Maatwebsite\Excel\Concerns\Exportable;
 use App\Exports\ExportStatistics;
-use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExportExcelController extends Controller
 {
-    use Exportable;
-    function exportStatistics()
+    public function exportStatistics()
     {
-        return Excel::download(new ExportStatistics(), 'statistics.xlsx');
-    }
-
-    public function headings(): array
-    {
-        return [
-            'STT',
-            'Trạng thái',
-            'Số lượng',
-            'Tổng cộng',
-        ];
+        if(request()->filled('date') && request()->filled('month')) $date = request()->date.request()->month.date('Y');
+        else $date = date('dmY');
+        return Excel::download(new ExportStatistics(), 'statistics_'.$date.'.xls');
     }
 }
