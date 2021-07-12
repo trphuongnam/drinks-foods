@@ -5,7 +5,9 @@ use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Public\SearchController;
-
+use App\Http\Controllers\Public\SendMailController;
+use App\Models\Order;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,7 +92,6 @@ Route::prefix('/admin')->group(function () {
         Route::get('/user/reset_password/{email}', 'App\Http\Controllers\Admin\UserController@resetPassword')->name('user.reset_password');
 
         /* Route manager order */
-        Route::resource('/order', 'App\Http\Controllers\Admin\OrderController')->only('index', 'show', 'update');
-
+        Route::resource('/order', 'App\Http\Controllers\Admin\OrderController')->only('index', 'show', 'update');    
     });
 });

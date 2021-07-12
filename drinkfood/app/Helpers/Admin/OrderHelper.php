@@ -31,6 +31,7 @@ function build_status_class($status){
     }
     return $class;
 }
+
 function getInfoUserOrder($idUser)
 {
     return User::scopeInfoUser($idUser);    

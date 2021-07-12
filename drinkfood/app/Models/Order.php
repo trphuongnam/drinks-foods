@@ -56,4 +56,22 @@ class Order extends Model
         else if($requestParams->filled('end_date')) $queryOrder->whereBetween('orders.date_order', [date('Y-m-d'), $requestParams->end_date]);
         return $queryOrder->paginate(10);
     }
+
+    /* Function Count quantity order finished of month */
+    protected function countTotalOrderFinished()
+    {
+        return Order::where('status', config('enums.orderStatusValue.finished'))
+            ->whereMonth('date_order', date('m'))
+            ->whereYear('date_order', date('Y'))
+            ->count();
+    }
+
+    /* Function calc total amount of order finished of month*/
+    protected function countTotalAmountMonth()
+    {
+        return Order::where('status', config('enums.orderStatusValue.finished'))->whereMonth('date_order', date('m'))
+                ->whereYear('date_order', date('Y'))
+                ->select('total_amount')
+                ->sum('total_amount');
+    }
 }

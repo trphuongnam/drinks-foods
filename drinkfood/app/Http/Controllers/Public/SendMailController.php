@@ -11,6 +11,7 @@ use App\Mail\EmailOrders;
 use App\Mail\EmailUpdatePassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Mail\EmailReportRevenue;
 
 class SendMailController extends Controller
 {
@@ -38,5 +39,10 @@ class SendMailController extends Controller
     function sendMailUpdatePassword($email_received, $information)
     {
         Mail::to($email_received)->bcc(config('mail.bccmail'))->send(new EmailUpdatePassword($information));                  
+    }
+
+    function sendMailReportRevenue($email_received, $information)
+    {
+        Mail::to($email_received)->bcc(config('mail.bccmail'))->send(new EmailReportRevenue($information));                  
     }
 }
