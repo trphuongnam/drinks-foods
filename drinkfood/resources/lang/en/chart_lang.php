@@ -15,5 +15,6 @@
         '11' => 'November',
         '12' => 'December',
         'month' => 'Month',
+        'date' => 'Date',
     ]
 ?>

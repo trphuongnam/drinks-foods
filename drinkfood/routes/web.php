@@ -76,6 +76,7 @@ Route::get('logout', 'App\Http\Controllers\Admin\LoginController@logout')->name(
 Route::prefix('/admin')->group(function () {
     Route::middleware(['CheckLoginAdmin', 'language'])->group(function () {
         Route::get('/', 'App\Http\Controllers\Admin\AdminController@index')->name('admin.dashboard');
+        Route::get('/export/statistics', 'App\Http\Controllers\ExportExcelController@exportStatistics')->name('admin.export.statistics');
 
         /* Route manager product */
         Route::resource('/product', 'App\Http\Controllers\Admin\ProductController');

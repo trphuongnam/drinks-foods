@@ -1,6 +1,6 @@
 <?php
     return [
-        'title_chart_1' => 'Biểu đồ thống kê đơn hàng theo tháng',
+        'title_chart_1' => 'Biểu đồ thống kê đơn hàng ngày',
         'title_chart_2' => 'Biểu đồ thống kê doanh thu theo tháng',
         '1' => 'Tháng 1',
         '2' => 'Tháng 2',
@@ -15,5 +15,6 @@
         '11' => 'Tháng 11',
         '12' => 'Tháng 12',
         'month' => 'Tháng',
+        'date' => 'Ngày',
     ]
 ?>

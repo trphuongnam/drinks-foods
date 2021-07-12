@@ -74,4 +74,18 @@ class Order extends Model
                 ->select('total_amount')
                 ->sum('total_amount');
     }
+
+    protected function scopeCountOrderDay($date, $statusOrder)
+    {
+        return Order::where('status', $statusOrder)
+                ->whereBetween('date_order', [$date, $date.' 23:59:59'])
+                ->count();
+    }
+
+    protected function scopeCalcTotalAmountDay($date, $statusOrder)
+    {
+        return Order::where('status', $statusOrder)
+            ->whereBetween('date_order', [$date, $date.' 23:59:59'])
+            ->sum('total_amount');
+    }
 }
