@@ -1,0 +1,27 @@
+.table_data{
+    border: 1px solid;
+    width: 100%;
+}
+.table_header{
+    background: cadetblue;
+}
+.table_title{
+    text-align: left;
+    background: #fff;
+    color: black;
+}
+.table_content{
+    background: #fff;
+    color: black;
+    text-align: center;
+}
+.table_content:nth-child(2n+2)
+{
+    background-color: #fffdbd;
+}
+.table_footer{
+    background: red;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+}

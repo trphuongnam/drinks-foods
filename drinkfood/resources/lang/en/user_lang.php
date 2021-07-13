@@ -1,0 +1,27 @@
+<?php
+    return [
+        'manage_user' => 'Manage user',
+        'add_user' => 'Add user',
+        'list_user' => 'List user',
+        'edit_user' => 'Edit user',
+        'information' => 'Information user',
+        'block_success' => 'User blocked',
+        'block_error' => 'Block user not success. Please try again',
+        'not_block_user' => 'You do not have permission to lock this user. Please contact the administrator for more details',
+        'block_confirm' => 'You want to block this user?',
+        'unblock_success' => 'User unblocked',
+        'unblock_error' => 'Unblock user not success. Please try again',
+        'unblock_confirm' => 'You want to unblock this user?',
+        'all' => 'All',
+        'active'=> 'Active',
+        'block' => 'Block',
+        'unblock' => 'Unblock',
+        'search_by' => 'Search by',
+        'type_user' => 'Type user',
+        'save_user_success' => 'Save user success',
+        'save_user_error' => 'Save user error. Please try again',
+        'user_not_found' => 'Info user is not found',
+        'update_success' => 'User information update successful',
+        'update_error' => 'User information update failed. Please try again',
+    ];
+?>

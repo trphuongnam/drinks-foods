@@ -1,8 +1,29 @@
 @extends('public/layouts/master_layout')
 @section('title', 'Trang chủ')
-
+@section('filter_bar')
+    @include('public/layouts/elements/filter_bar')
+@endsection
 @section('content')
 <div class="box_content">
+    
+    {{-- Hiển thị thông báo --}}
+    @if (session()->has('send_mail_success'))
+        <div class="alert alert-success">
+          <p><i class="fas fa-info"></i>
+          {{session()->get('send_mail_success')}}
+          </p>
+        </div>
+    @endif
+
+    @if (session()->has('send_mail_error'))
+        <div class="alert alert-success">
+          <p><i class="fas fa-info"></i>
+          {{session()->get('send_mail_error')}}
+          </p>
+        </div>
+    @endif
+    {{-- Hiển thị thông báo --}}
+
     {{-- Begin: Thanh tiêu đề --}}
     <div class="content_bar">
         <div class="title_content">
@@ -13,97 +34,26 @@
 
     {{-- Begin: Danh sách sản phẩm --}}
     <div class="product_box">
-        <div class="templatemo_product_box">
-            <h1>Phở Bò <span>(Bà Nga)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp1.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Quán phở bò ngon ở Đà Nẵng</p>
-                <h3>25.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+        @foreach ($products as $product)
+          @if ($product->type == 1)
+            <div class="templatemo_product_box">
+                <h1>{{$product->name}} <span>({{$product->brand}})</span></h1>
+                <div class="box_img">
+                    <img src="{{productImage($product->image)}}" alt="image" />
                 </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
-            </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_width">&nbsp;</div>
-    
-        <div class="templatemo_product_box">
-            <h1>Cháo bột cá lóc  <span>(74 Quán)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp2.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>74 Quán quán nằm ở đường Phạm Như Xương.</p>
-                <h3>15.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="product_info">
+                    <span class="price">{{number_format($product->price, 0, ',', '.')}} VNĐ</span>
+                    <div class="rating">
+                        {!!showRating($product->id)!!}
+                    </div>
+                    {!!showButtonBuyProduct($product->uid)!!}
+                    <div class="detail_button"><a href="{{url('/product'.'/'.$product->cat_url_key.'-'.$product->uid_cat.'/'.$product->url_key.'-'.$product->uid)}}">{{ trans('message.detail') }}</a></div>
                 </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="cleaner">&nbsp;</div>
+                <div class="product_description">{{$product->description}}</div>
             </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_height">&nbsp;</div>
-    
-        <div class="templatemo_product_box">
-            <h1>Cơm gà chiên <span>(Bé A)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp3.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Cơm Gà Chiên của cửa hàng Cơm Bé A ở 25 Ngô Thì Nhậm.</p>
-                <h3>30.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
-            </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_width">&nbsp;</div>
-    
-        <div class="templatemo_product_box">
-            <h1>Cơm Gà Chiên  <span>(Cơm 165)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp4.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Cơm Gà Chiên của cửa hàng Cơm 165 ở 165 Ngô Thì Nhậm. </p>
-                <h3>25.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
-            </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_height">&nbsp;</div>
+          @endif 
+        @endforeach
     </div>
     {{-- End: Danh sách sản phẩm --}}
 </div>    
@@ -119,100 +69,29 @@
 
     {{-- Begin: Danh sách sản phẩm đồ uống--}}
     <div class="product_box">
-        <div class="templatemo_product_box">
-            <h1>Cafe Đen <span>(Tcafe)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp1.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Cafe đen của cửa hàng Tcafe ở 09 Ngô Văn Sở</p>
-                <h3>10.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+
+        @foreach ($products as $product)
+          @if ($product->type == 2)
+            <div class="templatemo_product_box">
+                <h1>{{$product->name}} <span>({{$product->brand}})</span></h1>
+                <div class="box_img">
+                    <img src="{{productImage($product->image)}}" alt="image" />
                 </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
-            </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_width">&nbsp;</div>
-    
-        <div class="templatemo_product_box">
-            <h1>Cafe Sữa  <span>(Tcafe)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp2.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Cafe sữa của cửa hàng Tcafe ở 09 Ngô Văn Sở.</p>
-                <h3>15.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="product_info">
+                    <span class="price">{{number_format($product->price, 0, ',', '.')}} VNĐ</span>
+                    <div class="rating">
+                        {!!showRating($product->id)!!}
+                    </div>
+                    {!!showButtonBuyProduct($product->uid)!!}
+                    <div class="detail_button"><a href="{{url('/product'.'/'.$product->cat_url_key.'-'.$product->uid_cat.'/'.$product->url_key.'-'.$product->uid)}}">{{ trans('message.detail') }}</a></div>
                 </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
+                <div class="cleaner">&nbsp;</div>
+                <div class="product_description">{{$product->description}}</div>
             </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_height">&nbsp;</div>
-    
-        <div class="templatemo_product_box">
-            <h1>Trà Sữa Trân Châu <span>(Mộc)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp3.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Là thức uống đặc biệt của cửa hàng Mộc ở 65 Ngô Văn Sở.</p>
-                <h3>30.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
-            </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_width">&nbsp;</div>
-    
-        <div class="templatemo_product_box">
-            <h1>Cơm Gà Chiên  <span>(Cơm 165)</span></h1>
-            <div class="box_img">
-                <img src="{{asset('images/sp4.jpg')}}" alt="image" />
-            </div>
-            <div class="product_info">
-                <p>Cơm Gà Chiên của cửa hàng Cơm 165 ở 165 Ngô Thì Nhậm. </p>
-                <h3>25.000 VNĐ</h3>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="buy_now_button"><a href="#">{{ trans('message.order') }}</a></div>
-                <div class="detail_button"><a href="#">{{ trans('message.detail') }}</a></div>
-            </div>
-            <div class="cleaner">&nbsp;</div>
-        </div>
-    
-        <div class="cleaner_with_height">&nbsp;</div>
+          @endif 
+        @endforeach
     </div>
     {{-- End: Danh sách sản phẩm đồ uống--}}
  
 </div>
-
 @endsection
