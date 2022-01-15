@@ -17,9 +17,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'fb_id',
+        'username',
+        'google_id',
+        'fullname',
+        'image',
+        'url_key',
+        'uid',
+        'phone',
+        'address',
+        'birthday',
+        'gender',
+        'type',
     ];
 
     /**
@@ -60,5 +71,16 @@ class User extends Authenticatable
     public function rating()
     {
         return $this->hasMany("App\Models\Rating", "id_user", "id");
+    }
+
+    protected function scopeInfoUser($idUser)
+    {
+        return User::where('id', $idUser)->get();
+    }
+
+    protected function scopeGetEmailAdmin()
+    {
+        return User::where([['type', '=', config('enums.userTypes.admin')], ['status', '=', config('enums.userStatus.active')]])
+                        ->select('email')->get()->toArray();
     }
 }

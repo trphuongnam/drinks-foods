@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Spatie\Pjax\Middleware\FilterIfPjax::class,
     ];
 
     /**
@@ -63,5 +64,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'language' => \App\Http\Middleware\Language::class,
+        'checkUserLogin' => \App\Http\Middleware\CheckUserLogin::class,
+        'checkLoginPublic' => \App\Http\Middleware\checkLoginPublic::class,
+        'CheckLoginAdmin' => \App\Http\Middleware\CheckLoginAdmin::class,
     ];
 }
